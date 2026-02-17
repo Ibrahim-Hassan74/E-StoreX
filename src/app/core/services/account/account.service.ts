@@ -173,7 +173,7 @@ export class AccountService extends ResourceService<User> {
   }
 
   deleteAccount(): Observable<AuthResponse> {
-    return this.http.delete<AuthResponse>(this.buildUrl('delete-account')).pipe(
+    return this.http.delete<AuthResponse>(this.buildUrl('delete')).pipe(
       tap(() => this.logout())
     );
   }

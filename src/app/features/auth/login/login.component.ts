@@ -44,7 +44,7 @@ export class LoginComponent {
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
+    password: ['', Validators.required, Validators.minLength(8)],
     rememberMe: [false]
   });
 
@@ -84,7 +84,7 @@ export class LoginComponent {
       },
       error: (err: any) => {
         this.isLoading.set(false);
-        const message = err.error?.message || 'Invalid email or password';
+        const message = err.error?.errors?.join(', ') || 'Invalid email or password';
         this.handleLoginError(message);
       }
     });

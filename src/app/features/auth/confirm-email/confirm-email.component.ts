@@ -60,7 +60,7 @@ export class ConfirmEmailComponent implements OnInit {
       },
       error: (err: any) => {
         this.isLoading.set(false);
-        const msg = err.error?.message || 'Failed to verify email.';
+        const msg = err.error?.errors?.join(', ') || 'Failed to verify email.';
         this.errorMessage.set(msg);
         this.uiFeedback.error(msg);
       }

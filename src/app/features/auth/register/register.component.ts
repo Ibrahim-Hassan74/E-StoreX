@@ -38,7 +38,7 @@ export class RegisterComponent {
       userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/(?=.*[a-z])(?=.*[A-Z])/)]],
       confirmPassword: ['', Validators.required],
     },
     { validators: this.passwordMatchValidator }
@@ -72,6 +72,7 @@ export class RegisterComponent {
     this.accountService.register(this.registerForm.value as any).subscribe({
       next: async (res: any) => {
         this.isLoading.set(false);
+        console.log(res);
         if (res.success) {
           await this.uiFeedback.success(
             'Please check your email to confirm your account.', 
@@ -79,13 +80,14 @@ export class RegisterComponent {
           );
           this.router.navigate(['/auth/login']);
         } else {
+          console.log(res.errors);
           const message = res.errors?.join(', ') || res.message;
           this.uiFeedback.error(message);
         }
       },
       error: (err: any) => {
         this.isLoading.set(false);
-        const message = err?.error?.message || 'Registration failed';
+        const message = err?.error?.errors?.join(', ') || 'Registration failed';
         this.uiFeedback.error(message);
       }
     });

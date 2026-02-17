@@ -52,7 +52,7 @@ export class ForgotPasswordComponent {
       error: (err) => {
         this.isLoading.set(false);
         this.uiFeedback.error(
-          err.error?.message || 'Failed to send reset link.'
+          err.error?.errors?.join(', ') || 'Failed to send reset link.'
         );
       }
     });

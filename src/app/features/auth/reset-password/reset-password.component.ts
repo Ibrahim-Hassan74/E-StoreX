@@ -27,7 +27,7 @@ export class ResetPasswordComponent implements OnInit {
 
   form = this.fb.group(
     {
-      newPassword: ['', [Validators.required, Validators.minLength(6)]],
+      newPassword: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/(?=.*[a-z])(?=.*[A-Z])/)]],
       confirmPassword: ['', Validators.required],
       token: ['', Validators.required],
       userId: ['', Validators.required],
@@ -85,7 +85,7 @@ export class ResetPasswordComponent implements OnInit {
       error: (err) => {
         this.isVerifying.set(false);
         this.tokenStatus.set('invalid');
-        const msg = err.error?.message || 'Failed to verify token.';
+        const msg = err.error?.errors?.join(', ') || 'Failed to verify token.';
         this.errorMessage.set(msg);
         this.uiFeedback.error(msg);
       }

@@ -97,7 +97,10 @@
             <p class="error-text">Password is required.</p>
           }
           @if (hasError('password','minlength')) {
-            <p class="error-text">Password must be at least 6 characters.</p>
+            <p class="error-text">Password must be at least 8 characters.</p>
+          }
+          @if (hasError('password','pattern')) {
+            <p class="error-text">Password must contain at least one uppercase and one lowercase letter.</p>
           }
         </div>
 
