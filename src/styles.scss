@@ -24,3 +24,8 @@
     display: none !important;
   }
 }
+
+/* RTL Global Adjustments */
+html[dir="rtl"] {
+  font-family: 'Cairo', 'Tajawal', sans-serif, 'Inter';
+}
