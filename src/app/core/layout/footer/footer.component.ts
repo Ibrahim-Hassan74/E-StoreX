@@ -3,6 +3,7 @@ import { LucideAngularModule } from 'lucide-angular';
 import { FooterColumnComponent } from './footer-column/footer-column.component';
 import { RouterLink } from '@angular/router';
 import { SocialLinksComponent } from './social-links/social-links.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
@@ -11,6 +12,7 @@ import { SocialLinksComponent } from './social-links/social-links.component';
     FooterColumnComponent,
     RouterLink,
     SocialLinksComponent,
+    TranslateModule,
   ],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
@@ -19,21 +21,21 @@ export class FooterComponent {
   email = 'ibrahimhassan.dev1@gmail.com';
   currentYear: number = new Date().getFullYear();
   resources = [
-    { label: 'Product catalog', route: '/product' },
-    { label: 'Help center', route: '/help' },
-    { label: 'Privacy & terms', route: '/legal' },
+    { label: 'layout.footer.links.product_catalog', route: '/product' },
+    { label: 'layout.footer.links.help_center', route: '/help' },
+    { label: 'layout.footer.links.privacy_terms', route: '/legal' },
   ];
   company = [
-    { label: 'About', route: '/about' },
-    { label: 'For Business', route: '/business' },
-    { label: 'Partners', route: '/partners' },
-    { label: 'Careers', route: '/careers' },
+    { label: 'layout.footer.links.about', route: '/about' },
+    { label: 'layout.footer.links.for_business', route: '/business' },
+    { label: 'layout.footer.links.partners', route: '/partners' },
+    { label: 'layout.footer.links.careers', route: '/careers' },
   ];
   account = [
-    { label: 'Create account', route: '/auth/register' },
-    { label: 'Sign in', route: '/auth/login' },
-    { label: 'iOS app', route: '/mobile-app' },
-    { label: 'Android app', route: '/mobile-app' },
+    { label: 'layout.footer.links.create_account', route: '/auth/register' },
+    { label: 'layout.footer.links.sign_in', route: '/auth/login' },
+    { label: 'layout.footer.links.ios_app', route: '/mobile-app' },
+    { label: 'layout.footer.links.android_app', route: '/mobile-app' },
   ];
   socialLinks = [
     {

@@ -7,9 +7,9 @@
     <li>
       <a
         [routerLink]="link.route"
-        class="hover:text-gray-900 dark:hover:text-white text-gray-600 dark:text-gray-300"
+        class="hover:text-gray-900 dark:hover:text-white text-gray-600 dark:text-gray-300 transition-colors"
       >
-        {{ link.label }}
+        {{ link.label | translate }}
       </a>
     </li>
     }

@@ -11,21 +11,20 @@
 
       <app-social-links [links]="socialLinks" />
       <p class="text-xs md:text-sm text-gray-500 mt-auto dark:text-gray-400">
-        Copyright &copy;
-        <span class="year">{{ currentYear }}</span> by E-StoreX, Inc. All rights
-        reserved.
+        {{ 'layout.footer.copyright' | translate }} &copy;
+        <span class="year">{{ currentYear }}</span> {{ 'layout.footer.rights_reserved' | translate }}
         <br />
         <span
           class="font-semibold text-gray-700 dark:text-gray-200 transition duration-300 ease-in-out hover:text-[#029fae] hover:scale-105 inline-block cursor-pointer"
         >
-          Developed by Ibrahim Hassan
+          {{ 'layout.footer.developed_by' | translate }}
         </span>
       </p>
     </div>
 
     <div>
       <p class="text-base md:text-lg font-semibold mb-4 dark:text-white">
-        Contact us
+        {{ 'layout.footer.titles.contact_us' | translate }}
       </p>
       <address class="not-italic space-y-2 text-gray-600 dark:text-gray-300">
         <p>Minya, Egypt</p>
@@ -44,8 +43,8 @@
       </address>
     </div>
 
-    <app-footer-column title="Account" [links]="account" />
-    <app-footer-column title="Company" [links]="company" />
-    <app-footer-column title="Resources" [links]="resources" />
+    <app-footer-column [title]="'layout.footer.titles.account' | translate" [links]="account" />
+    <app-footer-column [title]="'layout.footer.titles.company' | translate" [links]="company" />
+    <app-footer-column [title]="'layout.footer.titles.resources' | translate" [links]="resources" />
   </div>
 </footer>
