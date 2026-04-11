@@ -2,11 +2,12 @@ import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reset-password-success',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, TranslateModule],
   templateUrl: './reset-password-success.component.html',
 })
 export class ResetPasswordSuccessComponent implements OnInit {
