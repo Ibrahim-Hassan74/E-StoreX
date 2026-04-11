@@ -1,0 +1,122 @@
+{
+  "auth": {
+    "reset_success": {
+      "title": "تمت إعادة تعيين كلمة المرور بنجاح",
+      "message": "تم تغيير كلمة المرور الخاصة بك بنجاح.",
+      "continue_website": "المتابعة على هذا الموقع",
+      "continue_app": "المتابعة إلى التطبيق الأصلي",
+      "go_to_login": "الذهاب إلى تسجيل الدخول"
+    }
+  },
+  "layout": {
+    "navbar": {
+      "home": "الرئيسية",
+      "product": "المنتجات",
+      "about": "من نحن",
+      "contact": "اتصل بنا",
+      "cart": "العربة",
+      "wishlist": "المفضلة",
+      "account_settings": "إعدادات الحساب",
+      "order_history": "سجل الطلبات",
+      "sign_out": "تسجيل الخروج",
+      "sign_in": "تسجيل الدخول",
+      "sign_up": "إنشاء حساب"
+    },
+    "footer": {
+      "titles": {
+        "account": "الحساب",
+        "company": "الشركة",
+        "resources": "الموارد",
+        "contact_us": "تواصل معنا"
+      },
+      "links": {
+        "product_catalog": "كتالوج المنتجات",
+        "help_center": "مركز المساعدة",
+        "privacy_terms": "الخصوصية والشروط",
+        "about": "من نحن",
+        "for_business": "للأعمال",
+        "partners": "شركاؤنا",
+        "careers": "الوظائف",
+        "create_account": "إنشاء حساب",
+        "sign_in": "تسجيل الدخول",
+        "ios_app": "تطبيق iOS",
+        "android_app": "تطبيق Android"
+      },
+      "copyright": "حقوق النشر",
+      "rights_reserved": "بواسطة E-StoreX, Inc. جميع الحقوق محفوظة.",
+      "developed_by": "تم التطوير بواسطة إبراهيم حسن"
+    },
+    "location": {
+      "add_address": "إضافة عنوان",
+      "change_location": "تغيير الموقع",
+      "detecting": "جاري التحديد...",
+      "detect_my_location": "تحديد موقعي"
+    },
+    "theme": {
+      "switch_to_light": "التبديل إلى الوضع الفاتح",
+      "switch_to_dark": "التبديل إلى الوضع الداكن"
+    },
+    "auth": {
+      "my_account": "حسابي",
+      "manage_profile": "إدارة الملف الشخصي والإعدادات",
+      "view_orders": "عرض الطلبات السابقة وحالتها"
+    },
+    "language": {
+      "name": "اللغة",
+      "arabic": "العربية",
+      "english": "الإنجليزية"
+    }
+  },
+  "category": {
+    "popular_brands": "الماركات المشهورة",
+    "no_image": "لا توجد صورة متاحة"
+  },
+  "home": {
+    "banner": {
+      "shop_now": "تسوق الآن"
+    },
+    "delivery": {
+      "discount": {
+        "title": "تخفيضات",
+        "desc": "مبيعات جديدة كل أسبوع"
+      },
+      "free_delivery": {
+        "title": "توصيل مجاني",
+        "desc": "مجاني 100% لمبالغ معينة"
+      },
+      "support": {
+        "title": "دعم رائع 24/7",
+        "desc": "نحن نهتم بتجاربك"
+      },
+      "secure_payment": {
+        "title": "دفع آمن",
+        "desc": "طريقة دفع آمنة 100%"
+      }
+    },
+    "brands": {
+      "title_prefix": "ماركاتنا",
+      "title_suffix": ""
+    },
+    "featured": {
+      "title_prefix": "أقسامنا",
+      "title_suffix": ""
+    },
+    "categories": {
+      "title_prefix": "أقسامنا",
+      "title_suffix": ""
+    }
+  },
+  "product": {
+    "badges": {
+      "sale": "تخفيض"
+    },
+    "actions": {
+      "add_to_cart": "أضف إلى السلة",
+      "add_to_wishlist": "أضف إلى المفضلة",
+      "remove_from_wishlist": "حذف من المفضلة"
+    },
+    "placeholders": {
+      "image_alt": "صورة المنتج"
+    }
+  }
+}

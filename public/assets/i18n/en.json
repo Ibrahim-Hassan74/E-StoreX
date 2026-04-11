@@ -1,0 +1,122 @@
+{
+  "auth": {
+    "reset_success": {
+      "title": "Password Reset Successful",
+      "message": "Your password has been changed successfully.",
+      "continue_website": "Continue on this website",
+      "continue_app": "Continue to the original application",
+      "go_to_login": "Go to login"
+    }
+  },
+  "layout": {
+    "navbar": {
+      "home": "Home",
+      "product": "Product",
+      "about": "About",
+      "contact": "Contact",
+      "cart": "Cart",
+      "wishlist": "Wishlist",
+      "account_settings": "Account Settings",
+      "order_history": "Order History",
+      "sign_out": "Sign out",
+      "sign_in": "Sign in",
+      "sign_up": "Sign up"
+    },
+    "footer": {
+      "titles": {
+        "account": "Account",
+        "company": "Company",
+        "resources": "Resources",
+        "contact_us": "Contact us"
+      },
+      "links": {
+        "product_catalog": "Product catalog",
+        "help_center": "Help center",
+        "privacy_terms": "Privacy & terms",
+        "about": "About",
+        "for_business": "For Business",
+        "partners": "Partners",
+        "careers": "Careers",
+        "create_account": "Create account",
+        "sign_in": "Sign in",
+        "ios_app": "iOS app",
+        "android_app": "Android app"
+      },
+      "copyright": "Copyright",
+      "rights_reserved": "by E-StoreX, Inc. All rights reserved.",
+      "developed_by": "Developed by Ibrahim Hassan"
+    },
+    "location": {
+      "add_address": "Add Address",
+      "change_location": "Change Location",
+      "detecting": "DETECTING...",
+      "detect_my_location": "Detect my location"
+    },
+    "theme": {
+      "switch_to_light": "Switch to Light Mode",
+      "switch_to_dark": "Switch to Dark Mode"
+    },
+    "auth": {
+      "my_account": "My Account",
+      "manage_profile": "Manage profile & settings",
+      "view_orders": "View past orders & status"
+    },
+    "language": {
+      "name": "Language",
+      "arabic": "Arabic",
+      "english": "English"
+    }
+  },
+  "category": {
+    "popular_brands": "Popular Brands",
+    "no_image": "No image available"
+  },
+  "home": {
+    "banner": {
+      "shop_now": "Shop Now"
+    },
+    "delivery": {
+      "discount": {
+        "title": "Discount",
+        "desc": "Every week new sales"
+      },
+      "free_delivery": {
+        "title": "Free Delivery",
+        "desc": "100% Free for a specific amount"
+      },
+      "support": {
+        "title": "Great Support 24/7",
+        "desc": "We care about your experiences"
+      },
+      "secure_payment": {
+        "title": "Secure Payment",
+        "desc": "100% Secure Payment Method"
+      }
+    },
+    "brands": {
+      "title_prefix": "Our",
+      "title_suffix": "Brands"
+    },
+    "featured": {
+      "title_prefix": "Our",
+      "title_suffix": "Featured Products"
+    },
+    "categories": {
+      "title_prefix": "Our",
+      "title_suffix": "Categories"
+    }
+  },
+  "product": {
+    "badges": {
+      "sale": "Sale"
+    },
+    "actions": {
+      "add_to_cart": "Add to Cart",
+      "add_to_wishlist": "Add to Wishlist",
+      "remove_from_wishlist": "Remove from Wishlist"
+    },
+    "placeholders": {
+      "image_alt": "Product image"
+    }
+  }
+}
