@@ -6,11 +6,12 @@ import { BasketStateService } from '../../../core/services/cart/basket-state.ser
 import { UiFeedbackService } from '../../../core/services/ui-feedback.service';
 import { LucideAngularModule } from 'lucide-angular';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, LucideAngularModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, LucideAngularModule, TranslateModule],
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
@@ -20,6 +21,7 @@ export class LoginComponent {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
   private uiFeedback = inject(UiFeedbackService);
+  private translate = inject(TranslateService);
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -30,12 +32,15 @@ export class LoginComponent {
             token, 
             refreshToken, 
             success: true, 
-            message: 'External login successful', 
+            message: this.translate.instant('auth.login.external_signin_success'), 
             statusCode: 200 
          });
          this.accountService.loadCurrentUser().subscribe(async () => {
             this.basketState.handleLoginBasketSync();
-            await this.uiFeedback.success('You have signed in successfully.', 'Welcome back!');
+            await this.uiFeedback.success(
+              this.translate.instant('auth.login.signin_success'),
+              this.translate.instant('auth.login.welcome_back')
+            );
             this.router.navigateByUrl(this.returnUrl);
          });
       }
@@ -75,7 +80,10 @@ export class LoginComponent {
       next: async (res: any) => {
         this.isLoading.set(false);
         if (res.success) {
-          await this.uiFeedback.success('You have signed in successfully.', 'Welcome back!');
+          await this.uiFeedback.success(
+            this.translate.instant('auth.login.signin_success'), 
+            this.translate.instant('auth.login.welcome_back')
+          );
           this.basketState.handleLoginBasketSync();
           this.router.navigateByUrl(this.returnUrl);
         } else {
@@ -84,21 +92,26 @@ export class LoginComponent {
       },
       error: (err: any) => {
         this.isLoading.set(false);
-        const message = err.error?.errors?.join(', ') || 'Invalid email or password';
+        const message = err.error?.errors?.join(', ') || this.translate.instant('auth.login.invalid_credentials');
         this.handleLoginError(message);
       }
     });
   }
 
   private handleLoginError(message: string): void {
-    this.uiFeedback.error(message);
+    this.uiFeedback.error(message, this.translate.instant('services.uiFeedback.error'));
 
     if (
       message.toLowerCase().includes('confirm') &&
       message.toLowerCase().includes('email') &&
       !message.toLowerCase().includes('wait')
     ) {
-        this.uiFeedback.confirm(message + " Would you like to resend the confirmation email?", "Email not confirmed", "Yes, resend", "No").then(confirmed => {
+        this.uiFeedback.confirm(
+            message + " " + this.translate.instant('auth.login.confirm_email_prompt'),
+            this.translate.instant('auth.login.email_not_confirmed'),
+            this.translate.instant('auth.login.yes_resend'),
+            this.translate.instant('auth.login.no')
+        ).then(confirmed => {
             if (confirmed) {
                 this.onResendConfirmation();
             }
@@ -116,15 +129,21 @@ export class LoginComponent {
       next: (res: any) => {
         this.isLoading.set(false);
         if (res.success) {
-          this.uiFeedback.success(res.message || 'Confirmation email sent!', 'Success');
+          this.uiFeedback.success(
+            res.message || this.translate.instant('auth.login.resend_sent'),
+            this.translate.instant('services.uiFeedback.success')
+          );
         } else {
-          this.uiFeedback.error(res.message || 'Failed to resend email.');
+          this.uiFeedback.error(
+            res.message || this.translate.instant('auth.login.resend_failed'),
+            this.translate.instant('services.uiFeedback.error')
+          );
         }
       },
       error: (err: any) => {
         this.isLoading.set(false);
-        const message = err.error?.message || 'Failed to resend email.';
-        this.uiFeedback.error(message);
+        const message = err.error?.message || this.translate.instant('auth.login.resend_failed');
+        this.uiFeedback.error(message, this.translate.instant('services.uiFeedback.error'));
       }
     });
   }

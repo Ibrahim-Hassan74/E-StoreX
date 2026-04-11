@@ -8,7 +8,7 @@
              text-2xl font-semibold text-gray-900 dark:text-white"
     >
       <lucide-icon name="User" class="text-[#029fae]" [size]="32"></lucide-icon>
-      <span>Sign in to your account</span>
+      <span>{{ 'auth.login.title' | translate }}</span>
     </div>
   </div>
 
@@ -25,7 +25,7 @@
       >
         <div>
           <label class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
-            Email address
+            {{ 'auth.login.email' | translate }}
           </label>
           <input
             type="email"
@@ -38,23 +38,23 @@
             }"
           />
           @if (hasError('email','required')) {
-            <p class="error-text">Email is required.</p>
+            <p class="error-text">{{ 'auth.validation.email_required' | translate }}</p>
           }
           @if (hasError('email','email')) {
-            <p class="error-text">Enter a valid email address.</p>
+            <p class="error-text">{{ 'auth.validation.invalid_email' | translate }}</p>
           }
         </div>
 
         <div>
           <div class="flex items-center justify-between">
             <label class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
-              Password
+              {{ 'auth.login.password' | translate }}
             </label>
             <a
               routerLink="/auth/forgot-password"
               class="text-sm font-semibold text-[#029fae] hover:text-[#028b99] mb-2"
             >
-              Forgot password?
+              {{ 'auth.login.forgot_password' | translate }}
             </a>
           </div>
 
@@ -65,7 +65,7 @@
             [ngClass]="{ 'ring-red-500': hasError('password','required') }"
           />
           @if (hasError('password','required')) {
-            <p class="error-text">Password is required.</p>
+            <p class="error-text">{{ 'auth.validation.password_required' | translate }}</p>
           }
         </div>
 
@@ -79,7 +79,7 @@
                    dark:border-gray-600 dark:bg-gray-700"
           />
           <label for="rememberMe" class="ml-2 text-sm text-gray-900 dark:text-gray-200">
-            Remember me
+            {{ 'auth.login.remember_me' | translate }}
           </label>
         </div>
 
@@ -95,9 +95,9 @@
         >
           @if (isLoading()) {
             <lucide-icon name="Loader2" class="animate-spin" [size]="18"></lucide-icon>
-            Signing in...
+            {{ 'auth.login.signing_in' | translate }}
           } @else {
-            Sign in
+            {{ 'auth.login.sign_in' | translate }}
           }
         </button>
 
@@ -107,7 +107,7 @@
           </div>
           <div class="relative flex justify-center">
             <span class="bg-white dark:bg-gray-800 px-2 text-sm text-gray-500 dark:text-gray-400">
-              Or continue with
+              {{ 'auth.login.or_continue' | translate }}
             </span>
           </div>
         </div>
@@ -149,7 +149,7 @@
       />
     </svg>
 
-    <span>Continue with Google</span>
+    <span>{{ 'auth.login.google_signin' | translate }}</span>
   </button>
 
   <button
@@ -164,7 +164,7 @@
            transition-all disabled:opacity-50 cursor-pointer"
   >
     <lucide-icon name="Github" [size]="20"></lucide-icon>
-    <span>Continue with GitHub</span>
+    <span>{{ 'auth.login.github_signin' | translate }}</span>
   </button>
 </div>
 
@@ -172,12 +172,12 @@
     </div>
 
     <p class="mt-10 text-center text-sm text-gray-500 dark:text-gray-400">
-      Not a member?
+      {{ 'auth.login.not_a_member' | translate }}
       <a
         routerLink="/auth/register"
         class="font-semibold text-[#029fae] hover:text-[#028b99]"
       >
-        create account
+        {{ 'auth.login.create_account' | translate }}
       </a>
     </p>
   </div>

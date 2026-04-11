@@ -4,11 +4,12 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AccountService } from '../../../core/services/account/account.service';
 import { UiFeedbackService } from '../../../core/services/ui-feedback.service';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-confirm-email',
   standalone: true,
-  imports: [CommonModule, RouterLink, LucideAngularModule],
+  imports: [CommonModule, RouterLink, LucideAngularModule, TranslateModule],
   templateUrl: './confirm-email.component.html',
 })
 export class ConfirmEmailComponent implements OnInit {
@@ -16,6 +17,7 @@ export class ConfirmEmailComponent implements OnInit {
   private accountService = inject(AccountService);
   private uiFeedback = inject(UiFeedbackService);
   private router = inject(Router);
+  private translate = inject(TranslateService);
 
   isLoading = signal(true);
   successMessage = signal<string | null>(null);
@@ -37,8 +39,11 @@ export class ConfirmEmailComponent implements OnInit {
         this.confirm(userId, token);
       } else {
         this.isLoading.set(false);
-        this.errorMessage.set('Invalid verification link.');
-        this.uiFeedback.error('Invalid verification link.');
+        this.errorMessage.set(this.translate.instant('auth.confirm_email.failed_title'));
+        this.uiFeedback.error(
+          this.translate.instant('auth.confirm_email.failed_title'),
+          this.translate.instant('services.uiFeedback.error')
+        );
       }
     });
   }
@@ -46,26 +51,29 @@ export class ConfirmEmailComponent implements OnInit {
   confirm(userId: string, token: string) {
     this.accountService.confirmEmail({ userId, token }).subscribe({
       next: async (res: any) => {
-        console.log(res);
         this.isLoading.set(false);
         if (res.success) {
-          const msg = res.message || 'Email confirmed successfully.';
+          const msg = res.message || this.translate.instant('auth.confirm_email.success_desc');
           this.successMessage.set(msg);
-          await this.uiFeedback.success(msg, 'Success');
+          await this.uiFeedback.success(
+            msg, 
+            this.translate.instant('services.uiFeedback.success')
+          );
         } else {
-          const msg = res.message || 'Failed to verify email.';
+          const msg = res.message || this.translate.instant('auth.confirm_email.failed_title');
           this.errorMessage.set(msg);
-          this.uiFeedback.error(msg);
+          this.uiFeedback.error(msg, this.translate.instant('services.uiFeedback.error'));
         }
       },
       error: (err: any) => {
         this.isLoading.set(false);
-        const msg = err.error?.errors?.join(', ') || 'Failed to verify email.';
+        const msg = err.error?.errors?.join(', ') || this.translate.instant('auth.confirm_email.failed_title');
         this.errorMessage.set(msg);
-        this.uiFeedback.error(msg);
+        this.uiFeedback.error(msg, this.translate.instant('services.uiFeedback.error'));
       }
     });
   }
+
   goLogin() {
     this.router.navigate(['/auth/login']);
   }

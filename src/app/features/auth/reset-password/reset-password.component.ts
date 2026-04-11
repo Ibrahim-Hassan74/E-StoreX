@@ -11,11 +11,12 @@ import { AccountService } from '../../../core/services/account/account.service';
 import { LucideAngularModule } from 'lucide-angular';
 import { CommonModule } from '@angular/common';
 import { UiFeedbackService } from '../../../core/services/ui-feedback.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reset-password',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule],
+  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule, TranslateModule ],
   templateUrl: './reset-password.component.html',
 })
 export class ResetPasswordComponent implements OnInit {
@@ -24,6 +25,7 @@ export class ResetPasswordComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private uiFeedback = inject(UiFeedbackService);
+  private translate = inject(TranslateService);
 
   form = this.fb.group(
     {
@@ -54,9 +56,12 @@ export class ResetPasswordComponent implements OnInit {
 
       if (!token || !userId) {
         this.tokenStatus.set('invalid');
-        this.errorMessage.set('Invalid or missing reset token.');
+        this.errorMessage.set(this.translate.instant('auth.reset_password.invalid_link_desc'));
         this.isVerifying.set(false);
-        this.uiFeedback.error('Invalid or missing reset token.');
+        this.uiFeedback.error(
+          this.translate.instant('auth.reset_password.invalid_link_desc'),
+          this.translate.instant('services.uiFeedback.error')
+        );
         return;
       }
 
@@ -77,17 +82,17 @@ export class ResetPasswordComponent implements OnInit {
           this.tokenStatus.set('valid');
         } else {
           this.tokenStatus.set('invalid');
-          const msg = res.message || 'Invalid or expired token.';
+          const msg = res.message || this.translate.instant('auth.reset_password.invalid_link_desc');
           this.errorMessage.set(msg);
-          this.uiFeedback.error(msg);
+          this.uiFeedback.error(msg, this.translate.instant('services.uiFeedback.error'));
         }
       },
       error: (err) => {
         this.isVerifying.set(false);
         this.tokenStatus.set('invalid');
-        const msg = err.error?.errors?.join(', ') || 'Failed to verify token.';
+        const msg = err.error?.errors?.join(', ') || this.translate.instant('auth.reset_password.verify_failed');
         this.errorMessage.set(msg);
-        this.uiFeedback.error(msg);
+        this.uiFeedback.error(msg, this.translate.instant('services.uiFeedback.error'));
       }
     });
   }
@@ -127,14 +132,14 @@ export class ResetPasswordComponent implements OnInit {
           }
           this.router.navigate(['/auth/reset-password-success'], { queryParams });
         } else {
-          const msg = res.errors?.join(', ') || res.message || 'Failed to reset password.';
-          this.uiFeedback.error(msg);
+          const msg = res.errors?.join(', ') || res.message || this.translate.instant('auth.reset_password.reset_failed');
+          this.uiFeedback.error(msg, this.translate.instant('services.uiFeedback.error'));
         }
       },
       error: (err) => {
         this.isLoading.set(false);
-        const msg = err.error?.message || 'Failed to reset password.';
-        this.uiFeedback.error(msg);
+        const msg = err.error?.message || this.translate.instant('auth.reset_password.reset_failed');
+        this.uiFeedback.error(msg, this.translate.instant('services.uiFeedback.error'));
       }
     });
   }

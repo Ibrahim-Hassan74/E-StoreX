@@ -9,6 +9,7 @@ import {
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 import { AccountService } from '../../../core/services/account/account.service';
 import { UiFeedbackService } from '../../../core/services/ui-feedback.service';
@@ -20,7 +21,8 @@ import { UiFeedbackService } from '../../../core/services/ui-feedback.service';
     CommonModule,
     ReactiveFormsModule,
     RouterLink,
-    LucideAngularModule
+    LucideAngularModule,
+    TranslateModule
   ],
   templateUrl: './register.component.html',
 })
@@ -29,6 +31,7 @@ export class RegisterComponent {
   private accountService = inject(AccountService);
   private router = inject(Router);
   private uiFeedback = inject(UiFeedbackService);
+  private translate = inject(TranslateService);
 
   isLoading = signal(false);
   errorMessage = signal<string | null>(null);
@@ -75,20 +78,20 @@ export class RegisterComponent {
         console.log(res);
         if (res.success) {
           await this.uiFeedback.success(
-            'Please check your email to confirm your account.', 
-            'Account created'
+            this.translate.instant('auth.register.check_email_confirm'), 
+            this.translate.instant('auth.register.account_created')
           );
           this.router.navigate(['/auth/login']);
         } else {
           console.log(res.errors);
           const message = res.errors?.join(', ') || res.message;
-          this.uiFeedback.error(message);
+          this.uiFeedback.error(message, this.translate.instant('services.uiFeedback.error'));
         }
       },
       error: (err: any) => {
         this.isLoading.set(false);
-        const message = err?.error?.errors?.join(', ') || 'Registration failed';
-        this.uiFeedback.error(message);
+        const message = err?.error?.errors?.join(', ') || this.translate.instant('auth.register.registration_failed');
+        this.uiFeedback.error(message, this.translate.instant('services.uiFeedback.error'));
       }
     });
   }

@@ -8,11 +8,11 @@
              text-2xl font-semibold text-gray-900 dark:text-white"
     >
       <lucide-icon name="User" class="text-[#029fae]" [size]="32"></lucide-icon>
-      <span>Create an account</span>
+      <span>{{ 'auth.register.title' | translate }}</span>
     </div>
 
     <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">
-      Create your E-StoreX account
+      {{ 'auth.register.subtitle' | translate }}
     </p>
   </div>
 
@@ -30,7 +30,7 @@
 
         <div>
           <label class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
-            Username
+            {{ 'auth.register.username' | translate }}
           </label>
           <input
             type="text"
@@ -39,13 +39,13 @@
             [ngClass]="{ 'ring-red-500': hasError('userName','required') }"
           />
           @if (hasError('userName','required')) {
-            <p class="error-text">Username is required.</p>
+            <p class="error-text">{{ 'auth.validation.username_required' | translate }}</p>
           }
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
-            Email
+            {{ 'auth.register.email' | translate }}
           </label>
           <input
             type="email"
@@ -57,16 +57,16 @@
             }"
           />
           @if (hasError('email','required')) {
-            <p class="error-text">Email is required.</p>
+            <p class="error-text">{{ 'auth.validation.email_required' | translate }}</p>
           }
           @if (hasError('email','email')) {
-            <p class="error-text">Enter a valid email address.</p>
+            <p class="error-text">{{ 'auth.validation.invalid_email' | translate }}</p>
           }
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
-            Phone
+            {{ 'auth.register.phone' | translate }}
           </label>
           <input
             type="tel"
@@ -75,13 +75,13 @@
             [ngClass]="{ 'ring-red-500': hasError('phone','required') }"
           />
           @if (hasError('phone','required')) {
-            <p class="error-text">Phone number is required.</p>
+            <p class="error-text">{{ 'auth.validation.phone_required' | translate }}</p>
           }
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
-            Password
+            {{ 'auth.register.password' | translate }}
           </label>
           <input
             type="password"
@@ -94,19 +94,19 @@
             }"
           />
           @if (hasError('password','required')) {
-            <p class="error-text">Password is required.</p>
+            <p class="error-text">{{ 'auth.validation.password_required' | translate }}</p>
           }
           @if (hasError('password','minlength')) {
-            <p class="error-text">Password must be at least 8 characters.</p>
+            <p class="error-text">{{ 'auth.validation.password_min' | translate }}</p>
           }
           @if (hasError('password','pattern')) {
-            <p class="error-text">Password must contain at least one uppercase and one lowercase letter.</p>
+            <p class="error-text">{{ 'auth.validation.password_pattern' | translate }}</p>
           }
         </div>
 
         <div>
           <label class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
-            Confirm Password
+            {{ 'auth.register.confirm_password' | translate }}
           </label>
           <input
             type="password"
@@ -122,7 +122,7 @@
             registerForm.errors?.['passwordMismatch'] &&
             registerForm.get('confirmPassword')?.dirty
           ) {
-            <p class="error-text">Passwords do not match.</p>
+            <p class="error-text">{{ 'auth.validation.passwords_mismatch' | translate }}</p>
           }
         </div>
 
@@ -138,21 +138,21 @@
         >
           @if (isLoading()) {
             <lucide-icon name="Loader2" class="animate-spin" [size]="18"></lucide-icon>
-            Registering...
+            {{ 'auth.register.registering' | translate }}
           } @else {
-            Register
+            {{ 'auth.register.register_btn' | translate }}
           }
         </button>
       </form>
     </div>
 
     <p class="mt-10 text-center text-sm text-gray-500 dark:text-gray-400">
-      Already have an account?
+      {{ 'auth.register.already_member' | translate }}
       <a
         routerLink="/auth/login"
         class="font-semibold text-[#029fae] hover:text-[#028b99]"
       >
-        Sign in
+        {{ 'auth.register.signin' | translate }}
       </a>
     </p>
   </div>

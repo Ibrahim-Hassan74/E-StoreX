@@ -3,19 +3,21 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AccountService } from '../../../core/services/account/account.service';
 import { LucideAngularModule } from 'lucide-angular';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
 import { UiFeedbackService } from '../../../core/services/ui-feedback.service';
 
 @Component({
   selector: 'app-forgot-password',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink, LucideAngularModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, LucideAngularModule, TranslateModule],
   templateUrl: './forgot-password.component.html',
 })
 export class ForgotPasswordComponent {
   private fb = inject(FormBuilder);
   private accountService = inject(AccountService);
   private uiFeedback = inject(UiFeedbackService);
+  private translate = inject(TranslateService);
 
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -42,17 +44,21 @@ export class ForgotPasswordComponent {
         this.isLoading.set(false);
         if (res.success) {
           this.uiFeedback.success(
-            res.message || 'Check your email for instructions.',
-            'Email Sent'
+            res.message || this.translate.instant('auth.forgot_password.resend_sent'),
+            this.translate.instant('services.uiFeedback.success')
           );
         } else {
-          this.uiFeedback.error(res.message || 'Failed to send reset link.');
+          this.uiFeedback.error(
+            res.message || this.translate.instant('auth.forgot_password.resend_failed'),
+            this.translate.instant('services.uiFeedback.error')
+          );
         }
       },
       error: (err) => {
         this.isLoading.set(false);
         this.uiFeedback.error(
-          err.error?.errors?.join(', ') || 'Failed to send reset link.'
+          err.error?.errors?.join(', ') || this.translate.instant('auth.forgot_password.resend_failed'),
+          this.translate.instant('services.uiFeedback.error')
         );
       }
     });

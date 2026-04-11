@@ -51,12 +51,97 @@
     }
   },
   "auth": {
+    "login": {
+      "title": "Sign in to your account",
+      "email": "Email address",
+      "password": "Password",
+      "forgot_password": "Forgot password?",
+      "remember_me": "Remember me",
+      "signing_in": "Signing in...",
+      "sign_in": "Sign in",
+      "or_continue": "Or continue with",
+      "google_signin": "Continue with Google",
+      "github_signin": "Continue with GitHub",
+      "not_a_member": "Not a member?",
+      "create_account": "create account",
+      "invalid_credentials": "Invalid email or password",
+      "welcome_back": "Welcome back!",
+      "signin_success": "You have signed in successfully.",
+      "external_signin_success": "External login successful",
+      "confirm_email_prompt": "Would you like to resend the confirmation email?",
+      "email_not_confirmed": "Email not confirmed",
+      "yes_resend": "Yes, resend",
+      "no": "No",
+      "resend_sent": "Confirmation email sent!",
+      "resend_failed": "Failed to resend email."
+    },
+    "register": {
+      "title": "Create an account",
+      "subtitle": "Create your E-StoreX account",
+      "username": "Username",
+      "email": "Email",
+      "phone": "Phone",
+      "password": "Password",
+      "confirm_password": "Confirm Password",
+      "registering": "Registering...",
+      "register_btn": "Register",
+      "already_member": "Already have an account?",
+      "signin": "Sign in",
+      "account_created": "Account created",
+      "check_email_confirm": "Please check your email to confirm your account.",
+      "registration_failed": "Registration failed"
+    },
+    "forgot_password": {
+      "title": "Forgot Password",
+      "desc": "Enter your email address and we'll send you a link to reset your password.",
+      "submit": "Send Reset Link",
+      "sending": "Sending...",
+      "remember_password": "Remember your password?",
+      "signin": "Sign in",
+      "resend_sent": "Instructions sent to your email!",
+      "resend_failed": "Failed to send reset instructions."
+    },
+    "reset_password": {
+      "title": "Reset Password",
+      "verifying": "Verifying link...",
+      "invalid_link_title": "Invalid or Expired Link",
+      "invalid_link_desc": "This password reset link is invalid or has expired.",
+      "new_password": "New Password",
+      "confirm_password": "Confirm Password",
+      "resetting": "Resetting...",
+      "submit": "Reset Password",
+      "request_new": "Request a new link",
+      "verify_failed": "Failed to verify token.",
+      "reset_failed": "Failed to reset password."
+    },
     "reset_success": {
       "title": "Password Reset Successful",
       "message": "Your password has been changed successfully.",
       "continue_website": "Continue on this website",
       "continue_app": "Continue to the original application",
       "go_to_login": "Go to login"
+    },
+    "confirm_email": {
+      "verifying": "Verifying your email...",
+      "wait_desc": "Please wait while we confirm your email address.",
+      "success_title": "Email Confirmed!",
+      "success_desc": "Your email has been successfully verified. You can now sign in to your account.",
+      "failed_title": "Verification Failed",
+      "back_to_login": "Back to login →"
+    },
+    "oauth": {
+      "processing": "Processing login...",
+      "setup_session": "Please wait while we set up your session."
+    },
+    "validation": {
+      "email_required": "Email is required.",
+      "invalid_email": "Enter a valid email address.",
+      "password_required": "Password is required.",
+      "password_min": "Password must be at least 8 characters.",
+      "password_pattern": "Password must contain at least one uppercase and one lowercase letter.",
+      "passwords_mismatch": "Passwords do not match.",
+      "username_required": "Username is required.",
+      "phone_required": "Phone number is required."
     }
   },
   "layout": {
