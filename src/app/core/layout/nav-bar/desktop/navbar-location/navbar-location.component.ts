@@ -4,11 +4,12 @@ import { LucideAngularModule } from 'lucide-angular';
 import { LocationService } from '../../../../services/location/location.service';
 import { switchMap, finalize } from 'rxjs/operators';
 import { UiFeedbackService } from '../../../../services/ui-feedback.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar-location',
   standalone: true,
-  imports: [LucideAngularModule, ReactiveFormsModule],
+  imports: [LucideAngularModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './navbar-location.component.html',
   styleUrl: './navbar-location.component.scss',
 })

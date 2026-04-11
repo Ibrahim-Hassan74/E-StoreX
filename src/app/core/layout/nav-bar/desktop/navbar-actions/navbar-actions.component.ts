@@ -6,10 +6,12 @@ import { AccountService } from '../../../../services/account/account.service';
 import { BasketStateService } from '../../../../services/cart/basket-state.service';
 import { WishlistStateService } from '../../../../services/wishlist/wishlist-state.service';
 import { computed } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageSwitcherComponent } from '../../../../../shared/components/language-switcher/language-switcher.component';
 
 @Component({
   selector: 'app-navbar-actions',
-  imports: [LucideAngularModule, RouterLink, RouterLinkActive],
+  imports: [LucideAngularModule, RouterLink, RouterLinkActive, TranslateModule, LanguageSwitcherComponent],
   templateUrl: './navbar-actions.component.html',
   styleUrl: './navbar-actions.component.scss',
 })

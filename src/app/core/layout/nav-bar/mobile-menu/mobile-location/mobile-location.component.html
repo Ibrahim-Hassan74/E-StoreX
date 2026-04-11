@@ -3,7 +3,7 @@
   (click)="toggleLocation()"
 >
   <lucide-icon name="map-pin" size="20" class="text-[#029fae]"></lucide-icon>
-  <span class="truncate max-w-[200px]">{{ currentAddress() || 'Add Address' }}</span>
+  <span class="truncate max-w-[200px]">{{ currentAddress() || ('layout.location.add_address' | translate) }}</span>
 </button>
 
 @if(isLocationOpen()) {
@@ -16,14 +16,14 @@
     (click)="$event.stopPropagation()"
   >
     <button
-      class="absolute top-3 right-3 text-gray-500 dark:text-gray-400 hover:text-red-500 transition"
+      class="absolute top-3 end-3 text-gray-500 dark:text-gray-400 hover:text-red-500 transition"
       (click)="closeLocation()"
     >
       <lucide-icon name="x" size="20"></lucide-icon>
     </button>
 
     <h1 class="font-semibold text-xl text-gray-800 dark:text-gray-100 mb-4">
-      Change Location
+      {{ 'layout.location.change_location' | translate }}
     </h1>
 
     <div class="flex flex-col gap-3">
@@ -34,10 +34,10 @@
       >
         @if (isLoading()) {
           <lucide-icon name="loader-2" size="16" class="animate-spin"></lucide-icon>
-          DETECTING...
+          {{ 'layout.location.detecting' | translate }}
         } @else {
           <lucide-icon name="crosshair" size="16"></lucide-icon>
-          Detect my location
+          {{ 'layout.location.detect_my_location' | translate }}
         }
       </button>
     </div>

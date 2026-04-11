@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar-links',
-  imports: [RouterModule],
+  imports: [RouterModule, TranslateModule],
   templateUrl: './navbar-links.component.html',
   styleUrl: './navbar-links.component.scss',
 })

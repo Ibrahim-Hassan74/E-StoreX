@@ -10,13 +10,13 @@
       <lucide-icon name="shopping-cart" size="20"></lucide-icon>
       @if (basketCount() > 0) {
         <span
-          class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-gray-800"
+          class="absolute -top-1 -end-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-gray-800"
         >
           {{ basketCount() }}
         </span>
       }
     </div>
-    <span class="font-medium">Cart</span>
+    <span class="font-medium">{{ 'layout.navbar.cart' | translate }}</span>
   </a>
 
   <!-- Wishlist -->
@@ -30,19 +30,19 @@
       <lucide-icon name="heart" size="20"></lucide-icon>
       @if (wishlistCount() > 0) {
         <span
-          class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-gray-800"
+          class="absolute -top-1 -end-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-gray-800"
         >
           {{ wishlistCount() }}
         </span>
       }
     </div>
-    <span class="font-medium">Wishlist</span>
+    <span class="font-medium">{{ 'layout.navbar.wishlist' | translate }}</span>
   </a>
 
   <!-- Theme Toggle -->
   <button
     (click)="toggleTheme()"
-    class="flex items-center gap-4 px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#029fae] transition w-full text-left"
+    class="flex items-center gap-4 px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#029fae] transition w-full text-start"
   >
     <div class="p-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
       <lucide-icon
@@ -51,8 +51,27 @@
       ></lucide-icon>
     </div>
     <span class="font-medium">{{
-      isDarkMode() ? "Switch to Light Mode" : "Switch to Dark Mode"
+      isDarkMode() ? ('layout.theme.switch_to_light' | translate) : ('layout.theme.switch_to_dark' | translate)
     }}</span>
+  </button>
+  
+  <!-- Language Toggle -->
+  <button
+    (click)="toggleLanguage()"
+    class="flex items-center gap-4 px-4 py-3 rounded-xl bg-gray-50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition w-full text-start group"
+  >
+    <div class="p-2 bg-white dark:bg-gray-800 rounded-lg shadow-sm group-hover:bg-[#029fae]/10 group-hover:text-[#029fae] transition-colors">
+      <lucide-icon name="globe" size="20"></lucide-icon>
+    </div>
+    <div class="flex flex-col flex-1">
+      <span class="text-xs text-gray-400 dark:text-gray-500 font-medium tracking-wider uppercase">
+        {{ 'layout.language.name' | translate }}
+      </span>
+      <span class="font-bold text-gray-900 dark:text-white">
+        {{ languageService.isRTL() ? ('layout.language.arabic' | translate) : ('layout.language.english' | translate) }}
+      </span>
+    </div>
+    <lucide-icon name="chevron-right" size="18" class="text-gray-300 dark:text-gray-600 group-hover:text-[#029fae] transition-colors rtl:rotate-180"></lucide-icon>
   </button>
 
   <div class="h-px bg-gray-100 dark:bg-gray-800 my-2"></div>
@@ -75,8 +94,8 @@
         </div>
       }
       <div class="flex flex-col">
-        <span class="font-medium">My Account</span>
-        <span class="text-xs text-gray-400">Manage profile & settings</span>
+        <span class="font-medium">{{ 'layout.auth.my_account' | translate }}</span>
+        <span class="text-xs text-gray-400">{{ 'layout.auth.manage_profile' | translate }}</span>
       </div>
     </a>
 
@@ -89,19 +108,19 @@
         <lucide-icon name="package" size="20"></lucide-icon>
       </div>
       <div class="flex flex-col">
-        <span class="font-medium">Order History</span>
-        <span class="text-xs text-gray-400">View past orders & status</span>
+        <span class="font-medium">{{ 'layout.navbar.order_history' | translate }}</span>
+        <span class="text-xs text-gray-400">{{ 'layout.auth.view_orders' | translate }}</span>
       </div>
     </a>
 
     <button
       (click)="logout()"
-      class="flex items-center gap-4 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 transition w-full text-left"
+      class="flex items-center gap-4 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 transition w-full text-start"
     >
       <div class="p-2 bg-red-50 dark:bg-red-900/20 rounded-lg">
         <lucide-icon name="log-out" size="20"></lucide-icon>
       </div>
-      <span class="font-medium">Logout</span>
+      <span class="font-medium">{{ 'layout.navbar.sign_out' | translate }}</span>
     </button>
   } @else {
     <div class="grid grid-cols-2 gap-4">
@@ -110,7 +129,7 @@
         (click)="closeMenu.emit()"
         class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:border-[#029fae] hover:text-[#029fae] transition"
       >
-        <span class="font-medium">Sign in</span>
+        <span class="font-medium">{{ 'layout.navbar.sign_in' | translate }}</span>
       </a>
 
       <a
@@ -118,7 +137,7 @@
         (click)="closeMenu.emit()"
         class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#029fae] text-white hover:bg-[#028f9d] transition shadow-md shadow-[#029fae]/20"
       >
-        <span class="font-medium">Sign up</span>
+        <span class="font-medium">{{ 'layout.navbar.sign_up' | translate }}</span>
       </a>
     </div>
   }

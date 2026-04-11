@@ -4,10 +4,11 @@ import { LucideAngularModule } from 'lucide-angular';
 import { LocationService } from '../../../../services/location/location.service';
 import { UiFeedbackService } from '../../../../services/ui-feedback.service';
 import { finalize, switchMap } from 'rxjs/operators';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-mobile-location',
-  imports: [RouterModule, LucideAngularModule],
+  imports: [RouterModule, LucideAngularModule, TranslateModule],
   templateUrl: './mobile-location.component.html',
   styleUrl: './mobile-location.component.scss',
 })

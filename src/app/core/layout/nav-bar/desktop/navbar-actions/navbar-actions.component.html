@@ -1,5 +1,5 @@
 <div
-  class="hidden md:flex items-center gap-6 bg-white dark:bg-gray-900 pl-4 py-2"
+  class="hidden md:flex items-center gap-6 bg-white dark:bg-gray-900 ps-4 py-2"
 >
   <a
     routerLink="/cart"
@@ -13,10 +13,14 @@
           transition-all"
   >
     <lucide-icon name="shopping-cart" size="22"></lucide-icon>
-    <span>Cart</span>
+    <span>{{ 'layout.navbar.cart' | translate }}</span>
+
     @if (basketCount() > 0) {
       <span
-        class="badge absolute -top-2 -right-2 bg-[#029fae] text-white text-[10px] px-1.5 py-0.5 rounded-full shadow-sm"
+        class="badge absolute top-0 right-0 
+              translate-x-1/5 translate-y-1/5
+              bg-[#029fae] text-white text-[10px]
+              px-1.5 py-0.5 rounded-full shadow-sm"
       >
         {{ basketCount() }}
       </span>
@@ -37,7 +41,7 @@
     <lucide-icon name="heart" size="22"></lucide-icon>
     @if (wishlistCount() > 0) {
       <span
-        class="badge absolute -top-2 -right-2 bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full shadow-sm"
+        class="badge absolute -top-2 -end-2 bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full shadow-sm"
       >
         {{ wishlistCount() }}
       </span>
@@ -56,6 +60,8 @@
   >
     <lucide-icon [name]="isDarkMode() ? 'sun' : 'moon'" size="22"></lucide-icon>
   </button>
+
+  <app-language-switcher></app-language-switcher>
 
   <div class="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div>
 
@@ -92,7 +98,7 @@
 
     <div
       [hidden]="!isDropdownOpen()"
-      class="absolute right-0 mt-2 w-56 origin-top-right rounded-xl bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black/5 dark:ring-white/10 focus:outline-none z-50 animate-in fade-in zoom-in-95 duration-100"
+      class="absolute end-0 mt-2 w-56 origin-top-right rounded-xl bg-white dark:bg-gray-900 shadow-lg ring-1 ring-black/5 dark:ring-white/10 focus:outline-none z-50 animate-in fade-in zoom-in-95 duration-100"
     >
       <div class="py-1">
         <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-800">
@@ -112,9 +118,9 @@
             <lucide-icon
               name="user"
               size="16"
-              class="mr-3 text-gray-400 group-hover:text-[#029fae]"
+              class="me-3 text-gray-400 group-hover:text-[#029fae]"
             ></lucide-icon>
-            Account Settings
+            {{ 'layout.navbar.account_settings' | translate }}
           </a>
           <a
             routerLink="/account/orders"
@@ -123,23 +129,23 @@
             <lucide-icon
               name="package"
               size="16"
-              class="mr-3 text-gray-400 group-hover:text-[#029fae]"
+              class="me-3 text-gray-400 group-hover:text-[#029fae]"
             ></lucide-icon>
-            Order History
+            {{ 'layout.navbar.order_history' | translate }}
           </a>
         </div>
 
         <div class="border-t border-gray-100 dark:border-gray-800 py-1">
           <button
             (click)="logout()"
-            class="group flex w-full items-center px-4 py-2 text-left text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 cursor-pointer"
+            class="group flex w-full items-center px-4 py-2 text-start text-sm text-red-600 hover:bg-red-50 dark:hover:bg-red-900/10 cursor-pointer"
           >
             <lucide-icon
               name="log-out"
               size="16"
-              class="mr-3 text-red-500 group-hover:text-red-600"
+              class="me-3 text-red-500 group-hover:text-red-600"
             ></lucide-icon>
-            Sign out
+            {{ 'layout.navbar.sign_out' | translate }}
           </button>
         </div>
       </div>
@@ -151,13 +157,13 @@
       routerLink="/auth/login"
       class="text-sm font-semibold leading-6 text-gray-900 dark:text-white hover:text-[#029fae] px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all"
     >
-      Sign in
+      {{ 'layout.navbar.sign_in' | translate }}
     </a>
     <a
       routerLink="/auth/register"
       class="text-sm font-semibold leading-6 text-white bg-[#029fae] px-4 py-2 rounded-lg hover:bg-[#028b99] transition-all shadow-sm"
     >
-      Sign up
+      {{ 'layout.navbar.sign_up' | translate }}
     </a>
   </div>
   }

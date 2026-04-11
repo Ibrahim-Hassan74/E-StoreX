@@ -1,14 +1,18 @@
-import { Component, inject, computed, output } from '@angular/core';
+import { Component, inject, output, signal, computed } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { NavbarService } from '../../navbar.service';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { AccountService } from '../../../../services/account/account.service';
 import { BasketStateService } from '../../../../services/cart/basket-state.service';
 import { WishlistStateService } from '../../../../services/wishlist/wishlist-state.service';
+import { LanguageService } from '../../../../services/language/language.service';
 
 @Component({
   selector: 'app-mobile-actions',
-  imports: [LucideAngularModule, RouterLink, RouterLinkActive],
+  standalone: true,
+  imports: [LucideAngularModule, RouterLink, RouterLinkActive, TranslateModule, CommonModule],
   templateUrl: './mobile-actions.component.html',
   styleUrl: './mobile-actions.component.scss',
 })
@@ -18,6 +22,7 @@ export class MobileActionsComponent {
   private basketState = inject(BasketStateService);
   private wishlistState = inject(WishlistStateService);
   private router = inject(Router);
+  public languageService = inject(LanguageService);
   
   closeMenu = output<void>();
 
@@ -32,6 +37,11 @@ export class MobileActionsComponent {
 
   toggleTheme() {
     this.navbarService.toggleTheme();
+  }
+
+  toggleLanguage() {
+    this.languageService.toggleLanguage();
+    this.closeMenu.emit();
   }
 
   logout() {
