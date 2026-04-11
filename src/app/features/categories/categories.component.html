@@ -5,7 +5,7 @@
           bg-white dark:bg-gray-900 px-6 rounded-2xl"
   >
     <span class="whitespace-nowrap">
-      Our <span class="text-[#029fae]">Categories</span>
+      {{ 'home.categories.title_prefix' | translate }} <span class="text-[#029fae]">{{ 'home.categories.title_suffix' | translate }}</span>
     </span>
   </h2>
 
@@ -15,6 +15,8 @@
     autoplay='{"delay":10000,"disableOnInteraction":false}'
     pagination="true"
     navigation="true"
+    [dir]="languageService.isRTL() ? 'rtl' : 'ltr'"
+    [attr.rtl]="languageService.isRTL() ? 'true' : null"
     class="w-full dark:bg-gray-900"
   >
     @for (cat of categoriesBrands(); track cat.categories.id) {
