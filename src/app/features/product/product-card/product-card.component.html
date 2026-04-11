@@ -11,6 +11,8 @@
         autoplay-delay="2500"
         autoplay-disable-on-interaction="true"
         pagination="true"
+        [dir]="languageService.isRTL() ? 'rtl' : 'ltr'"
+        [attr.rtl]="languageService.isRTL() ? 'true' : null"
         class="w-full h-64 bg-gray-50 dark:bg-gray-800"
       >
       @for (photo of product().photos; track photo.imageName) {
@@ -28,9 +30,9 @@
     @if (product().oldPrice > product().newPrice && product().oldPrice > 0)
     {
     <div
-      class="absolute top-3 left-3 bg-[#007580]/90 backdrop-blur-sm text-white px-2.5 py-1 rounded-md text-xs font-semibold shadow-sm z-20"
+      class="absolute top-3 start-3 bg-[#007580]/90 backdrop-blur-sm text-white px-2.5 py-1 rounded-md text-xs font-semibold shadow-sm z-20"
     >
-      Sale
+      {{ 'product.badges.sale' | translate }}
     </div>
     }
   </div>
@@ -61,7 +63,7 @@
               text-xs font-medium cursor-pointer relative z-20"
       >
         <lucide-icon name="shopping-cart" size="16"></lucide-icon>
-        Add to Cart
+        {{ 'product.actions.add_to_cart' | translate }}
       </button>      
       <button
         (click)="toggleWishlist($event)"
@@ -70,7 +72,7 @@
           'border-red-500 text-red-500 bg-red-50 dark:bg-red-900/10': isInWishlist(),
           'border-gray-200 dark:border-gray-700 text-gray-500 hover:text-red-500 hover:border-red-500 hover:bg-red-50 dark:hover:bg-red-900/10': !isInWishlist()
         }"
-        [title]="isInWishlist() ? 'Remove from Wishlist' : 'Add to Wishlist'"
+        [title]="isInWishlist() ? ('product.actions.remove_from_wishlist' | translate) : ('product.actions.add_to_wishlist' | translate)"
       >
         <lucide-icon 
             name="heart" 

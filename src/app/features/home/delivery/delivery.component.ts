@@ -1,10 +1,12 @@
 import { Component, input, signal } from '@angular/core';
 import { DeliveryItem } from '../../../shared/models/delivery-item';
 import { DeliveryCardComponent } from './delivery-card/delivery-card.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-delivery',
-  imports: [DeliveryCardComponent],
+  standalone: true,
+  imports: [DeliveryCardComponent, TranslateModule],
   templateUrl: './delivery.component.html',
   styleUrl: './delivery.component.scss',
 })
@@ -12,23 +14,23 @@ export class DeliveryComponent {
   deliveryItems = signal<DeliveryItem[]>([
     {
       iconName: 'percent',
-      title: 'Discount',
-      description: 'Every week new sales',
+      title: 'home.delivery.discount.title',
+      description: 'home.delivery.discount.desc',
     },
     {
       iconName: 'truck',
-      title: 'Free Delivery',
-      description: '100% Free for a specific amount',
+      title: 'home.delivery.free_delivery.title',
+      description: 'home.delivery.free_delivery.desc',
     },
     {
       iconName: 'clock-3',
-      title: 'Great Support 24/7',
-      description: 'We care about your experiences',
+      title: 'home.delivery.support.title',
+      description: 'home.delivery.support.desc',
     },
     {
       iconName: 'shield-check',
-      title: 'Secure Payment',
-      description: '100% Secure Payment Method',
+      title: 'home.delivery.secure_payment.title',
+      description: 'home.delivery.secure_payment.desc',
     },
   ]);
 }

@@ -8,21 +8,30 @@ import {
   signal,
   ViewChild,
   PLATFORM_ID,
+  computed,
 } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, CommonModule, CurrencyPipe, NgClass } from '@angular/common';
 import { Product } from '../../../shared/models/product.model';
 import { LucideAngularModule } from 'lucide-angular';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterLink } from '@angular/router';
 import { BasketStateService } from '../../../core/services/cart/basket-state.service';
 import { WishlistStateService } from '../../../core/services/wishlist/wishlist-state.service';
-import { computed } from '@angular/core';
 import { BasketItem } from '../../../shared/models/basket';
+import { LanguageService } from '../../../core/services/language/language.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product-card',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule, RouterModule],
+  imports: [
+    CommonModule,
+    LucideAngularModule,
+    RouterModule,
+    RouterLink,
+    NgClass,
+    CurrencyPipe,
+    TranslateModule,
+  ],
   templateUrl: './product-card.component.html',
   styleUrl: './product-card.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -34,6 +43,7 @@ export class ProductCardComponent {
 
   private basketState = inject(BasketStateService);
   private wishlistState = inject(WishlistStateService);
+  languageService = inject(LanguageService);
 
   isInWishlist = computed(() => this.wishlistState.isInWishlist(this.product().id));
   shouldLoop = computed(() => this.product().photos.length > 1);
@@ -64,6 +74,9 @@ export class ProductCardComponent {
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       const swiper = this.swiperEl.nativeElement;
+      Object.assign(swiper, {
+        rtl: this.languageService.isRTL()
+      });
       swiper.initialize();
     }
   }

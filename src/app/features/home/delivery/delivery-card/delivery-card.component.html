@@ -8,12 +8,12 @@
   ></lucide-icon>
   <div>
     <h4
-      class="text-base text-gray-900 dark:text-white capitalize font-medium mb-2.5"
+      class="text-base text-start text-gray-900 dark:text-white capitalize font-medium mb-2.5"
     >
-      {{ item().title }}
+      {{ item().title | translate }}
     </h4>
-    <p class="text-sm text-gray-500 dark:text-gray-400">
-      {{ item().description }}
+    <p class="text-sm text-start text-gray-500 dark:text-gray-400">
+      {{ item().description | translate }}
     </p>
   </div>
 </div>
