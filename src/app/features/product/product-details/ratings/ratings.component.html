@@ -1,6 +1,6 @@
 <div class="space-y-12">
   <div class="flex items-center justify-between">
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Customer Reviews</h2>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">{{ 'product.ratings.title' | translate }}</h2>
   </div>
 
   @if (errorMessage()) {
@@ -21,14 +21,14 @@
         />
       } @else {
         <div class="p-8 bg-white dark:bg-gray-800/50 rounded-2xl border border-gray-100 dark:border-gray-800 text-center shadow-sm">
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Have you used this product?</h3>
-          <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">Sign in to share your experience.</p>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{{ 'product.ratings.prompt' | translate }}</h3>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-6">{{ 'product.ratings.promptSubtitle' | translate }}</p>
           <a 
             [routerLink]="['/auth/login']"
             [queryParams]="{ returnUrl: router.url }"
             class="inline-block w-full bg-[#029fae] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#028b99] transition-all shadow-sm hover:shadow-md active:scale-[0.98] cursor-pointer"
           >
-            Sign in / Sign up
+            {{ 'product.ratings.signIn' | translate }}
           </a>
         </div>
       }

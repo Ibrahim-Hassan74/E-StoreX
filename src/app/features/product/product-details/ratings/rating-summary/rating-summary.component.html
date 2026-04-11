@@ -3,7 +3,7 @@
     <div class="flex items-center gap-6">
       <div class="flex flex-col items-center justify-center bg-[#f8fafc] dark:bg-gray-800/50 w-24 h-24 rounded-2xl">
         <span class="text-4xl font-bold text-gray-900 dark:text-white">{{ s.averageScore | number:'1.1-1' }}</span>
-        <span class="text-xs text-gray-500 dark:text-gray-400 mt-1">out of 5</span>
+        <span class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ 'product.ratings.summary.outOfFive' | translate }}</span>
       </div>
       
       <div class="space-y-1">
@@ -30,7 +30,7 @@
           }
         </div>
         <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
-          Based on {{ s.totalRatings }} reviews
+          {{ 'product.ratings.summary.basedOn' | translate: { count: s.totalRatings } }}
         </p>
       </div>
     </div>
@@ -60,7 +60,7 @@
       <div class="inline-flex p-3 bg-white dark:bg-gray-800 rounded-full shadow-sm mb-3">
         <lucide-icon name="star-off" size="24" class="text-gray-400"></lucide-icon>
       </div>
-      <p class="text-gray-500 dark:text-gray-400 font-medium">No ratings yet</p>
+      <p class="text-gray-500 dark:text-gray-400 font-medium">{{ 'product.ratings.summary.noRatings' | translate }}</p>
     </div>
   </div>
 }

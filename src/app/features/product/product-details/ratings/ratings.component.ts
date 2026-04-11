@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { catchError, of } from 'rxjs';
 import { RouterModule, Router } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RatingsService } from '../../../../core/services/ratings/ratings.service';
 import { AccountService } from '../../../../core/services/account/account.service';
 import { UiFeedbackService } from '../../../../core/services/ui-feedback.service';
@@ -22,7 +23,8 @@ import { RatingFormComponent } from './rating-form/rating-form.component';
     LucideAngularModule,
     RatingSummaryComponent,
     RatingListComponent,
-    RatingFormComponent
+    RatingFormComponent,
+    TranslateModule
   ],
   templateUrl: './ratings.component.html',
   styleUrl: './ratings.component.scss'
@@ -31,6 +33,7 @@ export class RatingsComponent implements OnInit {
   private ratingsService = inject(RatingsService);
   private accountService = inject(AccountService);
   private uiFeedback = inject(UiFeedbackService);
+  private translate = inject(TranslateService);
   public router = inject(Router);
 
   // @Input({ required: true }) productId!: string;
@@ -109,7 +112,7 @@ export class RatingsComponent implements OnInit {
       this.ratingsService.updateRating(currentRating.id, request).subscribe({
         next: () => {
           this.isActionLoading.set(false);
-          this.uiFeedback.success('Review updated successfully');
+          this.uiFeedback.success(this.translate.instant('product.ratings.messages.updateSuccess'));
           
           const updatedRating = { ...currentRating, score: data.score, comment: data.comment };
           this.userRating.set(updatedRating);
@@ -126,7 +129,7 @@ export class RatingsComponent implements OnInit {
       this.ratingsService.createRating(request).subscribe({
         next: (newRating) => {
           this.isActionLoading.set(false);
-          this.uiFeedback.success('Review submitted successfully');
+          this.uiFeedback.success(this.translate.instant('product.ratings.messages.createSuccess'));
 
           this.userRating.set(newRating);
           this.ratings.update(ratings => [newRating, ...ratings]);
@@ -142,7 +145,7 @@ export class RatingsComponent implements OnInit {
     const currentRating = this.userRating();
     if (!currentRating) return;
 
-    const confirmed = await this.uiFeedback.confirm('Are you sure you want to delete your review?');
+    const confirmed = await this.uiFeedback.confirm(this.translate.instant('product.ratings.messages.deleteConfirm'));
     if (!confirmed) return;
 
     this.isActionLoading.set(true);
@@ -154,11 +157,11 @@ export class RatingsComponent implements OnInit {
         this.recalculateSummary('delete', currentRating, null);
         
         this.isActionLoading.set(false);
-        this.uiFeedback.success('Your review has been deleted.');
+        this.uiFeedback.success(this.translate.instant('product.ratings.messages.deleteSuccess'));
       },
       error: (err) => {
         this.isActionLoading.set(false);
-        this.errorMessage.set(err.error?.message || 'Failed to delete rating');
+        this.errorMessage.set(err.error?.message || this.translate.instant('product.ratings.messages.deleteError'));
       }
     });
   }
@@ -206,7 +209,7 @@ export class RatingsComponent implements OnInit {
 
   handleError(err: any) {
     this.isActionLoading.set(false);
-    this.errorMessage.set(err.error?.message || 'Operation failed');
+    this.errorMessage.set(err.error?.message || this.translate.instant('product.ratings.messages.operationFailed'));
     setTimeout(() => this.errorMessage.set(null), 3000);
   }
 }

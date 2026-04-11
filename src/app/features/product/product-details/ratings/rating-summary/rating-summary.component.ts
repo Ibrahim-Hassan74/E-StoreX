@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { RatingSummary } from '../../../../../shared/models/rating';
@@ -6,7 +7,7 @@ import { RatingSummary } from '../../../../../shared/models/rating';
 @Component({
   selector: 'app-rating-summary',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, TranslateModule],
   templateUrl: './rating-summary.component.html',
   styleUrl: './rating-summary.component.scss'
 })

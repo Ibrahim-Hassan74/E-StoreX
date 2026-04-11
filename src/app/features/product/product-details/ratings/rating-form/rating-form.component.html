@@ -3,7 +3,7 @@
     <div class="p-6">
       <div class="flex items-start justify-between mb-4">
         <div>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Your Review</h3>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">{{ 'product.ratings.form.yourReview' | translate }}</h3>
           <div class="flex text-yellow-400 gap-1">
             @for (star of [1,2,3,4,5]; track star) {
               <lucide-icon 
@@ -21,7 +21,7 @@
           <button 
             (click)="startEdit()" 
             class="p-2 text-gray-500 hover:text-[#029fae] hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors cursor-pointer"
-            title="Edit Review"
+            [attr.title]="'product.ratings.form.editReview' | translate"
           >
             <lucide-icon name="pencil" size="18"></lucide-icon>
           </button>
@@ -29,7 +29,7 @@
           <button 
             (click)="onDelete()"
             class="p-2 text-gray-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/10 rounded-lg transition-colors cursor-pointer"
-            title="Delete Review"
+            [attr.title]="'product.ratings.form.deleteReview' | translate"
           >
             <lucide-icon name="trash-2" size="18"></lucide-icon>
           </button>
@@ -44,17 +44,17 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-6 space-y-5">
       <div class="flex items-center justify-between">
         <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-          {{ userRating() ? 'Edit Your Review' : 'Write a Review' }}
+          {{ userRating() ? ('product.ratings.form.headingEdit' | translate) : ('product.ratings.form.headingWrite' | translate) }}
         </h3>
         @if (userRating()) {
           <button type="button" (click)="cancelEdit()" class="text-sm text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
-            Cancel
+            {{ 'product.ratings.form.cancel' | translate }}
           </button>
         }
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Rate this product</label>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{{ 'product.ratings.form.rateThisProduct' | translate }}</label>
         <div class="flex gap-2">
           @for (star of [1,2,3,4,5]; track star) {
             <button 
@@ -76,20 +76,20 @@
           }
         </div>
         @if (form.get('score')?.touched && form.get('score')?.invalid) {
-          <p class="text-xs text-red-500 mt-1 font-medium animate-pulse">Please select a star rating</p>
+          <p class="text-xs text-red-500 mt-1 font-medium animate-pulse">{{ 'product.ratings.form.errorScore' | translate }}</p>
         }
       </div>
 
       <div>
-        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Share your experience</label>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">{{ 'product.ratings.form.shareExperience' | translate }}</label>
         <textarea 
           formControlName="comment" 
           rows="4" 
-          placeholder="What did you like or dislike?"
+          [placeholder]="'product.ratings.form.commentPlaceholder' | translate"
           class="w-full text-sm rounded-xl border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-[#029fae] focus:border-transparent transition-all resize-none p-3"
         ></textarea>
         @if (form.get('comment')?.touched && form.get('comment')?.invalid && form.get('comment')?.dirty) {
-          <p class="text-xs text-red-500 mt-1 font-medium">Please write a review (max 500 characters)</p>
+          <p class="text-xs text-red-500 mt-1 font-medium">{{ 'product.ratings.form.errorComment' | translate }}</p>
         }
       </div>
 
@@ -101,7 +101,7 @@
         @if (isLoading()) {
           <div class="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
         }
-        {{ userRating() ? 'Update Review' : 'Submit Review' }}
+        {{ userRating() ? ('product.ratings.form.update' | translate) : ('product.ratings.form.submit' | translate) }}
       </button>
     </form>
   }
