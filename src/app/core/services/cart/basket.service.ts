@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ResourceService } from '../resource.service';
+import { TranslateService } from '@ngx-translate/core';
 import { Basket, BasketItem } from '../../../shared/models/basket';
 import { Observable, tap, map } from 'rxjs';
 
@@ -7,6 +8,7 @@ import { Observable, tap, map } from 'rxjs';
   providedIn: 'root',
 })
 export class BasketService extends ResourceService<Basket> {
+  private translate = inject(TranslateService);
   constructor() {
     super('Baskets');
   }
@@ -26,7 +28,7 @@ export class BasketService extends ResourceService<Basket> {
     
     return this.post<any>('', payload).pipe(
       tap({
-        error: (err) => console.error('AddBasket Error Details:', JSON.stringify(err.error, null, 2))
+        error: (err) => console.error(this.translate.instant('services.basket.addBasketError'), JSON.stringify(err.error, null, 2))
       }),
       this.mapBasketResponse()
     );

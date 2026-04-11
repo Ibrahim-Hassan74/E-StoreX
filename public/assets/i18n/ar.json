@@ -1,4 +1,55 @@
 {
+  "services": {
+    "uiFeedback": {
+      "areYouSure": "هل أنت متأكد؟",
+      "yes": "نعم",
+      "cancel": "إلغاء",
+      "success": "نجاح",
+      "error": "خطأ",
+      "info": "معلومات",
+      "warning": "تحذير"
+    },
+    "account": {
+      "invalidToken": "تنسيق الرمز غير صالح",
+      "clientIdMissing": "معرف العميل غير موجود في التكوين"
+    },
+    "checkout": {
+      "missingData": "بيانات مطلوبة مفقودة لإنشاء الطلب"
+    },
+    "location": {
+      "serverGeolocationUnavailable": "تحديد الموقع الجغرافي غير متاح على الخادم.",
+      "browserGeolocationUnsupported": "تحديد الموقع الجغرافي غير مدعوم من قبل هذا المتصفح.",
+      "unknownError": "حدث خطأ غير معروف.",
+      "secureConnectionRequired": "يتطلب تحديد الموقع الجغرافي اتصالاً آمناً (HTTPS). تم حجبه على هذا الجهاز لأنك تستخدم HTTP.",
+      "userDenied": "رفض المستخدم طلب تحديد الموقع الجغرافي.",
+      "locationUnavailable": "معلومات الموقع غير متاحة.",
+      "timeout": "انتهت مهلة طلب الحصول على موقع المستخدم.",
+      "unknownLocation": "موقع غير معروف",
+      "failedRetrieveAddress": "فشل في استرداد العنوان."
+    },
+    "wishlist": {
+      "failedLoad": "فشل في تحميل قائمة المفضلة",
+      "loginRequired": "تسجيل الدخول مطلوب",
+      "loginToAdd": "يرجى تسجيل الدخول لإضافة عناصر إلى قائمة المفضلة",
+      "itemRemoved": "تمت إزالة العنصر من قائمة المفضلة",
+      "removed": "تمت الإزالة",
+      "failedRemove": "فشل في الإزالة من قائمة المفضلة",
+      "itemAdded": "تمت إضافة العنصر إلى قائمة المفضلة",
+      "added": "تمت الإضافة",
+      "failedAdd": "فشل في الإضافة إلى قائمة المفضلة"
+    },
+    "basket": {
+      "itemAdded": "تمت إضافة العنصر إلى عربة التسوق بنجاح.",
+      "addedToCart": "تمت الإضافة إلى العربة",
+      "failedAdd": "فشل في إضافة العنصر إلى العربة",
+      "failedRemove": "فشل في إزالة العنصر",
+      "failedIncrease": "فشل في زيادة الكمية",
+      "failedDecrease": "فشل في تقليل الكمية",
+      "failedApplyDiscount": "فشل في تطبيق الخصم",
+      "mergeFailed": "فشل دمج عربة الضيف مع حسابك.",
+      "addBasketError": "تفاصيل خطأ إضافة العربة:"
+    }
+  },
   "auth": {
     "reset_success": {
       "title": "تمت إعادة تعيين كلمة المرور بنجاح",

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Observable, Observer, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -14,17 +15,18 @@ export interface LocationCoordinates {
 })
 export class LocationService {
   private http = inject(HttpClient);
+  private translate = inject(TranslateService);
   private platformId = inject(PLATFORM_ID);
 
   getCurrentPosition(): Observable<LocationCoordinates> {
     return new Observable((observer: Observer<LocationCoordinates>) => {
       if (!isPlatformBrowser(this.platformId)) {
-        observer.error(new Error('Geolocation is not available on the server.'));
+        observer.error(new Error(this.translate.instant('services.location.serverGeolocationUnavailable')));
         return;
       }
 
       if (!navigator.geolocation) {
-        observer.error(new Error('Geolocation is not supported by this browser.'));
+        observer.error(new Error(this.translate.instant('services.location.browserGeolocationUnsupported')));
         return;
       }
 
@@ -37,20 +39,20 @@ export class LocationService {
           observer.complete();
         },
         (error) => {
-          let errorMessage = 'An unknown error occurred.';
+          let errorMessage = this.translate.instant('services.location.unknownError');
           switch (error.code) {
             case error.PERMISSION_DENIED:
               if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost') {
-                 errorMessage = 'Geolocation requires a secure connection (HTTPS). It is blocked on this device because you are using HTTP.';
+                 errorMessage = this.translate.instant('services.location.secureConnectionRequired');
               } else {
-                 errorMessage = 'User denied the request for Geolocation.';
+                 errorMessage = this.translate.instant('services.location.userDenied');
               }
               break;
             case error.POSITION_UNAVAILABLE:
-              errorMessage = 'Location information is unavailable.';
+              errorMessage = this.translate.instant('services.location.locationUnavailable');
               break;
             case error.TIMEOUT:
-              errorMessage = 'The request to get user location timed out.';
+              errorMessage = this.translate.instant('services.location.timeout');
               break;
           }
           observer.error(new Error(errorMessage));
@@ -79,11 +81,11 @@ export class LocationService {
             return part2; 
           }
         }
-        return (response.display_name || 'Unknown Location').split(',').slice(0, 3).join(',');
+        return (response.display_name || this.translate.instant('services.location.unknownLocation')).split(',').slice(0, 3).join(',');
       }),
       catchError(error => {
         console.error('Reverse geocoding failed', error);
-        return throwError(() => new Error('Failed to retrieve address.'));
+        return throwError(() => new Error(this.translate.instant('services.location.failedRetrieveAddress')));
       })
     );
   }

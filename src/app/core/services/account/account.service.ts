@@ -1,4 +1,5 @@
 import { Injectable, signal, computed, PLATFORM_ID } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Observable, tap, map, of, catchError, throwError, firstValueFrom } from 'rxjs';
 import { ResourceService } from '../resource.service';
 import { ConfigService } from '../configurations/config.service';
@@ -29,6 +30,7 @@ export class AccountService extends ResourceService<User> {
   public currentUser = computed(() => this.currentUserSignal());
 
   private configService = inject(ConfigService);
+  private translate = inject(TranslateService);
   private platformId = inject(PLATFORM_ID);
 
   constructor() {
@@ -102,7 +104,7 @@ export class AccountService extends ResourceService<User> {
 
   refreshToken(data: RefreshTokenRequest): Observable<AuthResponse> {
     if (!this.isValidTokenFormat(data.token)) {
-      return throwError(() => new Error('Invalid token format'));
+      return throwError(() => new Error(this.translate.instant('services.account.invalidToken')));
     }
 
     return this.http.post<AuthResponse>(this.buildUrl('generate-new-jwt-token'), data).pipe(
@@ -222,7 +224,7 @@ export class AccountService extends ResourceService<User> {
     
     const clientId = this.configService.clientId;
     if (!clientId) {
-      console.error('Client ID not found in configuration');
+      console.error(this.translate.instant('services.account.clientIdMissing'));
       return;
     }
     const redirectUrl = this.buildUrl(`external-login?provider=Google&clientId=${clientId}`);
@@ -234,7 +236,7 @@ export class AccountService extends ResourceService<User> {
 
     const clientId = this.configService.clientId;
     if (!clientId) {
-      console.error('Client ID not found in configuration');
+      console.error(this.translate.instant('services.account.clientIdMissing'));
       return;
     }
     const redirectUrl = this.buildUrl(`external-login?provider=GitHub&clientId=${clientId}`);

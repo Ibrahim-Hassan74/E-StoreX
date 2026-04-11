@@ -1,5 +1,6 @@
 import { Injectable, inject, effect } from '@angular/core';
 import { NavbarService } from '../layout/nav-bar/navbar.service';
+import { TranslateService } from '@ngx-translate/core';
 
 import Swal from 'sweetalert2';
 
@@ -8,6 +9,7 @@ import Swal from 'sweetalert2';
 })
 export class UiFeedbackService {
   private navbarService = inject(NavbarService);
+  private translate = inject(TranslateService);
   private isDark = false;
 
   constructor() {
@@ -24,13 +26,14 @@ export class UiFeedbackService {
     };
   }
 
-  success(message: string, title = 'Success', options: any = {}): Promise<any> {
+  success(message: string, title?: string, options: any = {}): Promise<any> {
+    const localizedTitle = title || this.translate.instant('services.uiFeedback.success');
     return Swal.fire({
       ...this.commonOptions,
       toast: true,
       position: 'top-end',
       icon: 'success',
-      title: title,
+      title: localizedTitle,
       text: message,
       timer: 1500,
       timerProgressBar: true,
@@ -43,61 +46,68 @@ export class UiFeedbackService {
     });
   }
 
-  error(message: string, title = 'Error', options: any = {}): Promise<any> {
+  error(message: string, title?: string, options: any = {}): Promise<any> {
+    const localizedTitle = title || this.translate.instant('services.uiFeedback.error');
     return Swal.fire({
       ...this.commonOptions,
       icon: 'error',
-      title: title,
+      title: localizedTitle,
       text: message,
-      confirmButtonText: 'OK',
+      confirmButtonText: this.translate.instant('services.uiFeedback.yes'),
       ...options
     });
   }
 
-  info(message: string, title = 'Info', options: any = {}): Promise<any> {
+  info(message: string, title?: string, options: any = {}): Promise<any> {
+    const localizedTitle = title || this.translate.instant('services.uiFeedback.info');
     return Swal.fire({
       ...this.commonOptions,
       icon: 'info',
-      title: title,
+      title: localizedTitle,
       text: message,
-      confirmButtonText: 'OK',
+      confirmButtonText: this.translate.instant('services.uiFeedback.yes'),
       ...options
     });
   }
 
-  warning(message: string, title = 'Warning', options: any = {}): Promise<any> {
+  warning(message: string, title?: string, options: any = {}): Promise<any> {
+    const localizedTitle = title || this.translate.instant('services.uiFeedback.warning');
     return Swal.fire({
       ...this.commonOptions,
       icon: 'warning',
-      title: title,
+      title: localizedTitle,
       text: message,
-      confirmButtonText: 'OK',
+      confirmButtonText: this.translate.instant('services.uiFeedback.yes'),
       ...options
     });
   }
 
-  successPopup(message: string, title = 'Success', options: any = {}): Promise<any> {
+  successPopup(message: string, title?: string, options: any = {}): Promise<any> {
+    const localizedTitle = title || this.translate.instant('services.uiFeedback.success');
     return Swal.fire({
       ...this.commonOptions,
       icon: 'success',
-      title: title,
+      title: localizedTitle,
       text: message,
-      confirmButtonText: 'OK',
+      confirmButtonText: this.translate.instant('services.uiFeedback.yes'),
       ...options
     });
   }
 
-  confirm(message: string, title = 'Are you sure?', confirmText = 'Yes', cancelText = 'Cancel', icon: any = 'warning'): Promise<boolean> {
+  confirm(message: string, title?: string, confirmText?: string, cancelText?: string, icon: any = 'warning'): Promise<boolean> {
+    const localizedTitle = title || this.translate.instant('services.uiFeedback.areYouSure');
+    const localizedConfirmText = confirmText || this.translate.instant('services.uiFeedback.yes');
+    const localizedCancelText = cancelText || this.translate.instant('services.uiFeedback.cancel');
     return Swal.fire({
       ...this.commonOptions,
-      title: title,
+      title: localizedTitle,
       text: message,
       icon: icon,
       showCancelButton: true,
       confirmButtonColor: icon === 'warning' ? '#f59e0b' : '#d33', // Orange for warning, Red for delete (default logic, can be overridden)
       cancelButtonColor: '#3085d6',
-      confirmButtonText: confirmText,
-      cancelButtonText: cancelText
+      confirmButtonText: localizedConfirmText,
+      cancelButtonText: localizedCancelText
     }).then((result) => {
       return result.isConfirmed;
     });

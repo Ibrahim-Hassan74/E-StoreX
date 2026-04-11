@@ -1,5 +1,6 @@
 import { computed, inject, Injectable, signal, effect } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { WishlistService } from './wishlist.service';
 import { UiFeedbackService } from '../ui-feedback.service';
 import { Product } from '../../../shared/models/product.model';
@@ -12,6 +13,7 @@ export class WishlistStateService {
   private wishlistService = inject(WishlistService);
   private ui = inject(UiFeedbackService);
   private accountService = inject(AccountService);
+  private translate = inject(TranslateService);
   private router = inject(Router);
 
   private wishlistSignal = signal<Product[]>([]);
@@ -39,7 +41,7 @@ export class WishlistStateService {
         this.isLoading.set(false);
       },
       error: (err) => {
-        console.error('Failed to load wishlist', err);
+        console.error(this.translate.instant('services.wishlist.failedLoad'), err);
         this.isLoading.set(false);
       }
     });
@@ -48,10 +50,10 @@ export class WishlistStateService {
   toggleWishlist(product: Product) {
     if (!this.accountService.currentUser()) {
       this.ui.confirm(
-        'Please log in to add items to your wishlist',
-        'Login Required',
+        this.translate.instant('services.wishlist.loginToAdd'),
+        this.translate.instant('services.wishlist.loginRequired'),
         'Login',
-        'Cancel',
+        this.translate.instant('services.uiFeedback.cancel'),
         'info'
       ).then((confirmed) => {
         if (confirmed) {
@@ -67,17 +69,17 @@ export class WishlistStateService {
       this.wishlistService.removeFromWishlist(product.id).subscribe({
         next: () => {
           this.wishlistSignal.update(list => list.filter(p => p.id !== product.id));
-          this.ui.success('Item removed from wishlist', 'Removed');
+          this.ui.success(this.translate.instant('services.wishlist.itemRemoved'), this.translate.instant('services.wishlist.removed'));
         },
-        error: (err) => this.ui.error(err.error?.message || 'Failed to remove from wishlist')
+        error: (err) => this.ui.error(err.error?.message || this.translate.instant('services.wishlist.failedRemove'))
       });
     } else {
       this.wishlistService.addToWishlist(product.id).subscribe({
         next: () => {
           this.wishlistSignal.update(list => [...list, product]);
-          this.ui.success('Item added to wishlist', 'Added');
+          this.ui.success(this.translate.instant('services.wishlist.itemAdded'), this.translate.instant('services.wishlist.added'));
         },
-        error: (err) => this.ui.error(err.error?.message || 'Failed to add to wishlist')
+        error: (err) => this.ui.error(err.error?.message || this.translate.instant('services.wishlist.failedAdd'))
       });
     }
   }

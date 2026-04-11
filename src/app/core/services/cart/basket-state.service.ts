@@ -1,4 +1,5 @@
 import { computed, inject, Injectable, signal, effect, PLATFORM_ID } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Basket, BasketItem } from '../../../shared/models/basket';
 import { BasketService } from './basket.service';
@@ -13,6 +14,7 @@ export class BasketStateService {
   private basketService = inject(BasketService);
   private accountService = inject(AccountService);
   private ui = inject(UiFeedbackService);
+  private translate = inject(TranslateService);
   private platformId = inject(PLATFORM_ID);
 
   private basketSignal = signal<Basket | null>(null);
@@ -97,7 +99,7 @@ export class BasketStateService {
                   this.loginBasketSyncInProgress = false;
               },
               error: (err) => {
-                  console.error('Merge failed', err);
+                  console.error(this.translate.instant('services.basket.mergeFailed'), err);
                   this.guestBasketId = null;
                   this.loadUserBasket(user.id!);
                   this.loginBasketSyncInProgress = false;
@@ -146,11 +148,11 @@ export class BasketStateService {
     this.basketService.addBasket(item, basketId).subscribe({
       next: (basket) => {
         this.basketSignal.set(basket);
-        this.ui.success('The item has been added to your cart successfully.', 'Added to Cart');
+        this.ui.success(this.translate.instant('services.basket.itemAdded'), this.translate.instant('services.basket.addedToCart'));
       },
       error: (err) => {
         console.error('AddItem Error:', err);
-        this.ui.error(err.error?.message || 'Failed to add item to cart');
+        this.ui.error(err.error?.message || this.translate.instant('services.basket.failedAdd'));
       }
     });
   }
@@ -161,7 +163,7 @@ export class BasketStateService {
     
     this.basketService.removeItem(id, itemId).subscribe({
       next: b => this.basketSignal.set(b),
-      error: err => this.ui.error(err.error?.message || 'Failed to remove item')
+      error: err => this.ui.error(err.error?.message || this.translate.instant('services.basket.failedRemove'))
     });
   }
   
@@ -173,7 +175,7 @@ export class BasketStateService {
       next: b => {
           this.basketSignal.set(b);
       },
-      error: err => this.ui.error(err.error?.message || 'Failed to increase quantity')
+      error: err => this.ui.error(err.error?.message || this.translate.instant('services.basket.failedIncrease'))
     });
   }
   
@@ -183,7 +185,7 @@ export class BasketStateService {
 
     this.basketService.decreaseItem(id, itemId).subscribe({
       next: b => this.basketSignal.set(b),
-      error: err => this.ui.error(err.error?.message || 'Failed to decrease quantity')
+      error: err => this.ui.error(err.error?.message || this.translate.instant('services.basket.failedDecrease'))
     });
   }
 
@@ -194,7 +196,7 @@ export class BasketStateService {
     return this.basketService.applyDiscount(id, code).pipe(
       tap({
         next: b => this.basketSignal.set(b),
-        error: err => this.ui.error(err.error?.message || 'Failed to apply discount')
+        error: err => this.ui.error(err.error?.message || this.translate.instant('services.basket.failedApplyDiscount'))
       })
     );
   }

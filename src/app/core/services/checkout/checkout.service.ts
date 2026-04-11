@@ -1,5 +1,6 @@
 
 import { Injectable, computed, inject, signal } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Address } from '../../../shared/models/auth';
 import { DeliveryMethod, OrderToCreate } from '../../../shared/models/order';
 import { AccountService } from '../account/account.service';
@@ -14,6 +15,7 @@ export class CheckoutService {
   private accountService = inject(AccountService);
   private basketState = inject(BasketStateService);
   private ordersService = inject(OrdersService);
+  private translate = inject(TranslateService);
 
   private _shippingAddress = signal<Address | null>(null);
   private _deliveryMethod = signal<DeliveryMethod | null>(null);
@@ -47,7 +49,7 @@ export class CheckoutService {
     const address = this._shippingAddress();
 
     if (!basket || !deliveryMethod || !address) {
-      throw new Error('Missing required data for order creation');
+      throw new Error(this.translate.instant('services.checkout.missingData'));
     }
 
     const orderToCreate: OrderToCreate = {

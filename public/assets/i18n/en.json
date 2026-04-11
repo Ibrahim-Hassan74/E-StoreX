@@ -1,4 +1,55 @@
 {
+  "services": {
+    "uiFeedback": {
+      "areYouSure": "Are you sure?",
+      "yes": "Yes",
+      "cancel": "Cancel",
+      "success": "Success",
+      "error": "Error",
+      "info": "Info",
+      "warning": "Warning"
+    },
+    "account": {
+      "invalidToken": "Invalid token format",
+      "clientIdMissing": "Client ID not found in configuration"
+    },
+    "checkout": {
+      "missingData": "Missing required data for order creation"
+    },
+    "location": {
+      "serverGeolocationUnavailable": "Geolocation is not available on the server.",
+      "browserGeolocationUnsupported": "Geolocation is not supported by this browser.",
+      "unknownError": "An unknown error occurred.",
+      "secureConnectionRequired": "Geolocation requires a secure connection (HTTPS). It is blocked on this device because you are using HTTP.",
+      "userDenied": "User denied the request for Geolocation.",
+      "locationUnavailable": "Location information is unavailable.",
+      "timeout": "The request to get user location timed out.",
+      "unknownLocation": "Unknown Location",
+      "failedRetrieveAddress": "Failed to retrieve address."
+    },
+    "wishlist": {
+      "failedLoad": "Failed to load wishlist",
+      "loginRequired": "Login Required",
+      "loginToAdd": "Please log in to add items to your wishlist",
+      "itemRemoved": "Item removed from wishlist",
+      "removed": "Removed",
+      "failedRemove": "Failed to remove from wishlist",
+      "itemAdded": "Item added to wishlist",
+      "added": "Added",
+      "failedAdd": "Failed to add to wishlist"
+    },
+    "basket": {
+      "itemAdded": "The item has been added to your cart successfully.",
+      "addedToCart": "Added to Cart",
+      "failedAdd": "Failed to add item to cart",
+      "failedRemove": "Failed to remove item",
+      "failedIncrease": "Failed to increase quantity",
+      "failedDecrease": "Failed to decrease quantity",
+      "failedApplyDiscount": "Failed to apply discount",
+      "mergeFailed": "Failed to merge your guest cart with your account.",
+      "addBasketError": "AddBasket Error Details:"
+    }
+  },
   "auth": {
     "reset_success": {
       "title": "Password Reset Successful",
