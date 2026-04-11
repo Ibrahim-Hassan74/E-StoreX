@@ -5,6 +5,8 @@
   autoplay-disable-on-interaction="false"
   pagination="true"
   navigation="true"
+  [dir]="languageService.isRTL() ? 'rtl' : 'ltr'"
+  [attr.rtl]="languageService.isRTL() ? 'true' : null"
   class="w-full h-full bg-white dark:bg-gray-900"
 >
   @for(slide of slides(); track $index) {
@@ -12,7 +14,7 @@
     <div
       class="flex flex-col lg:flex-row items-center justify-between gap-10 px-8 lg:px-20 py-12 min-h-[80vh]"
     >
-      <div class="text-center lg:text-left space-y-6 max-w-xl">
+      <div class="text-center lg:text-start space-y-6 max-w-xl">
         <p class="uppercase text-sm text-gray-500 dark:text-gray-400">
           {{ slide.category }}
         </p>
@@ -39,7 +41,7 @@
           class="px-6 py-3 bg-[#029fae] text-white rounded-lg shadow-lg 
                 hover:bg-[#007580] transition cursor-pointer"
         >
-          Shop Now
+          {{ 'home.banner.shop_now' | translate }}
         </button>
       </div>
 
@@ -53,13 +55,15 @@
           loop="true"
           autoplay-delay="2000"
           autoplay-disable-on-interaction="false"
+          [dir]="languageService.isRTL() ? 'rtl' : 'ltr'"
+          [attr.rtl]="languageService.isRTL() ? 'true' : null"
           class="relative w-[250px] lg:w-[450px] h-auto"
         >
           @for(photo of slide.photos; track $index) {
           <swiper-slide>
             <img
               [src]="'https://estorex.runasp.net/' + photo.imageName"
-              [alt]="slide?.title || 'Product image'"
+              [alt]="slide?.title || ('product.placeholders.image_alt' | translate)"
               class="object-contain w-full h-full rounded-xl"
               loading="lazy"
             />

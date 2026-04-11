@@ -5,7 +5,7 @@
           bg-white dark:bg-gray-900 px-6 rounded-2xl"
   >
     <span class="whitespace-nowrap">
-      Our <span class="text-[#029fae]">Featured Products</span>
+      {{ 'home.featured.title_prefix' | translate }} <span class="text-[#029fae]">{{ 'home.featured.title_suffix' | translate }}</span>
     </span>
   </h2>
   <swiper-container
@@ -16,6 +16,8 @@
     autoplay-disable-on-interaction="false"
     navigation="true"
     pagination="true"
+    [dir]="languageService.isRTL() ? 'rtl' : 'ltr'"
+    [attr.rtl]="languageService.isRTL() ? 'true' : null"
     breakpoints='{
     "640": { "slidesPerView": 2 },
     "768": { "slidesPerView": 3 },

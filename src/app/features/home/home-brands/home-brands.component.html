@@ -5,7 +5,7 @@
           bg-white dark:bg-gray-900 px-6 rounded-2xl"
   >
     <span class="whitespace-nowrap">
-      Our <span class="text-[#029fae]">Brands</span>
+      {{ 'home.brands.title_prefix' | translate }} <span class="text-[#029fae]">{{ 'home.brands.title_suffix' | translate }}</span>
     </span>
   </h2>
   <swiper-container
@@ -16,6 +16,8 @@
     space-between="24"
     navigation="true"
     pagination="true"
+    [dir]="languageService.isRTL() ? 'rtl' : 'ltr'"
+    [attr.rtl]="languageService.isRTL() ? 'true' : null"
     breakpoints='{
       "640": { "slidesPerView": 3 },
       "768": { "slidesPerView": 4 },
