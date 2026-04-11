@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
 import { Meta } from '@angular/platform-browser';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../../core/services/language/language.service';
 import { ProductsService } from '../../../core/services/products/products.service';
 import { Product } from '../../../shared/models/product.model';
 import { BasketStateService } from '../../../core/services/cart/basket-state.service';
@@ -13,7 +15,7 @@ import { RatingsComponent } from './ratings/ratings.component';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [CommonModule, RouterModule, LucideAngularModule, RatingsComponent],
+  imports: [CommonModule, RouterModule, LucideAngularModule, RatingsComponent, TranslateModule],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })
@@ -21,6 +23,8 @@ export class ProductDetailsComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private productsService = inject(ProductsService);
   private meta = inject(Meta);
+  private translate = inject(TranslateService);
+  public languageService = inject(LanguageService);
 
   product = signal<Product | null>(null);
   loading = signal<boolean>(true);
@@ -34,7 +38,7 @@ export class ProductDetailsComponent implements OnInit {
     if (id) {
       this.loadProduct(id);
     } else {
-      this.error.set('Product not found');
+      this.error.set(this.translate.instant('product.details.errorNotFound'));
       this.loading.set(false);
     }
   }
@@ -64,7 +68,7 @@ export class ProductDetailsComponent implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.error.set('Failed to load product details');
+        this.error.set(this.translate.instant('product.details.errorFailedToLoad'));
         this.loading.set(false);
       }
     });

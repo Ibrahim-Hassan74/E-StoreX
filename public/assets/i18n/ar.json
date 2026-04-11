@@ -253,6 +253,99 @@
     },
     "placeholders": {
       "image_alt": "صورة المنتج"
+    },
+    "pagination": {
+      "prev": "الصفحة السابقة",
+      "next": "الصفحة التالية",
+      "page": "صفحة {{page}}"
+    },
+    "list": {
+      "filtersAndSort": "الفلاتر والفرز",
+      "results": "عرض {{count}} نتائج",
+      "resultsTotal": "عرض {{count}} من إجمالي {{total}} نتائج",
+      "noProductsFound": "لم يتم العثور على منتجات",
+      "adjustFilters": "جرب تعديل الفلاتر",
+      "clearAllFilters": "مسح جميع الفلاتر"
+    },
+    "details": {
+      "notFound": "المنتج غير موجود",
+      "backToHome": "العودة للرئيسية",
+      "off": "خصم",
+      "inStock": "متوفر",
+      "outOfStock": "غير متوفر",
+      "addToCart": "أضف إلى السلة",
+      "removeFromWishlist": "حذف من المفضلة",
+      "addToWishlist": "أضف إلى المفضلة",
+      "errorNotFound": "المنتج غير موجود",
+      "errorFailedToLoad": "فشل تحميل تفاصيل المنتج"
+    },
+    "breadcrumb": {
+      "home": "الرئيسية",
+      "products": "المنتجات"
+    },
+    "filters": {
+      "title": "الفلاتر",
+      "closePanel": "إغلاق اللوحة",
+      "search": "بحث",
+      "searchPlaceholder": "البحث عن منتجات...",
+      "clearSearch": "مسح البحث",
+      "categories": "الأقسام",
+      "allCategories": "جميع الأقسام",
+      "brands": "الماركات",
+      "allBrands": "جميع الماركات",
+      "priceRange": "نطاق السعر",
+      "min": "الأقل",
+      "max": "الأكثر",
+      "reset": "إعادة تعيين الفلاتر"
+    },
+    "toolbar": {
+      "show": "عرض:",
+      "sortBy": "فرز حسب:"
+    },
+    "sort": {
+      "priceHighLow": "السعر (من الأعلى للأقل)",
+      "priceLowHigh": "السعر (من الأقل للأعلى)",
+      "nameAZ": "الاسم (أ-ي)",
+      "nameZA": "الاسم (ي-أ)"
+    },
+    "ratings": {
+      "title": "آراء العملاء",
+      "prompt": "هل استخدمت هذا المنتج؟",
+      "promptSubtitle": "سجل الدخول لمشاركة تجربتك.",
+      "signIn": "تسجيل الدخول / إنشاء حساب",
+      "summary": {
+        "outOfFive": "من 5",
+        "basedOn": "بناءً على {{count}} تقييمات",
+        "noRatings": "لا توجد تقييمات بعد"
+      },
+      "list": {
+        "highlights": "أبرز المراجعات",
+        "noReviews": "لا توجد مراجعات بعد",
+        "beFirst": "كن أول من يشاركنا رأيه!"
+      },
+      "form": {
+        "yourReview": "تقييمك",
+        "editReview": "تعديل التقييم",
+        "deleteReview": "حذف التقييم",
+        "headingEdit": "تعديل مراجعتك",
+        "headingWrite": "اكتب مراجعة",
+        "cancel": "إلغاء",
+        "rateThisProduct": "قيم هذا المنتج",
+        "errorScore": "يرجى اختيار عدد النجوم",
+        "shareExperience": "شاركنا تجربتك",
+        "commentPlaceholder": "ما الذي أعجبك أو لم يعجبك؟",
+        "errorComment": "يرجى كتابة مراجعة (حد أقصى 500 حرف)",
+        "update": "تحديث المراجعة",
+        "submit": "إرسال المراجعة"
+      },
+      "messages": {
+        "updateSuccess": "تم تحديث المراجعة بنجاح",
+        "createSuccess": "تم إرسال المراجعة بنجاح",
+        "deleteConfirm": "هل أنت متأكد من حذف مراجعتك؟",
+        "deleteSuccess": "تم حذف مراجعتك.",
+        "deleteError": "فشل في حذف التقييم",
+        "operationFailed": "فشلت العملية"
+      }
     }
   }
 }

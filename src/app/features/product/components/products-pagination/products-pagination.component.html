@@ -2,15 +2,17 @@
    <button 
       [disabled]="state.query().pageNumber === 1"
       (click)="onPageChange(state.query().pageNumber! - 1)"
+      [attr.aria-label]="'product.pagination.prev' | translate"
       class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed text-gray-600 dark:text-gray-300 cursor-pointer"
    >
-      <lucide-icon name="chevron-left" size="20"></lucide-icon>
+      <lucide-icon [name]="languageService.isRTL() ? 'chevron-right' : 'chevron-left'" size="20"></lucide-icon>
    </button>
    
    @for(page of pages; track page) {
        @if(page >= (state.query().pageNumber! - 2) && page <= (state.query().pageNumber! + 2)) {
           <button
               (click)="onPageChange(page)"
+              [attr.aria-label]="'product.pagination.page' | translate: { page: page }"
               [class.bg-[#029fae]]="state.query().pageNumber === page"
               [class.text-white]="state.query().pageNumber === page"
               [class.border-[#029fae]]="state.query().pageNumber === page"
@@ -25,8 +27,9 @@
    <button 
       [disabled]="state.query().pageNumber === totalPages"
       (click)="onPageChange(state.query().pageNumber! + 1)"
+      [attr.aria-label]="'product.pagination.next' | translate"
       class="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed text-gray-600 dark:text-gray-300 cursor-pointer"
    >
-      <lucide-icon name="chevron-right" size="20"></lucide-icon>
+      <lucide-icon [name]="languageService.isRTL() ? 'chevron-left' : 'chevron-right'" size="20"></lucide-icon>
    </button>
 </div>

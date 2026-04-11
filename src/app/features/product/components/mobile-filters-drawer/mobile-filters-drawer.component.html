@@ -22,13 +22,13 @@
         >
           <div class="flex h-full flex-col overflow-y-scroll bg-white dark:bg-gray-900 shadow-xl">
             <div class="flex items-center justify-between px-4 py-6 sm:px-6 border-b border-gray-200 dark:border-gray-700">
-              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100" id="slide-over-title">Filters</h2>
+              <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100" id="slide-over-title">{{ 'product.filters.title' | translate }}</h2>
               <button 
                 type="button" 
                 class="relative rounded-md text-gray-400 hover:text-gray-500 focus:outline-none"
                 (click)="state.closeMobileFilters()"
               >
-                <span class="sr-only">Close panel</span>
+                <span class="sr-only">{{ 'product.filters.closePanel' | translate }}</span>
                 <lucide-icon name="x" size="24"></lucide-icon>
               </button>
             </div>

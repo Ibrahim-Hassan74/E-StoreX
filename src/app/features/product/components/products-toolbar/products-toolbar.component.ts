@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SortOrderOptions } from '../../../../shared/enums/sort-order.enum';
@@ -7,17 +8,17 @@ import { ProductStateService } from '../../product.state';
 @Component({
   selector: 'app-products-toolbar',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './products-toolbar.component.html'
 })
 export class ProductsToolbarComponent {
   state = inject(ProductStateService);
 
   sortOptions = [
-    { label: 'Price (High-Low)', value: 'price', order: SortOrderOptions.DESC },
-    { label: 'Price (Low-High)', value: 'price', order: SortOrderOptions.ASC },
-    { label: 'Name (A-Z)', value: 'name', order: SortOrderOptions.ASC },
-    { label: 'Name (Z-A)', value: 'name', order: SortOrderOptions.DESC },
+    { label: 'product.sort.priceHighLow', value: 'price', order: SortOrderOptions.DESC },
+    { label: 'product.sort.priceLowHigh', value: 'price', order: SortOrderOptions.ASC },
+    { label: 'product.sort.nameAZ', value: 'name', order: SortOrderOptions.ASC },
+    { label: 'product.sort.nameZA', value: 'name', order: SortOrderOptions.DESC },
   ];
 
   get sortValue(): string {

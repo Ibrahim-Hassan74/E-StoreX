@@ -1,16 +1,19 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslateModule } from '@ngx-translate/core';
 import { ProductStateService } from '../../product.state';
+import { LanguageService } from '../../../../core/services/language/language.service';
 
 @Component({
   selector: 'app-products-pagination',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, TranslateModule],
   templateUrl: './products-pagination.component.html'
 })
 export class ProductsPaginationComponent {
   state = inject(ProductStateService);
+  public languageService = inject(LanguageService);
 
   get totalPages(): number {
     const total = this.state.pagination()?.totalCount || 0;

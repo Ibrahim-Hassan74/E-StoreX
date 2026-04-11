@@ -253,6 +253,99 @@
     },
     "placeholders": {
       "image_alt": "Product image"
+    },
+    "pagination": {
+      "prev": "Previous page",
+      "next": "Next page",
+      "page": "Page {{page}}"
+    },
+    "list": {
+      "filtersAndSort": "Filters & Sort",
+      "results": "Showing {{count}} results",
+      "resultsTotal": "Showing {{count}} results of {{total}}",
+      "noProductsFound": "No products found",
+      "adjustFilters": "Try adjusting your filters",
+      "clearAllFilters": "Clear all filters"
+    },
+    "details": {
+      "notFound": "Product Not Found",
+      "backToHome": "Back to Home",
+      "off": "OFF",
+      "inStock": "In Stock",
+      "outOfStock": "Out of Stock",
+      "addToCart": "Add to Cart",
+      "removeFromWishlist": "Remove from Wishlist",
+      "addToWishlist": "Add to Wishlist",
+      "errorNotFound": "Product not found",
+      "errorFailedToLoad": "Failed to load product details"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "products": "Products"
+    },
+    "filters": {
+      "title": "Filters",
+      "closePanel": "Close panel",
+      "search": "Search",
+      "searchPlaceholder": "Search products...",
+      "clearSearch": "Clear search",
+      "categories": "Categories",
+      "allCategories": "All Categories",
+      "brands": "Brands",
+      "allBrands": "All Brands",
+      "priceRange": "Price Range",
+      "min": "Min",
+      "max": "Max",
+      "reset": "Reset Filters"
+    },
+    "toolbar": {
+      "show": "Show:",
+      "sortBy": "Sort by:"
+    },
+    "sort": {
+      "priceHighLow": "Price (High-Low)",
+      "priceLowHigh": "Price (Low-High)",
+      "nameAZ": "Name (A-Z)",
+      "nameZA": "Name (Z-A)"
+    },
+    "ratings": {
+      "title": "Customer Reviews",
+      "prompt": "Have you used this product?",
+      "promptSubtitle": "Sign in to share your experience.",
+      "signIn": "Sign in / Sign up",
+      "summary": {
+        "outOfFive": "out of 5",
+        "basedOn": "Based on {{count}} reviews",
+        "noRatings": "No ratings yet"
+      },
+      "list": {
+        "highlights": "Review Highlights",
+        "noReviews": "No reviews yet",
+        "beFirst": "Be the first to share your thoughts!"
+      },
+      "form": {
+        "yourReview": "Your Review",
+        "editReview": "Edit Review",
+        "deleteReview": "Delete Review",
+        "headingEdit": "Edit Your Review",
+        "headingWrite": "Write a Review",
+        "cancel": "Cancel",
+        "rateThisProduct": "Rate this product",
+        "errorScore": "Please select a star rating",
+        "shareExperience": "Share your experience",
+        "commentPlaceholder": "What did you like or dislike?",
+        "errorComment": "Please write a review (max 500 characters)",
+        "update": "Update Review",
+        "submit": "Submit Review"
+      },
+      "messages": {
+        "updateSuccess": "Review updated successfully",
+        "createSuccess": "Review submitted successfully",
+        "deleteConfirm": "Are you sure you want to delete your review?",
+        "deleteSuccess": "Your review has been deleted.",
+        "deleteError": "Failed to delete rating",
+        "operationFailed": "Operation failed"
+      }
     }
   }
 }

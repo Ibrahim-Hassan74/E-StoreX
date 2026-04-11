@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -20,7 +21,8 @@ import { MobileFiltersDrawerComponent } from './components/mobile-filters-drawer
     ProductsGridComponent,
     ProductsPaginationComponent,
     ProductsFiltersComponent,
-    MobileFiltersDrawerComponent
+    MobileFiltersDrawerComponent,
+    TranslateModule
   ],
   providers: [ProductStateService],
   templateUrl: './product.component.html',

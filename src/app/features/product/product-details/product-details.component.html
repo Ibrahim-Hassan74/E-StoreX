@@ -5,19 +5,19 @@
 } @else if (error()) {
   <div class="flex flex-col items-center justify-center min-h-[60vh] text-center px-4">
     <lucide-icon name="alert-circle" size="48" class="text-red-500 mb-4"></lucide-icon>
-    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Product Not Found</h3>
+    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">{{ 'product.details.notFound' | translate }}</h3>
     <p class="text-gray-500 dark:text-gray-400 mb-6">{{ error() }}</p>
     <a routerLink="/" class="px-6 py-2 bg-[#029fae] text-white rounded-lg hover:bg-[#028b99] transition-colors">
-      Back to Home
+      {{ 'product.details.backToHome' | translate }}
     </a>
   </div>
 } @else {
   @if (product(); as p) {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <nav class="flex mb-8 text-sm text-gray-500 dark:text-gray-400">
-        <a routerLink="/" class="hover:text-[#029fae]">Home</a>
+        <a routerLink="/" class="hover:text-[#029fae]">{{ 'product.breadcrumb.home' | translate }}</a>
         <span class="mx-2">/</span>
-        <a routerLink="/product" class="hover:text-[#029fae]">Products</a>
+        <a routerLink="/product" class="hover:text-[#029fae]">{{ 'product.breadcrumb.products' | translate }}</a>
         <span class="mx-2">/</span>
         <span class="text-gray-900 dark:text-white truncate">{{ p.name }}</span>
       </nav>
@@ -64,11 +64,11 @@
             <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{{ p.name }}</h1>
             
             <div class="mt-4 flex items-baseline gap-4">
-              <span class="text-3xl font-bold text-[#029fae]">{{ p.newPrice | currency: 'EGP' }}</span>
+                <span class="text-3xl font-bold text-[#029fae]">{{ p.newPrice | currency: (languageService.isRTL() ? 'EGP ' : 'USD ') }}</span>
               @if (p.oldPrice > p.newPrice) {
-                <span class="text-lg text-gray-400 line-through">{{ p.oldPrice | currency: 'EGP' }}</span>
+                <span class="text-lg text-gray-400 line-through">{{ p.oldPrice | currency: (languageService.isRTL() ? 'EGP ' : 'USD ') }}</span>
                 <span class="text-sm font-medium text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-0.5 rounded">
-                  {{ ((p.oldPrice - p.newPrice) / p.oldPrice) | percent }} OFF
+                  {{ ((p.oldPrice - p.newPrice) / p.oldPrice) | percent }} {{ 'product.details.off' | translate }}
                 </span>
               }
             </div>
@@ -82,10 +82,10 @@
             <div class="flex items-center gap-2">
               @if (p.quantityAvailable > 0) {
                 <lucide-icon name="check-circle" size="20" class="text-green-500"></lucide-icon>
-                <span class="text-green-600 font-medium">In Stock</span>
+                <span class="text-green-600 font-medium">{{ 'product.details.inStock' | translate }}</span>
               } @else {
                 <lucide-icon name="x-circle" size="20" class="text-red-500"></lucide-icon>
-                <span class="text-red-600 font-medium">Out of Stock</span>
+                <span class="text-red-600 font-medium">{{ 'product.details.outOfStock' | translate }}</span>
               }
             </div>
 
@@ -114,7 +114,7 @@
                   class="flex-1 flex items-center justify-center gap-2 bg-[#029fae] text-white px-8 py-3 rounded-lg hover:bg-[#028b99] transition-all font-semibold shadow-sm hover:shadow-md cursor-pointer"
                 >
                   <lucide-icon name="shopping-cart" size="20"></lucide-icon>
-                  Add to Cart
+                  {{ 'product.details.addToCart' | translate }}
                 </button>
                 
                 <button 
@@ -124,7 +124,7 @@
                     'border-red-500 text-red-500 bg-red-50 dark:bg-red-900/10': isInWishlist(),
                     'border-gray-300 dark:border-gray-600 text-gray-500 hover:text-red-500 hover:border-red-500 hover:bg-red-50 dark:hover:bg-red-900/10': !isInWishlist()
                   }"
-                  [title]="isInWishlist() ? 'Remove from Wishlist' : 'Add to Wishlist'"
+                  [attr.title]="isInWishlist() ? ('product.details.removeFromWishlist' | translate) : ('product.details.addToWishlist' | translate)"
                 >
                   <lucide-icon 
                     name="heart" 
