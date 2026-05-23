@@ -13,10 +13,10 @@
             <li class="flex-1 flex items-center">
               <div class="relative flex flex-col items-center">
                 <button (click)="goToStep(1)" class="relative flex h-8 w-8 items-center justify-center rounded-full bg-[#029fae] hover:bg-[#028b99] transition-colors cursor-pointer z-10">
-                  <span class="h-2.5 w-2.5 rounded-full bg-white" aria-hidden="true"></span>
-                  <span class="sr-only">Step 1</span>
+                   <span class="h-2.5 w-2.5 rounded-full bg-white" aria-hidden="true"></span>
+                   <span class="sr-only">Step 1</span>
                 </button>
-                <div class="absolute top-10 whitespace-nowrap text-sm font-bold text-[#029fae]">Address</div>
+                <div class="absolute top-10 whitespace-nowrap text-sm font-bold text-[#029fae]">{{ 'checkout.steps.address' | translate }}</div>
               </div>
               <div class="flex-1 h-0.5 mx-2" [ngClass]="currentStep() >= 2 ? 'bg-[#029fae]' : 'bg-gray-200 dark:bg-gray-700'"></div>
             </li>
@@ -29,7 +29,7 @@
                   <span class="h-2.5 w-2.5 rounded-full bg-white" aria-hidden="true"></span>
                   <span class="sr-only">Step 2</span>
                 </button>
-                <div class="absolute top-10 whitespace-nowrap text-sm font-bold transition-colors duration-300" [ngClass]="currentStep() >= 2 ? 'text-[#029fae]' : 'text-gray-500 dark:text-gray-400'">Delivery</div>
+                <div class="absolute top-10 whitespace-nowrap text-sm font-bold transition-colors duration-300" [ngClass]="currentStep() >= 2 ? 'text-[#029fae]' : 'text-gray-500 dark:text-gray-400'">{{ 'checkout.steps.delivery' | translate }}</div>
               </div>
               <div class="flex-1 h-0.5 mx-2" [ngClass]="currentStep() >= 3 ? 'bg-[#029fae]' : 'bg-gray-200 dark:bg-gray-700'"></div>
             </li>
@@ -41,7 +41,7 @@
                 <span class="h-2.5 w-2.5 rounded-full bg-white" aria-hidden="true"></span>
                 <span class="sr-only">Step 3</span>
               </button>
-              <div class="absolute top-10 whitespace-nowrap text-sm font-bold transition-colors duration-300" [ngClass]="currentStep() >= 3 ? 'text-[#029fae]' : 'text-gray-500 dark:text-gray-400'">Payment</div>
+              <div class="absolute top-10 whitespace-nowrap text-sm font-bold transition-colors duration-300" [ngClass]="currentStep() >= 3 ? 'text-[#029fae]' : 'text-gray-500 dark:text-gray-400'">{{ 'checkout.steps.payment' | translate }}</div>
             </li>
           </ol>
         </nav>

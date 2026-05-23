@@ -35,8 +35,7 @@ export class LanguageSwitcherComponent {
 
   switchLang(lang: string): void {
     if (this.currentLang !== lang) {
-      this.languageService.setLanguage(lang);
-      window.location.reload();
+      this.languageService.changeLanguage(lang);
     }
   }
 }

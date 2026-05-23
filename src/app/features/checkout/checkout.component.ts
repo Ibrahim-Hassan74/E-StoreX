@@ -6,6 +6,7 @@ import { CheckoutAddressComponent } from './components/checkout-address/checkout
 import { CheckoutDeliveryComponent } from './components/checkout-delivery/checkout-delivery.component';
 import { CheckoutPaymentComponent } from './components/checkout-payment/checkout-payment.component';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout',
@@ -15,7 +16,8 @@ import { Router } from '@angular/router';
     OrderSummaryComponent,
     CheckoutAddressComponent,
     CheckoutDeliveryComponent,
-    CheckoutPaymentComponent
+    CheckoutPaymentComponent,
+    TranslateModule
   ],
   templateUrl: './checkout.component.html'
 })

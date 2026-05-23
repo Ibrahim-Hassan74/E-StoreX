@@ -31,17 +31,21 @@
     routerLink="/wishlist"
     routerLinkActive="active-link"
     [routerLinkActiveOptions]="{ exact: true }"
-    class="relative flex items-center gap-1 px-4 py-2 rounded-lg
-          text-sm font-semibold leading-6
+    class="relative flex items-center justify-center px-4 py-2 rounded-lg
+          text-sm font-semibold
           text-gray-700 dark:text-gray-200
           hover:text-[#029fae]
           hover:bg-gray-50 dark:hover:bg-gray-800
           transition-all"
   >
     <lucide-icon name="heart" size="22"></lucide-icon>
+
     @if (wishlistCount() > 0) {
       <span
-        class="badge absolute -top-2 -end-2 bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full shadow-sm"
+        class="badge absolute -top-1 -right-1 min-w-5 h-5
+              flex items-center justify-center
+              bg-red-500 text-white text-[11px]
+              rounded-full shadow"
       >
         {{ wishlistCount() }}
       </span>

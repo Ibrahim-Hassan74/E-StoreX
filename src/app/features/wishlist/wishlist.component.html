@@ -1,6 +1,6 @@
 <div class="bg-gray-50 dark:bg-gray-900 min-h-screen pt-24 pb-12 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Wishlist</h1>
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">{{ 'wishlist.title' | translate }}</h1>
 
     @if (wishlistState.isLoading()) {
       <div class="flex justify-center items-center h-64">
@@ -19,13 +19,13 @@
     @if (!wishlistState.isLoading() && wishlistState.wishlist().length === 0) {
       <div class="flex flex-col items-center justify-center h-64 bg-gray-50 dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800">
         <lucide-icon name="heart-off" size="48" class="text-gray-300 dark:text-gray-600 mb-4"></lucide-icon>
-        <h3 class="text-lg font-medium text-gray-900 dark:text-white">Your wishlist is empty</h3>
-        <p class="text-gray-500 dark:text-gray-400 mt-1">Browse products and find your favorites!</p>
+        <h3 class="text-lg font-medium text-gray-900 dark:text-white">{{ 'wishlist.emptyTitle' | translate }}</h3>
+        <p class="text-gray-500 dark:text-gray-400 mt-1">{{ 'wishlist.emptyDesc' | translate }}</p>
         <a 
           routerLink="/product"
           class="mt-4 px-4 py-2 bg-[#029fae] hover:bg-[#008f9c] text-white rounded-lg transition-colors font-medium cursor-pointer"
         >
-          Browse Products
+          {{ 'wishlist.browseBtn' | translate }}
         </a>
       </div>
     }

@@ -1,12 +1,12 @@
 <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
   <div class="flex items-center justify-between mb-6">
-    <h2 class="text-xl font-bold text-gray-900 dark:text-white">Shipping Address</h2>
+    <h2 class="text-xl font-bold text-gray-900 dark:text-white">{{ 'checkout.address.title' | translate }}</h2>
     @if (!isEditing() && addressForm.valid) {
       <button 
         (click)="startEdit()"
         class="text-sm font-bold text-[#029fae] hover:text-[#028b99] transition-colors cursor-pointer"
       >
-        Edit
+        {{ 'checkout.address.editBtn' | translate }}
       </button>
     }
   </div>
@@ -15,7 +15,7 @@
     <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
       
       <div class="sm:col-span-1">
-        <label for="firstName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First Name</label>
+        <label for="firstName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ 'checkout.address.firstName' | translate }}</label>
         <div>
           <input type="text" id="firstName" formControlName="firstName"
             [readonly]="!isEditing()"
@@ -23,12 +23,12 @@
             class="input">
         </div>
         @if (isFieldInvalid('firstName')) {
-          <p class="error-text">First name is required</p>
+          <p class="error-text">{{ 'checkout.address.firstNameRequired' | translate }}</p>
         }
       </div>
 
       <div class="sm:col-span-1">
-        <label for="lastName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last Name</label>
+        <label for="lastName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ 'checkout.address.lastName' | translate }}</label>
         <div>
           <input type="text" id="lastName" formControlName="lastName"
             [readonly]="!isEditing()"
@@ -36,12 +36,12 @@
             class="input">
         </div>
         @if (isFieldInvalid('lastName')) {
-          <p class="error-text">Last name is required</p>
+          <p class="error-text">{{ 'checkout.address.lastNameRequired' | translate }}</p>
         }
       </div>
 
       <div class="sm:col-span-2">
-        <label for="street" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Street Address</label>
+        <label for="street" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ 'checkout.address.street' | translate }}</label>
         <div>
           <input type="text" id="street" formControlName="street"
             [readonly]="!isEditing()"
@@ -49,12 +49,12 @@
             class="input">
         </div>
         @if (isFieldInvalid('street')) {
-          <p class="error-text">Street address is required</p>
+          <p class="error-text">{{ 'checkout.address.streetRequired' | translate }}</p>
         }
       </div>
 
       <div class="sm:col-span-1">
-        <label for="city" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">City</label>
+        <label for="city" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ 'checkout.address.city' | translate }}</label>
         <div>
           <input type="text" id="city" formControlName="city"
             [readonly]="!isEditing()"
@@ -62,12 +62,12 @@
             class="input">
         </div>
          @if (isFieldInvalid('city')) {
-          <p class="error-text">City is required</p>
+          <p class="error-text">{{ 'checkout.address.cityRequired' | translate }}</p>
         }
       </div>
 
       <div class="sm:col-span-1">
-        <label for="state" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">State / Province</label>
+        <label for="state" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ 'checkout.address.state' | translate }}</label>
         <div>
           <input type="text" id="state" formControlName="state"
             [readonly]="!isEditing()"
@@ -75,12 +75,12 @@
             class="input">
         </div>
         @if (isFieldInvalid('state')) {
-          <p class="error-text">State is required</p>
+          <p class="error-text">{{ 'checkout.address.stateRequired' | translate }}</p>
         }
       </div>
       
        <div class="sm:col-span-1">
-        <label for="zipCode" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Zip / Postal Code</label>
+        <label for="zipCode" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ 'checkout.address.zipCode' | translate }}</label>
         <div>
           <input type="text" id="zipCode" formControlName="zipCode"
             [readonly]="!isEditing()"
@@ -88,7 +88,7 @@
             class="input">
         </div>
         @if (isFieldInvalid('zipCode')) {
-          <p class="error-text">Zip code is required</p>
+          <p class="error-text">{{ 'checkout.address.zipCodeRequired' | translate }}</p>
         }
       </div>
 
@@ -101,7 +101,7 @@
           (click)="cancelEdit()"
           class="w-full sm:w-1/3 px-6 py-3 text-sm font-bold text-gray-700 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600 cursor-pointer"
         >
-          Cancel
+          {{ 'checkout.address.cancelBtn' | translate }}
         </button>
       }
       
@@ -111,8 +111,8 @@
           [disabled]="addressForm.invalid || isSaving()"
           class="w-full sm:w-2/3 px-6 py-3 text-sm font-bold text-white bg-[#029fae] border border-transparent rounded-xl hover:bg-[#028b99] transition-colors shadow-lg shadow-[#029fae]/20 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         >
-          @if (isSaving()) { <span>Saving...</span> }
-          @if (!isSaving()) { <span>Save Address</span> }
+          @if (isSaving()) { <span>{{ 'checkout.address.saving' | translate }}</span> }
+          @if (!isSaving()) { <span>{{ 'checkout.address.saveBtn' | translate }}</span> }
         </button>
       }
       
@@ -123,8 +123,8 @@
            [disabled]="addressForm.invalid"
            class="w-full px-6 py-3 text-sm font-bold text-white bg-[#029fae] border border-transparent rounded-xl hover:bg-[#028b99] transition-colors shadow-lg shadow-[#029fae]/20 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
         >
-          <span>Continue to Delivery</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span>{{ 'checkout.address.continueBtn' | translate }}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rtl:rotate-180"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </button>
       }
     </div>

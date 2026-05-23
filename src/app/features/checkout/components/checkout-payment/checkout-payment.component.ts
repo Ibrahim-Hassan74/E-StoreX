@@ -7,11 +7,12 @@ import { PaymentService } from '../../../../core/services/payment/payment.servic
 import { UiFeedbackService } from '../../../../core/services/ui-feedback.service';
 import { BasketStateService } from '../../../../core/services/cart/basket-state.service';
 import { ConfigService } from '../../../../core/services/configurations/config.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout-payment',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './checkout-payment.component.html'
 })
 export class CheckoutPaymentComponent implements OnInit, OnDestroy {
@@ -24,6 +25,7 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
   ui = inject(UiFeedbackService);
   router = inject(Router);
   configService = inject(ConfigService);
+  translate = inject(TranslateService);
 
   stripe: Stripe | null = null;
   elements: StripeElements | undefined;
@@ -57,14 +59,14 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
   async initializeStripe() {
     const key = this.configService.publishableKey;
     if (!key) {
-        this.ui.error('Stripe key is missing configuration');
+        this.ui.error(this.translate.instant('checkout.payment.stripeKeyMissing'));
         return;
     }
     
     this.stripe = await loadStripe(key);
     
     if (!this.stripe) {
-        this.ui.error('Failed to load Stripe');
+        this.ui.error(this.translate.instant('checkout.payment.stripeLoadFailed'));
         return;
     }
 
@@ -100,7 +102,7 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
     const basket = this.basketState.basket();
     
     if (!basket) {
-        this.ui.error('Your cart cannot be empty');
+        this.ui.error(this.translate.instant('checkout.payment.cartEmpty'));
         this.loading.set(false);
         return;
     }
@@ -110,12 +112,12 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
              this.checkoutService.createOrder().subscribe({
                  next: resolve,
                  error: reject
-             });
+              });
         });
 
         const clientSecret = this.paymentService.clientSecret();
         if (!clientSecret || !this.stripe || !this.cardNumber) {
-            throw new Error('Payment intent not initialized or Stripe not loaded');
+            throw new Error(this.translate.instant('checkout.payment.paymentIntentNotInit'));
         }
 
         const result = await this.stripe.confirmCardPayment(clientSecret, {
@@ -128,21 +130,21 @@ export class CheckoutPaymentComponent implements OnInit, OnDestroy {
         });
 
         if (result.error) {
-            this.ui.error(result.error.message || 'Payment failed');
+            this.ui.error(result.error.message || this.translate.instant('checkout.payment.paymentFailed'));
             this.loading.set(false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 this.basketState.clearBasket();
                 this.router.navigate(['/checkout/success']);
             } else {
-                this.ui.error('Payment verification failed');
+                this.ui.error(this.translate.instant('checkout.payment.paymentVerificationFailed'));
                  this.loading.set(false);
             }
         }
 
     } catch (error: any) {
         console.error(error);
-        this.ui.error(error.message || 'An error occurred during payment processing');
+        this.ui.error(error.message || this.translate.instant('checkout.payment.paymentError'));
         this.loading.set(false);
     }
   }

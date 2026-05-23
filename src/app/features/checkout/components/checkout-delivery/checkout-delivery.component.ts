@@ -5,11 +5,12 @@ import { CheckoutService } from '../../../../core/services/checkout/checkout.ser
 import { PaymentService } from '../../../../core/services/payment/payment.service';
 import { BasketStateService } from '../../../../core/services/cart/basket-state.service';
 import { DeliveryMethod } from '../../../../shared/models/order';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout-delivery',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './checkout-delivery.component.html'
 })
 export class CheckoutDeliveryComponent implements OnInit {
@@ -39,6 +40,7 @@ export class CheckoutDeliveryComponent implements OnInit {
   loadMethods() {
     this.checkoutService.getDeliveryMethods().subscribe({
       next: (methods) => {
+        console.log(methods);
         this.deliveryMethods.set(methods);
         this.loading.set(false);
         

@@ -32,6 +32,15 @@ export class LanguageService {
     this.updateDocumentDirection(lang);
   }
 
+  changeLanguage(lang: string): void {
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(this.LANGUAGE_KEY, lang);
+    }
+    if (typeof window !== 'undefined') {
+      window.location.reload();
+    }
+  }
+
   getLanguage(): string {
     return this.translateService.currentLang || this.getStoredLanguage();
   }
@@ -49,10 +58,7 @@ export class LanguageService {
 
   toggleLanguage(): void {
     const newLang = this.getLanguage() === 'en' ? 'ar' : 'en';
-    this.setLanguage(newLang);
-    if (typeof window !== 'undefined') {
-      window.location.reload();
-    }
+    this.changeLanguage(newLang);
   }
 
   private updateDocumentDirection(lang: string): void {

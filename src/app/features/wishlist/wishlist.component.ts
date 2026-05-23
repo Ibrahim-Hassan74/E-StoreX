@@ -4,11 +4,12 @@ import { WishlistStateService } from '../../core/services/wishlist/wishlist-stat
 import { ProductCardComponent } from '../product/product-card/product-card.component';
 import { LucideAngularModule } from 'lucide-angular';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent, LucideAngularModule, RouterModule],
+  imports: [CommonModule, ProductCardComponent, LucideAngularModule, RouterModule, TranslateModule],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.scss'
 })

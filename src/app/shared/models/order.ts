@@ -32,7 +32,7 @@ export interface OrderItem {
 
 export interface DeliveryMethod {
   id: string;
-  shortName: string;
+  name: string;
   deliveryTime: string;
   description: string;
   price: number;

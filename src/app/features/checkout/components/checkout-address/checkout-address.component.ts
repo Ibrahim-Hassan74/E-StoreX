@@ -5,11 +5,12 @@ import { CheckoutService } from '../../../../core/services/checkout/checkout.ser
 import { AccountService } from '../../../../core/services/account/account.service';
 import { UiFeedbackService } from '../../../../core/services/ui-feedback.service';
 import { Address } from '../../../../shared/models/auth';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout-address',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './checkout-address.component.html'
 })
 export class CheckoutAddressComponent implements OnInit {
@@ -17,6 +18,7 @@ export class CheckoutAddressComponent implements OnInit {
   private accountService = inject(AccountService);
   private checkoutService = inject(CheckoutService);
   private ui = inject(UiFeedbackService);
+  private translate = inject(TranslateService);
 
   addressForm: FormGroup;
   isEditing = signal(false);
@@ -84,13 +86,13 @@ export class CheckoutAddressComponent implements OnInit {
 
     this.accountService.updateAddress(address).subscribe({
       next: () => {
-        this.ui.success('Address saved successfully', 'Success');
+        this.ui.success(this.translate.instant('checkout.address.saveSuccess'), this.translate.instant('checkout.address.successTitle'));
         this.isEditing.set(false);
         this.isSaving.set(false);
         this.checkoutService.updateShippingAddress(address);
       },
       error: (err) => {
-        this.ui.error(err.error?.message || 'Failed to save address');
+        this.ui.error(err.error?.message || this.translate.instant('checkout.address.saveFailed'));
         this.isSaving.set(false);
       }
     });

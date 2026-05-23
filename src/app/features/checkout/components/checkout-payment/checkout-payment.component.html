@@ -1,8 +1,8 @@
 <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
-  <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Payment Details</h2>
+  <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-6">{{ 'checkout.payment.title' | translate }}</h2>
 
   <div class="mb-8">
-    <label class="block text-sm font-semibold text-gray-900 dark:text-gray-300 mb-3">Card Information</label>
+    <label class="block text-sm font-semibold text-gray-900 dark:text-gray-300 mb-3">{{ 'checkout.payment.cardInfo' | translate }}</label>
     <div #cardNumber id="card-element" class="p-4 border border-gray-300 rounded-xl bg-gray-50 dark:bg-gray-900 dark:border-gray-600">
     </div>
     @if (cardErrors()) {
@@ -20,7 +20,7 @@
       [disabled]="loading()"
       class="w-full sm:w-1/3 px-6 py-3 text-sm font-bold text-gray-700 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-600 disabled:opacity-50 cursor-pointer"
     >
-      Back
+      {{ 'checkout.payment.backBtn' | translate }}
     </button>
     
     <button 
@@ -35,7 +35,7 @@
           <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
         </svg>
       }
-      <span>Pay {{ checkoutService.total() | currency }}</span>
+      <span>{{ 'checkout.payment.payBtn' | translate: { amount: (checkoutService.total() | currency) } }}</span>
     </button>
   </div>
 </div>
