@@ -2,16 +2,18 @@ import { Component, inject, signal, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AccountService } from '../../../../core/services/account/account.service';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-address-info',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './address-info.component.html'
 })
 export class AddressInfoComponent implements OnInit {
   private fb = inject(FormBuilder);
   private accountService = inject(AccountService);
+  private translate = inject(TranslateService);
 
   isLoading = signal(false);
   isFetching = signal(true);
@@ -67,7 +69,7 @@ export class AddressInfoComponent implements OnInit {
 
     this.handleRequest(
       this.accountService.updateAddress(payload as any),
-      'Address updated successfully.'
+      this.translate.instant('account.address.updateSuccess')
     );
   }
 
@@ -92,7 +94,7 @@ export class AddressInfoComponent implements OnInit {
         this.isLoading.set(false);
 
         if (res?.success === false) {
-          this.errorMessage.set(res.message || 'Operation failed.');
+          this.errorMessage.set(res.message || this.translate.instant('account.address.operationFailed'));
           return;
         }
         console.log(res);
@@ -102,7 +104,7 @@ export class AddressInfoComponent implements OnInit {
       error: (err: any) => {
         this.isLoading.set(false);
         this.errorMessage.set(
-          err?.error?.message || 'Operation failed.'
+          err?.error?.message || this.translate.instant('account.address.operationFailed')
         );
       },
     });

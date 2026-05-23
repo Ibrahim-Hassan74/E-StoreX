@@ -1,7 +1,8 @@
-import { Component, input, output, signal, ViewChild } from '@angular/core';
+import { Component, input, output, signal, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageCropperComponent, ImageCroppedEvent, LoadedImage } from 'ngx-image-cropper';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 export interface CropResult {
   blob: Blob;
@@ -15,10 +16,12 @@ export interface CropResult {
 @Component({
   selector: 'app-image-cropper-modal',
   standalone: true,
-  imports: [CommonModule, ImageCropperComponent, LucideAngularModule],
+  imports: [CommonModule, ImageCropperComponent, LucideAngularModule, TranslateModule],
   templateUrl: './image-cropper-modal.component.html'
 })
 export class ImageCropperModalComponent {
+  private translate = inject(TranslateService);
+
   imageFile = input<File | undefined>(undefined);
   save = output<CropResult>();
   cancel = output<void>();
@@ -39,7 +42,7 @@ export class ImageCropperModalComponent {
 
   loadImageFailed() {
     console.error('Load image failed');
-    this.errorMessage.set('Failed to load image. Please try another file.');
+    this.errorMessage.set(this.translate.instant('account.profile.cropLoadFailed'));
   }
 
   imageCropped(event: ImageCroppedEvent) {

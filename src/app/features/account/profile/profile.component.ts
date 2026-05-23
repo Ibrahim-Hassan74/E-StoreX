@@ -4,6 +4,7 @@ import { AccountService } from '../../../core/services/account/account.service';
 import { ProfileInfoComponent } from './profile-info/profile-info.component';
 import { AddressInfoComponent } from './address-info/address-info.component';
 import { SecuritySettingsComponent } from './security-settings/security-settings.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 type Tab = 'profile' | 'security' | 'address';
 
@@ -14,7 +15,8 @@ type Tab = 'profile' | 'security' | 'address';
     CommonModule, 
     ProfileInfoComponent, 
     AddressInfoComponent,
-    SecuritySettingsComponent
+    SecuritySettingsComponent,
+    TranslateModule
   ],
   templateUrl: './profile.component.html',
 })

@@ -13,41 +13,41 @@
   }
 
   <h3 class="text-sm font-semibold text-gray-900 dark:text-white">
-    Shipping Address
+    {{ 'account.address.title' | translate }}
   </h3>
 
   @if (!isFetching()) {
     <form [formGroup]="addressForm" (ngSubmit)="onUpdateAddress()" class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div>
-          <label for="firstName" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">First name</label>
+          <label for="firstName" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">{{ 'account.address.firstName' | translate }}</label>
           <input type="text" formControlName="firstName" id="firstName" class="input">
         </div>
         <div>
-          <label for="lastName" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">Last name</label>
+          <label for="lastName" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">{{ 'account.address.lastName' | translate }}</label>
           <input type="text" formControlName="lastName" id="lastName" class="input">
         </div>
 
         <div class="col-span-full">
-          <label for="street" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">Street address</label>
+          <label for="street" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">{{ 'account.address.street' | translate }}</label>
           <input type="text" formControlName="street" id="street" class="input">
         </div>
         <div>
-          <label for="city" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">City</label>
+          <label for="city" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">{{ 'account.address.city' | translate }}</label>
           <input type="text" formControlName="city" id="city" class="input">
         </div>
 
         <div>
-          <label for="state" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">State / Province</label>
+          <label for="state" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">{{ 'account.address.state' | translate }}</label>
           <input type="text" formControlName="state" id="state" class="input">
         </div>
         <div>
-          <label for="zipCode" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">ZIP / Postal code</label>
+          <label for="zipCode" class="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">{{ 'account.address.zipCode' | translate }}</label>
           <input type="text" formControlName="zipCode" id="zipCode" class="input">
         </div>
 
         <div class="col-span-full">
             <button type="submit" [disabled]="addressForm.invalid || isLoading()" class="rounded-md bg-[#029fae] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-[#028b99] disabled:opacity-50 cursor-pointer">
-                Save Address
+                {{ 'account.address.saveBtn' | translate }}
             </button>
         </div>
     </form>

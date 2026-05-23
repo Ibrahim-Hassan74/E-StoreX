@@ -347,5 +347,375 @@
         "operationFailed": "Operation failed"
       }
     }
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "itemCount": "{{count}} items in your cart",
+    "itemCountSingle": "1 item in your cart",
+    "empty": "Your cart is empty",
+    "emptyDesc": "Looks like you haven't added anything to your cart yet. Browse our products and find something you love!",
+    "startShopping": "Start Shopping",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "discount": "Discount ({{percentage}}%)",
+    "total": "Total",
+    "includingVat": "Including VAT",
+    "promoPlaceholder": "Promo Code",
+    "apply": "APPLY",
+    "proceedToCheckout": "Proceed to Checkout",
+    "secureCheckout": "Secure Checkout",
+    "removeItemTitle": "Remove item",
+    "dialogs": {
+      "decreaseConfirm": "Are you sure you want to decrease the quantity of this item?",
+      "confirmAction": "Confirm Action",
+      "decreaseBtn": "Yes, decrease",
+      "cancelBtn": "Cancel",
+      "lastItemWarning": "This is the last item. If you continue, the quantity will become zero and the item will be removed from your cart.",
+      "removeConfirmTitle": "Remove Item?",
+      "removeConfirmBtn": "Yes, remove it",
+      "removeConfirmText": "Are you sure you want to remove this item from your cart?",
+      "removeItem": "Remove Item",
+      "yesRemove": "Yes, remove"
+    }
+  },
+  "about": {
+    "title": "About E-StoreX",
+    "lead": "A professional, full-stack e-commerce demonstration platform designed and engineered by Ibrahim Hassan.",
+    "purposeTitle": "Project Purpose",
+    "purposeDesc": "E-StoreX is a non-commercial portfolio project. It serves as a showcase of advanced full-stack engineering capabilities, demonstrating best practices in modern web development, architecture, and user experience design. It is not a real store, and no actual products are for sale.",
+    "designTitle": "Engineering & Design",
+    "designLead": "Every aspect of this application was conceptualized, designed, and built by Ibrahim Hassan. This includes:",
+    "frontendTitle": "Frontend Architecture",
+    "frontendDesc": "Angular, Signals, Reactive State Management, Tailwind CSS",
+    "backendTitle": "Backend Systems",
+    "backendDesc": "API Design, Database Schema, Authentication, Business Logic",
+    "uiuxTitle": "UI/UX Design",
+    "uiuxDesc": "Responsive layouts, Dark Mode, Interactive feedback",
+    "systemTitle": "System Design",
+    "systemDesc": "Scalable patterns, Clean Code, Performance Optimization",
+    "exploreText": "Exploring the code? Feel free to review the architecture and implementation details.",
+    "backBtn": "Back to Store",
+    "copyright": "All Rights Reserved.",
+    "developer": "Ibrahim Hassan"
+  },
+  "business": {
+    "heroTitle": "Scale Your Business with E-StoreX",
+    "heroDesc": "The all-in-one platform for modern commerce. Reach millions of customers, automate your operations, and grow without limits.",
+    "startSelling": "Start Selling",
+    "contactSales": "Contact Sales",
+    "sectionTitle": "Everything You Need to Succeed",
+    "sectionDesc": "Powerful tools designed for growth.",
+    "globalTitle": "Global Reach",
+    "globalDesc": "Sell to customers worldwide with multi-currency support and localized checkout experiences.",
+    "analyticsTitle": "Advanced Analytics",
+    "analyticsDesc": "Get deep insights into sales, customer behavior, and inventory performance with real-time dashboards.",
+    "secureTitle": "Secure Payments",
+    "secureDesc": "Enterprise-grade security with support for all major payment methods including Stripe and PayPal."
+  },
+  "careers": {
+    "title": "Build the Future of Commerce",
+    "desc": "Join E-StoreX and help us build technologies that power the future of online shopping. We are looking for passionate problem solvers.",
+    "openPositions": "Open Positions",
+    "applyNow": "Apply Now",
+    "noRoleTitle": "Don't see your role?",
+    "noRoleDesc": "We are always looking for talent. Send us your resume and we’ll keep it on file.",
+    "contactUs": "Contact Us",
+    "positions": {
+      "frontend": "Senior Frontend Engineer",
+      "backend": "Backend Developer (.NET)",
+      "designer": "Product Designer (UI/UX)",
+      "remoteEgypt": "Remote (Egypt) • Full-time",
+      "remoteGlobal": "Remote (Global) • Contract",
+      "hybrid": "Hybrid • Full-time"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "desc": "Have a project in mind, a question, or just want to say hi? I'd love to hear from you.",
+    "infoTitle": "Contact Info",
+    "socialTitle": "Social Profiles",
+    "formTitle": "Send Message",
+    "nameLabel": "Full Name",
+    "namePlaceholder": "Ibrahim Hassan",
+    "nameError": "Name is required (min 2 characters)",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "ibrahim@example.com",
+    "emailError": "Please enter a valid email",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Project Inquiry",
+    "subjectError": "Subject is required",
+    "messageLabel": "Message",
+    "messagePlaceholder": "How can help you...",
+    "messageError": "Message is required (min 10 characters)",
+    "sendBtn": "Send Message",
+    "sendingBtn": "Sending...",
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "minyaEgypt": "Minya, Egypt"
+    },
+    "alerts": {
+      "successTitle": "Message Sent",
+      "successText": "Your message has been sent successfully. Ibrahim will contact you soon.",
+      "failedTitle": "Message Failed",
+      "failedText": "Failed to send message."
+    }
+  },
+  "downloads": {
+    "title": "Experience E-StoreX on the Go",
+    "desc": "Shop anytime, anywhere with our native mobile apps. seamless navigation, instant notifications, and exclusive mobile-only deals.",
+    "downloadAppStore": "Download on the",
+    "appStore": "App Store",
+    "getItOn": "GET IT ON",
+    "googlePlay": "Google Play",
+    "notificationsTitle": "Instant Notifications",
+    "notificationsDesc": "Track your orders in real-time",
+    "secureTitle": "Secure Login",
+    "secureDesc": "Biometric authentication supported",
+    "comingSoon": "Coming Soon to Stores"
+  },
+  "help": {
+    "title": "How can we help you?",
+    "searchPlaceholder": "Search for answers...",
+    "ordersTitle": "Orders & Shipping",
+    "ordersDesc": "Track packages, edit orders, and shipping info.",
+    "returnsTitle": "Returns & Refunds",
+    "returnsDesc": "Return items, check refund status, and policies.",
+    "accountTitle": "Account Settings",
+    "accountDesc": "Manage profile, password, and preferences.",
+    "paymentTitle": "Payment Options",
+    "paymentDesc": "Cards, wallets, and payment issues.",
+    "securityTitle": "Security & Privacy",
+    "securityDesc": "Fraud protection and data safety.",
+    "giftsTitle": "Gift Cards",
+    "giftsDesc": "Redeem cards and check balance.",
+    "stillNeedHelp": "Still need help?",
+    "chatBtn": "Chat with Support"
+  },
+  "legal": {
+    "title": "Privacy Policy & Terms",
+    "lastUpdated": "Last updated: February 2026",
+    "sections": {
+      "disclaimerTitle": "1. Project Disclaimer",
+      "disclaimerDesc": "This website (E-StoreX) is a portfolio project created by Ibrahim Hassan for demonstration and educational purposes only. It is not a real commercial e-commerce store. No real products are sold, and no real payments are processed (Stripe is in Test Mode).",
+      "dataTitle": "2. Data Collection",
+      "dataLead": "We collect minimal data to demonstrate functionality:",
+      "dataItem1": "Account Info: Name, Email (for registration demo).",
+      "dataItem2": "Cart & Wishlist: Stored locally or in database for user session demo.",
+      "dataItem3": "Forms: Messages sent via the Contact form are processed by EmailJS.",
+      "servicesTitle": "3. Third-Party Services",
+      "servicesLead": "This project integrates with the following services:",
+      "servicesItem1": "Stripe: Payment processing (Test Mode).",
+      "servicesItem2": "EmailJS: Email delivery service.",
+      "servicesItem3": "Google & GitHub: OAuth authentication.",
+      "contactTitle": "4. Contact Information",
+      "contactLead": "If you have any questions about this project or wish to hire the developer, please contact:",
+      "developerName": "Ibrahim Hassan",
+      "developerTitle": "Full Stack Developer"
+    }
+  },
+  "notfound": {
+    "title": "Page not found",
+    "desc": "Sorry, we couldn’t find the page you’re looking for. It might have been removed, renamed, or doesn't exist.",
+    "backHome": "Back to Home"
+  },
+  "partners": {
+    "title": "Our Technology Partners",
+    "desc": "E-StoreX is built on the shoulders of giants. We integrate with industry-leading technologies to provide a best-in-class experience.",
+    "list": {
+      "stripe": {
+        "category": "Payments",
+        "description": "Handling secure global transactions and subscriptions."
+      },
+      "emailjs": {
+        "category": "Communication",
+        "description": "Client-side email delivery system for contact forms."
+      },
+      "googleauth": {
+        "category": "Authentication",
+        "description": "Secure open standard authorization."
+      },
+      "github": {
+        "category": "DevOps",
+        "description": "Source code management and version control."
+      },
+      "angular": {
+        "category": "Frontend",
+        "description": "The modern web developer's platform."
+      },
+      "netcore": {
+        "category": "Backend",
+        "description": "High-performance, cross-platform framework."
+      },
+      "redis": {
+        "category": "Cache",
+        "description": "In-memory data structure store for high speed."
+      },
+      "tailwindcss": {
+        "category": "Styling",
+        "description": "Utility-first CSS framework for rapid UI development."
+      }
+    }
+  },
+  "wishlist": {
+    "title": "My Wishlist",
+    "emptyTitle": "Your wishlist is empty",
+    "emptyDesc": "Browse products and find your favorites!",
+    "browseBtn": "Browse Products"
+  },
+  "account": {
+    "profile": {
+      "title": "Account Settings",
+      "subtitle": "Manage your profile, security, and address preferences.",
+      "tabProfile": "Profile",
+      "tabAddress": "Address",
+      "tabSecurity": "Security",
+      "displayName": "Display Name",
+      "phoneNumber": "Phone Number",
+      "changeBtn": "Change",
+      "deleteBtn": "Delete",
+      "saveBtn": "Save Profile",
+      "updateSuccess": "Profile updated successfully.",
+      "photoSuccess": "Photo updated successfully.",
+      "photoDeleteSuccess": "Photo deleted successfully.",
+      "deleteConfirmText": "Are you sure you want to delete your profile photo?",
+      "deleteConfirmTitle": "Delete Photo",
+      "deleteConfirmBtn": "Delete",
+      "deleteCancelBtn": "Cancel",
+      "cropTitle": "Adjust Photo",
+      "cropZoom": "Zoom",
+      "cropCancel": "Cancel",
+      "cropSave": "Save Photo",
+      "cropLoadFailed": "Failed to load image. Please try another file.",
+      "operationFailed": "Operation failed."
+    },
+    "address": {
+      "title": "Shipping Address",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "street": "Street address",
+      "city": "City",
+      "state": "State / Province",
+      "zipCode": "ZIP / Postal code",
+      "saveBtn": "Save Address",
+      "updateSuccess": "Address updated successfully.",
+      "operationFailed": "Operation failed."
+    },
+    "security": {
+      "changePasswordTitle": "Change Password",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password",
+      "updatePasswordBtn": "Update Password",
+      "dangerZoneTitle": "Danger Zone",
+      "dangerZoneDesc": "This action is permanent and cannot be undone.",
+      "deleteAccountBtn": "Delete Account",
+      "passwordSuccess": "Password updated successfully.",
+      "passwordSuccessLogout": "Password updated successfully. You will be logged out now.",
+      "deleteConfirmText": "Are you sure you want to delete your account? This action cannot be undone.",
+      "deleteConfirmTitle": "Delete Account",
+      "deleteConfirmBtn": "Delete",
+      "deleteCancelBtn": "Cancel",
+      "deleteSuccess": "Your account has been deleted successfully.",
+      "deleteFailed": "Failed to delete account.",
+      "operationFailed": "Operation failed."
+    }
+  },
+  "orders": {
+    "status": {
+      "pending": "Pending",
+      "paymentreceived": "Payment Received",
+      "paymentfailed": "Payment Failed"
+    },
+    "history": {
+      "title": "Order History",
+      "emptyTitle": "No orders yet",
+      "emptyDesc": "Start shopping to see your orders here.",
+      "startShoppingBtn": "Start Shopping",
+      "placed": "Order placed",
+      "id": "Order ID",
+      "total": "Total amount",
+      "viewDetails": "View Details"
+    },
+    "details": {
+      "backBtn": "Back to Order History",
+      "orderLabel": "Order",
+      "placedOn": "Placed on",
+      "itemsTitle": "Items",
+      "quantity": "Quantity",
+      "shippingAddressTitle": "Shipping Address",
+      "paymentSummaryTitle": "Payment Summary",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "total": "Total"
+    }
+  },
+  "checkout": {
+    "steps": {
+      "address": "Address",
+      "delivery": "Delivery",
+      "payment": "Payment"
+    },
+    "address": {
+      "title": "Shipping Address",
+      "editBtn": "Edit",
+      "firstName": "First Name",
+      "firstNameRequired": "First name is required",
+      "lastName": "Last Name",
+      "lastNameRequired": "Last name is required",
+      "street": "Street Address",
+      "streetRequired": "Street address is required",
+      "city": "City",
+      "cityRequired": "City is required",
+      "state": "State / Province",
+      "stateRequired": "State is required",
+      "zipCode": "Zip / Postal Code",
+      "zipCodeRequired": "Zip code is required",
+      "cancelBtn": "Cancel",
+      "saving": "Saving...",
+      "saveBtn": "Save Address",
+      "continueBtn": "Continue to Delivery",
+      "saveSuccess": "Address saved successfully",
+      "successTitle": "Success",
+      "saveFailed": "Failed to save address"
+    },
+    "delivery": {
+      "title": "Delivery Method",
+      "time": {
+        "1-2days": "1-2 days",
+        "3-5days": "3-5 days",
+        "6-8days": "6-8 days"
+      },
+      "backBtn": "Back",
+      "continueBtn": "Continue to Payment"
+    },
+    "payment": {
+      "title": "Payment Details",
+      "cardInfo": "Card Information",
+      "backBtn": "Back",
+      "payBtn": "Pay {{amount}}",
+      "stripeKeyMissing": "Stripe key is missing configuration",
+      "stripeLoadFailed": "Failed to load Stripe",
+      "cartEmpty": "Your cart cannot be empty",
+      "paymentIntentNotInit": "Payment intent not initialized or Stripe not loaded",
+      "paymentFailed": "Payment failed",
+      "paymentVerificationFailed": "Payment verification failed",
+      "paymentError": "An error occurred during payment processing"
+    },
+    "summary": {
+      "title": "Order Summary",
+      "quantity": "Qty",
+      "subtotal": "Subtotal",
+      "discount": "Discount ({{percentage}}%)",
+      "shipping": "Shipping",
+      "total": "Total"
+    },
+    "success": {
+      "title": "Order Successful!",
+      "desc": "Thank you for your purchase. Your order has been placed successfully.",
+      "viewHistoryBtn": "View Order History",
+      "continueShoppingBtn": "Continue Shopping"
+    }
   }
 }

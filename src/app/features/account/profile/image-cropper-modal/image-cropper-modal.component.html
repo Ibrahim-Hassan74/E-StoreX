@@ -2,8 +2,8 @@
   <div class="w-full max-w-lg rounded-lg bg-white dark:bg-gray-800 shadow-xl ring-1 ring-gray-200 dark:ring-gray-700">
     
     <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 px-6 py-4">
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Adjust Photo</h3>
-      <button (click)="cancel.emit()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white">{{ 'account.profile.cropTitle' | translate }}</h3>
+      <button (click)="cancel.emit()" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 cursor-pointer">
         <lucide-icon name="X" [size]="20"></lucide-icon>
       </button>
     </div>
@@ -35,9 +35,9 @@
 
       <div class="mt-6 space-y-4">
         <div>
-          <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Zoom</label>
+          <label class="mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">{{ 'account.profile.cropZoom' | translate }}</label>
           <div class="flex items-center gap-3">
-            <lucide-icon name="Minus" [size]="16" class="text-gray-500"></lucide-icon>
+            <lucide-icon name="Minus" [size]="16" class="text-gray-500 cursor-pointer"></lucide-icon>
             <input
               type="range"
               min="1"
@@ -47,7 +47,7 @@
               (input)="onZoomChange($event)"
               class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700 accent-[#029fae]"
             />
-            <lucide-icon name="Plus" [size]="16" class="text-gray-500"></lucide-icon>
+            <lucide-icon name="Plus" [size]="16" class="text-gray-500 cursor-pointer"></lucide-icon>
           </div>
         </div>
       </div>
@@ -56,15 +56,15 @@
     <div class="flex items-center justify-end gap-3 border-t border-gray-200 dark:border-gray-700 px-6 py-4 bg-gray-50 dark:bg-gray-900/50 rounded-b-lg">
       <button
         (click)="cancel.emit()"
-        class="rounded-md px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+        class="rounded-md px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
       >
-        Cancel
+        {{ 'account.profile.cropCancel' | translate }}
       </button>
       <button
         (click)="onSave()"
-        class="rounded-md bg-[#029fae] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-[#028b99]"
+        class="rounded-md bg-[#029fae] px-4 py-2 text-sm font-semibold text-white shadow hover:bg-[#028b99] cursor-pointer"
       >
-        Save Photo
+        {{ 'account.profile.cropSave' | translate }}
       </button>
     </div>
   </div>

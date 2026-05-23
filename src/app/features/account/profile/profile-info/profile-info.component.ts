@@ -5,17 +5,19 @@ import { LucideAngularModule } from 'lucide-angular';
 import { AccountService } from '../../../../core/services/account/account.service';
 import { ImageCropperModalComponent, CropResult } from '../image-cropper-modal/image-cropper-modal.component';
 import { UiFeedbackService } from '../../../../core/services/ui-feedback.service';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile-info',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule, ImageCropperModalComponent],
+  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule, ImageCropperModalComponent, TranslateModule],
   templateUrl: './profile-info.component.html'
 })
 export class ProfileInfoComponent {
   private fb = inject(FormBuilder);
   private accountService = inject(AccountService);
   private ui = inject(UiFeedbackService);
+  private translate = inject(TranslateService);
 
   currentUser = this.accountService.currentUser;
   isLoading = signal(false);
@@ -57,9 +59,9 @@ export class ProfileInfoComponent {
 
     this.handleRequest(
       this.accountService.updateProfile(requestData as any),
-      'Profile updated successfully.',
+      this.translate.instant('account.profile.updateSuccess'),
       () => {
-        this.ui.successPopup('Profile updated successfully.');
+        this.ui.successPopup(this.translate.instant('account.profile.updateSuccess'));
       }
     );
   }
@@ -85,7 +87,7 @@ export class ProfileInfoComponent {
         cropHeight: result.cropHeight,
         zoom: result.zoom
       }),
-      'Photo updated successfully.',
+      this.translate.instant('account.profile.photoSuccess'),
       () => {
         this.closeCropper();
       }
@@ -105,12 +107,18 @@ export class ProfileInfoComponent {
   }
 
   deletePhoto(): void {
-    this.ui.confirm('Are you sure you want to delete your profile photo?', 'Delete Photo', 'Delete', 'Cancel', 'warning')
+    this.ui.confirm(
+      this.translate.instant('account.profile.deleteConfirmText'),
+      this.translate.instant('account.profile.deleteConfirmTitle'),
+      this.translate.instant('account.profile.deleteConfirmBtn'),
+      this.translate.instant('account.profile.deleteCancelBtn'),
+      'warning'
+    )
       .then((confirmed) => {
         if (confirmed) {
           this.handleRequest(
             this.accountService.deletePhoto(),
-            'Photo deleted successfully.'
+            this.translate.instant('account.profile.photoDeleteSuccess')
           );
         }
       });
@@ -130,7 +138,7 @@ export class ProfileInfoComponent {
         this.isLoading.set(false);
 
         if (res?.success === false) {
-          this.errorMessage.set(res.message || 'Operation failed.');
+          this.errorMessage.set(res.message || this.translate.instant('account.profile.operationFailed'));
           return;
         }
 
@@ -140,7 +148,7 @@ export class ProfileInfoComponent {
       error: (err: any) => {
         this.isLoading.set(false);
         this.errorMessage.set(
-          err?.error?.message || 'Operation failed.'
+          err?.error?.message || this.translate.instant('account.profile.operationFailed')
         );
       },
     });

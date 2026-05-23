@@ -347,5 +347,375 @@
         "operationFailed": "فشلت العملية"
       }
     }
+  },
+  "cart": {
+    "title": "عربة التسوق",
+    "itemCount": "{{count}} عناصر في عربتك",
+    "itemCountSingle": "عنصر واحد في عربتك",
+    "empty": "عربة التسوق فارغة",
+    "emptyDesc": "يبدو أنك لم تضف أي شيء إلى عربة التسوق الخاصة بك بعد. تصفح منتجاتنا وجد شيئاً يعجبك!",
+    "startShopping": "ابدأ التسوق",
+    "orderSummary": "ملخص الطلب",
+    "subtotal": "المجموع الفرعي",
+    "discount": "الخصم ({{percentage}}%)",
+    "total": "الإجمالي",
+    "includingVat": "شامل ضريبة القيمة المضافة",
+    "promoPlaceholder": "رمز الترويج",
+    "apply": "تطبيق",
+    "proceedToCheckout": "المتابعة لإتمام الطلب",
+    "secureCheckout": "دفع آمن",
+    "removeItemTitle": "إزالة العنصر",
+    "dialogs": {
+      "decreaseConfirm": "هل أنت متأكد من رغبتك في تقليل كمية هذا العنصر؟",
+      "confirmAction": "تأكيد الإجراء",
+      "decreaseBtn": "نعم، قلل",
+      "cancelBtn": "إلغاء",
+      "lastItemWarning": "هذا هو العنصر الأخير. إذا تابعت، ستصبح الكمية صفراً وسيتم إزالة العنصر من عربة التسوق الخاصة بك.",
+      "removeConfirmTitle": "إزالة العنصر؟",
+      "removeConfirmBtn": "نعم، أزله",
+      "removeConfirmText": "هل أنت متأكد من رغبتك في إزالة هذا العنصر من عربة التسوق؟",
+      "removeItem": "إزالة العنصر",
+      "yesRemove": "نعم، أزل"
+    }
+  },
+  "about": {
+    "title": "حول E-StoreX",
+    "lead": "منصة تجريبية احترافية للتجارة الإلكترونية متكاملة (Full-stack) من تصميم وتطوير إبراهيم حسن.",
+    "purposeTitle": "الغرض من المشروع",
+    "purposeDesc": "إن E-StoreX هو مشروع معرض أعمال غير تجاري. يعمل كاستعراض لقدرات هندسية متقدمة لـ full-stack، موضحاً أفضل الممارسات في تطوير الويب الحديث، والبنية البرمجية، وتصميم تجربة المستخدم. إنه ليس متجراً حقيقياً، ولا توجد منتجات حقيقية معروضة للبيع.",
+    "designTitle": "الهندسة والتصميم",
+    "designLead": "تم تصور وتصميم وبناء كل جانب من جوانب هذا التطبيق بواسطة إبراهيم حسن. وهذا يشمل:",
+    "frontendTitle": "بنية الواجهة الأمامية",
+    "frontendDesc": "Angular، Signals، إدارة الحالة التفاعلية، Tailwind CSS",
+    "backendTitle": "أنظمة الواجهة الخلفية",
+    "backendDesc": "تصميم واجهة برمجة التطبيقات (API)، مخطط قاعدة البيانات، المصادقة، منطق الأعمال",
+    "uiuxTitle": "تصميم واجهة وتجربة المستخدم",
+    "uiuxDesc": "تخطيطات متجاوبة، الوضع الداكن، ملاحظات تفاعلية",
+    "systemTitle": "تصميم النظام",
+    "systemDesc": "أنماط قابلة للتطوير، كود نظيف، تحسين الأداء",
+    "exploreText": "هل تستكشف الكود؟ لا تتردد في مراجعة البنية البرمجية وتفاصيل التنفيذ.",
+    "backBtn": "العودة إلى المتجر",
+    "copyright": "جميع الحقوق محفوظة.",
+    "developer": "إبراهيم حسن"
+  },
+  "business": {
+    "heroTitle": "قم بتوسيع نطاق أعمالك مع E-StoreX",
+    "heroDesc": "المنصة الشاملة للتجارة الحديثة. تواصل مع ملايين العملاء، وأتمت عملياتك، وانمُ بلا حدود.",
+    "startSelling": "ابدأ البيع",
+    "contactSales": "اتصل بالمبيعات",
+    "sectionTitle": "كل ما تحتاجه للنجاح",
+    "sectionDesc": "أدوات قوية مصممة للنمو.",
+    "globalTitle": "وصول عالمي",
+    "globalDesc": "بع للعملاء في جميع أنحاء العالم بدعم العملات المتعددة وتجارب الدفع المحلية المخصصة.",
+    "analyticsTitle": "تحليلات متقدمة",
+    "analyticsDesc": "احصل على رؤى عميقة حول المبيعات وسلوك العملاء وأداء المخزون من خلال لوحات معلومات فورية.",
+    "secureTitle": "مدفوعات آمنة",
+    "secureDesc": "أمان على مستوى المؤسسات مع دعم لجميع طرق الدفع الرئيسية بما في ذلك Stripe و PayPal."
+  },
+  "careers": {
+    "title": "ابنِ مستقبل التجارة",
+    "desc": "انضم إلى E-StoreX وساعدنا في بناء التقنيات التي تدعم مستقبل التسوق عبر الإنترنت. نحن نبحث عن أشخاص شغوفين بحل المشكلات.",
+    "openPositions": "الوظائف الشاغرة",
+    "applyNow": "تقدم الآن",
+    "noRoleTitle": "لا ترى وظيفتك المناسبة؟",
+    "noRoleDesc": "نحن نبحث دائماً عن المواهب. أرسل لنا سيرتك الذاتية وسنحتفظ بها لدينا.",
+    "contactUs": "اتصل بنا",
+    "positions": {
+      "frontend": "مهندس واجهات أمامية أول",
+      "backend": "مطور واجهة خلفية (.NET)",
+      "designer": "مصمم منتجات (UI/UX)",
+      "remoteEgypt": "عن بعد (مصر) • دوام كامل",
+      "remoteGlobal": "عن بعد (عالمي) • تعاقد",
+      "hybrid": "هجين • دوام كامل"
+    }
+  },
+  "contact": {
+    "title": "تواصل معنا",
+    "desc": "هل لديك مشروع في بالك، أو سؤال، أو تود فقط إلقاء التحية؟ أود أن أسمع منك.",
+    "infoTitle": "معلومات الاتصال",
+    "socialTitle": "الحسابات الاجتماعية",
+    "formTitle": "أرسل رسالة",
+    "nameLabel": "الاسم الكامل",
+    "namePlaceholder": "ابراهيم حسن",
+    "nameError": "الاسم مطلوب (عنصرين على الأقل)",
+    "emailLabel": "البريد الإلكتروني",
+    "emailPlaceholder": "ibrahim@example.com",
+    "emailError": "يرجى إدخال بريد إلكتروني صالح",
+    "subjectLabel": "الموضوع",
+    "subjectPlaceholder": "استفسار عن مشروع",
+    "subjectError": "الموضوع مطلوب",
+    "messageLabel": "الرسالة",
+    "messagePlaceholder": "كيف يمكننا مساعدتك...",
+    "messageError": "الرسالة مطلوبة (10 أحرف على الأقل)",
+    "sendBtn": "إرسال الرسالة",
+    "sendingBtn": "جاري الإرسال...",
+    "info": {
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "location": "الموقع",
+      "minyaEgypt": "المنيا، مصر"
+    },
+    "alerts": {
+      "successTitle": "تم إرسال الرسالة",
+      "successText": "تم إرسال رسالتك بنجاح. سيتصل بك إبراهيم قريباً.",
+      "failedTitle": "فشل الإرسال",
+      "failedText": "فشل إرسال الرسالة."
+    }
+  },
+  "downloads": {
+    "title": "جرب E-StoreX أثناء التنقل",
+    "desc": "تسوق في أي وقت ومن أي مكان مع تطبيقات الهاتف المحمول الخاصة بنا. تصفح سلس، وإشعارات فورية، وعروض حصرية للهاتف المحمول فقط.",
+    "downloadAppStore": "تنزيل من",
+    "appStore": "App Store",
+    "getItOn": "الحصول عليه من",
+    "googlePlay": "Google Play",
+    "notificationsTitle": "إشعارات فورية",
+    "notificationsDesc": "تتبع طلباتك في الوقت الفعلي",
+    "secureTitle": "تسجيل دخول آمن",
+    "secureDesc": "دعم المصادقة البيومترية",
+    "comingSoon": "قريباً في المتاجر"
+  },
+  "help": {
+    "title": "كيف يمكننا مساعدتك؟",
+    "searchPlaceholder": "البحث عن إجابات...",
+    "ordersTitle": "الطلبات والشحن",
+    "ordersDesc": "تتبع الطرود وتعديل الطلبات ومعلومات الشحن.",
+    "returnsTitle": "المرتجعات والاسترداد",
+    "returnsDesc": "إرجاع العناصر والتحقق من حالة الاسترداد والسياسات.",
+    "accountTitle": "إعدادات الحساب",
+    "accountDesc": "إدارة الملف الشخصي وكلمة المرور والتفضيلات.",
+    "paymentTitle": "خيارات الدفع",
+    "paymentDesc": "البطاقات والمحافظ ومشاكل الدفع.",
+    "securityTitle": "الأمان والخصوصية",
+    "securityDesc": "الحماية من الاحتيال وسلامة البيانات.",
+    "giftsTitle": "بطاقات الهدايا",
+    "giftsDesc": "استرداد قيمة البطاقات والتحقق من الرصيد.",
+    "stillNeedHelp": "ما زلت بحاجة للمساعدة؟",
+    "chatBtn": "التحدث مع الدعم"
+  },
+  "legal": {
+    "title": "سياسة الخصوصية والشروط",
+    "lastUpdated": "آخر تحديث: فبراير 2026",
+    "sections": {
+      "disclaimerTitle": "1. إخلاء مسؤولية المشروع",
+      "disclaimerDesc": "هذا الموقع الإلكتروني (E-StoreX) هو مشروع معرض أعمال تم إنشاؤه بواسطة إبراهيم حسن لأغراض التوضيح والتعليم فقط. إنه ليس متجراً تجارياً حقيقياً للتجارة الإلكترونية. لا يتم بيع منتجات حقيقية، ولا يتم معالجة مدفوعات حقيقية (Stripe في وضع الاختبار).",
+      "dataTitle": "2. جمع البيانات",
+      "dataLead": "نجمع الحد الأدنى من البيانات لتوضيح الوظائف:",
+      "dataItem1": "معلومات الحساب: الاسم، البريد الإلكتروني (لتجربة التسجيل).",
+      "dataItem2": "العربة وقائمة الأمنيات: تُخزن محلياً أو في قاعدة البيانات لتجربة جلسة المستخدم.",
+      "dataItem3": "النماذج: الرسائل المرسلة عبر نموذج الاتصال تتم معالجتها بواسطة EmailJS.",
+      "servicesTitle": "3. خدمات الطرف الثالث",
+      "servicesLead": "يتكامل هذا المشروع مع الخدمات التالية:",
+      "servicesItem1": "Stripe: معالجة المدفوعات (وضع الاختبار).",
+      "servicesItem2": "EmailJS: خدمة توصيل البريد الإلكتروني.",
+      "servicesItem3": "Google و GitHub: مصادقة OAuth.",
+      "contactTitle": "4. معلومات الاتصال",
+      "contactLead": "إذا كان لديك أي أسئلة حول هذا المشروع أو ترغب في توظيف المطور، يرجى الاتصال بـ:",
+      "developerName": "إبراهيم حسن",
+      "developerTitle": "مطور Full Stack"
+    }
+  },
+  "notfound": {
+    "title": "الصفحة غير موجودة",
+    "desc": "عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها. ربما تمت إزالتها أو تغيير اسمها أو أنها غير موجودة.",
+    "backHome": "العودة إلى الرئيسية"
+  },
+  "partners": {
+    "title": "شركاء التكنولوجيا لدينا",
+    "desc": "تم بناء E-StoreX على أكتاف العمالقة. نحن نتكامل مع التقنيات الرائدة في الصناعة لتقديم أفضل تجربة في فئتها.",
+    "list": {
+      "stripe": {
+        "category": "المدفوعات",
+        "description": "معالجة المعاملات والاشتراكات العالمية الآمنة."
+      },
+      "emailjs": {
+        "category": "الاتصال",
+        "description": "نظام توصيل البريد الإلكتروني من جانب العميل لنماذج الاتصال."
+      },
+      "googleauth": {
+        "category": "المصادقة",
+        "description": "مصادقة آمنة بمعيار مفتوح."
+      },
+      "github": {
+        "category": "العمليات البرمجية",
+        "description": "إدارة الكود المصدري والتحكم في الإصدارات."
+      },
+      "angular": {
+        "category": "الواجهة الأمامية",
+        "description": "منصة مطوري الويب الحديثة."
+      },
+      "netcore": {
+        "category": "الواجهة الخلفية",
+        "description": "إطار عمل عالي الأداء ومتعدد المنصات."
+      },
+      "redis": {
+        "category": "التخزين المؤقت",
+        "description": "مخزن هيكل البيانات في الذاكرة للسرعة العالية."
+      },
+      "tailwindcss": {
+        "category": "التصميم",
+        "description": "إطار عمل CSS يعتمد على الفئات الخدمية للتطوير السريع لواجهات المستخدم."
+      }
+    }
+  },
+  "wishlist": {
+    "title": "قائمة الأمنيات",
+    "emptyTitle": "قائمة أمنياتك فارغة",
+    "emptyDesc": "تصفح المنتجات وابحث عن مفضلاتك!",
+    "browseBtn": "تصفح المنتجات"
+  },
+  "account": {
+    "profile": {
+      "title": "إعدادات الحساب",
+      "subtitle": "إدارة ملف التعريف الخاص بك والأمان وتفضيلات العناوين.",
+      "tabProfile": "الملف الشخصي",
+      "tabAddress": "العنوان",
+      "tabSecurity": "الأمان",
+      "displayName": "الاسم المعروض",
+      "phoneNumber": "رقم الهاتف",
+      "changeBtn": "تغيير",
+      "deleteBtn": "حذف",
+      "saveBtn": "حفظ الملف الشخصي",
+      "updateSuccess": "تم تحديث الملف الشخصي بنجاح.",
+      "photoSuccess": "تم تحديث الصورة بنجاح.",
+      "photoDeleteSuccess": "تم حذف الصورة بنجاح.",
+      "deleteConfirmText": "هل أنت متأكد من رغبتك في حذف صورة ملفك الشخصي؟",
+      "deleteConfirmTitle": "حذف الصورة",
+      "deleteConfirmBtn": "حذف",
+      "deleteCancelBtn": "إلغاء",
+      "cropTitle": "تعديل الصورة",
+      "cropZoom": "التكبير",
+      "cropCancel": "إلغاء",
+      "cropSave": "حفظ الصورة",
+      "cropLoadFailed": "فشل تحميل الصورة. يرجى تجربة ملف آخر.",
+      "operationFailed": "فشلت العملية."
+    },
+    "address": {
+      "title": "عنوان الشحن",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "street": "عنوان الشارع",
+      "city": "المدينة",
+      "state": "الولاية / المقاطعة",
+      "zipCode": "الرمز البريدي / الكود",
+      "saveBtn": "حفظ العنوان",
+      "updateSuccess": "تم تحديث العنوان بنجاح.",
+      "operationFailed": "فشلت العملية."
+    },
+    "security": {
+      "changePasswordTitle": "تغيير كلمة المرور",
+      "currentPassword": "كلمة المرور الحالية",
+      "newPassword": "كلمة المرور الجديدة",
+      "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+      "updatePasswordBtn": "تحديث كلمة المرور",
+      "dangerZoneTitle": "منطقة الخطر",
+      "dangerZoneDesc": "هذا الإجراء دائم ولا يمكن التراجع عنه.",
+      "deleteAccountBtn": "حذف الحساب",
+      "passwordSuccess": "تم تحديث كلمة المرور بنجاح.",
+      "passwordSuccessLogout": "تم تحديث كلمة المرور بنجاح. سيتم تسجيل خروجك الآن.",
+      "deleteConfirmText": "هل أنت متأكد من رغبتك في حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء.",
+      "deleteConfirmTitle": "حذف الحساب",
+      "deleteConfirmBtn": "حذف",
+      "deleteCancelBtn": "إلغاء",
+      "deleteSuccess": "تم حذف حسابك بنجاح.",
+      "deleteFailed": "فشل حذف الحساب.",
+      "operationFailed": "فشلت العملية."
+    }
+  },
+  "orders": {
+    "status": {
+      "pending": "قيد الانتظار",
+      "paymentreceived": "تم استلام الدفع",
+      "paymentfailed": "فشل الدفع"
+    },
+    "history": {
+      "title": "سجل الطلبات",
+      "emptyTitle": "لا توجد طلبات بعد",
+      "emptyDesc": "ابدأ التسوق لرؤية طلباتك هنا.",
+      "startShoppingBtn": "ابدأ التسوق",
+      "placed": "تاريخ الطلب",
+      "id": "معرف الطلب",
+      "total": "المبلغ الإجمالي",
+      "viewDetails": "عرض التفاصيل"
+    },
+    "details": {
+      "backBtn": "العودة إلى سجل الطلبات",
+      "orderLabel": "طلب",
+      "placedOn": "تم تقديمه في",
+      "itemsTitle": "العناصر",
+      "quantity": "الكمية",
+      "shippingAddressTitle": "عنوان الشحن",
+      "paymentSummaryTitle": "ملخص الدفع",
+      "subtotal": "المجموع الفرعي",
+      "shipping": "الشحن",
+      "total": "الإجمالي"
+    }
+  },
+  "checkout": {
+    "steps": {
+      "address": "العنوان",
+      "delivery": "التوصيل",
+      "payment": "الدفع"
+    },
+    "address": {
+      "title": "عنوان الشحن",
+      "editBtn": "تعديل",
+      "firstName": "الاسم الأول",
+      "firstNameRequired": "الاسم الأول مطلوب",
+      "lastName": "اسم العائلة",
+      "lastNameRequired": "اسم العائلة مطلوب",
+      "street": "عنوان الشارع",
+      "streetRequired": "عنوان الشارع مطلوب",
+      "city": "المدينة",
+      "cityRequired": "المدينة مطلوبة",
+      "state": "الولاية / المقاطعة",
+      "stateRequired": "الولاية مطلوبة",
+      "zipCode": "الرمز البريدي / الكود",
+      "zipCodeRequired": "الرمز البريدي مطلوب",
+      "cancelBtn": "إلغاء",
+      "saving": "جاري الحفظ...",
+      "saveBtn": "حفظ العنوان",
+      "continueBtn": "المتابعة إلى التوصيل",
+      "saveSuccess": "تم حفظ العنوان بنجاح",
+      "successTitle": "نجاح",
+      "saveFailed": "فشل حفظ العنوان"
+    },
+    "delivery": {
+      "title": "طريقة التوصيل",
+      "time": {
+        "1-2days": "1-2 أيام",
+        "3-5days": "3-5 أيام",
+        "6-8days": "6-8 أيام"
+      },
+      "backBtn": "رجوع",
+      "continueBtn": "المتابعة إلى الدفع"
+    },
+    "payment": {
+      "title": "تفاصيل الدفع",
+      "cardInfo": "معلومات البطاقة",
+      "backBtn": "رجوع",
+      "payBtn": "دفع {{amount}}",
+      "stripeKeyMissing": "مفتاح Stripe مفقود من التكوين",
+      "stripeLoadFailed": "فشل تحميل Stripe",
+      "cartEmpty": "لا يمكن أن تكون عربة التسوق فارغة",
+      "paymentIntentNotInit": "لم يتم تهيئة نية الدفع أو لم يتم تحميل Stripe",
+      "paymentFailed": "فشلت عملية الدفع",
+      "paymentVerificationFailed": "فشل التحقق من الدفع",
+      "paymentError": "حدث خطأ أثناء معالجة الدفع"
+    },
+    "summary": {
+      "title": "ملخص الطلب",
+      "quantity": "الكمية",
+      "subtotal": "المجموع الفرعي",
+      "discount": "خصم ({{percentage}}%)",
+      "shipping": "الشحن",
+      "total": "الإجمالي"
+    },
+    "success": {
+      "title": "تم الطلب بنجاح!",
+      "desc": "شكراً لشرائك. تم تقديم طلبك بنجاح.",
+      "viewHistoryBtn": "عرض سجل الطلبات",
+      "continueShoppingBtn": "مواصلة التسوق"
+    }
   }
 }

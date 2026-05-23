@@ -3,17 +3,19 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { AccountService } from '../../../../core/services/account/account.service';
 import { UiFeedbackService } from '../../../../core/services/ui-feedback.service';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-security-settings',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './security-settings.component.html'
 })
 export class SecuritySettingsComponent {
   private fb = inject(FormBuilder);
   private accountService = inject(AccountService);
   private ui = inject(UiFeedbackService);
+  private translate = inject(TranslateService);
 
   isLoading = signal(false);
   message = signal<string | null>(null);
@@ -51,10 +53,10 @@ export class SecuritySettingsComponent {
 
     this.handleRequest(
       this.accountService.changePassword(requestData as any),
-      'Password updated successfully.',
+      this.translate.instant('account.security.passwordSuccess'),
       () => {
         this.changePasswordForm.reset();
-        this.ui.successPopup('Password updated successfully. You will be logged out now.').then(() => {
+        this.ui.successPopup(this.translate.instant('account.security.passwordSuccessLogout')).then(() => {
           this.accountService.logout().subscribe(() => {
              location.reload(); 
           });
@@ -64,7 +66,13 @@ export class SecuritySettingsComponent {
   }
 
   deleteAccount(): void {
-    this.ui.confirm('Are you sure you want to delete your account? This action cannot be undone.', 'Delete Account', 'Delete', 'Cancel', 'warning')
+    this.ui.confirm(
+      this.translate.instant('account.security.deleteConfirmText'),
+      this.translate.instant('account.security.deleteConfirmTitle'),
+      this.translate.instant('account.security.deleteConfirmBtn'),
+      this.translate.instant('account.security.deleteCancelBtn'),
+      'warning'
+    )
       .then((confirmed) => {
         if (!confirmed) return;
 
@@ -74,14 +82,14 @@ export class SecuritySettingsComponent {
 
         this.accountService.deleteAccount().subscribe({
           next: () => {
-             this.ui.successPopup('Your account has been deleted successfully.').then(() => {
+             this.ui.successPopup(this.translate.instant('account.security.deleteSuccess')).then(() => {
                 location.reload();
              });
           },
           error: (err) => {
             this.isLoading.set(false);
             this.errorMessage.set(
-              err?.error?.message || 'Failed to delete account.'
+              err?.error?.message || this.translate.instant('account.security.deleteFailed')
             );
           },
         });
@@ -102,7 +110,7 @@ export class SecuritySettingsComponent {
         this.isLoading.set(false);
 
         if (res?.success === false) {
-          this.errorMessage.set(res.message || 'Operation failed.');
+          this.errorMessage.set(res.message || this.translate.instant('account.security.operationFailed'));
           return;
         }
 
@@ -112,7 +120,7 @@ export class SecuritySettingsComponent {
       error: (err: any) => {
         this.isLoading.set(false);
         this.errorMessage.set(
-          err?.error?.message || 'Operation failed.'
+          err?.error?.message || this.translate.instant('account.security.operationFailed')
         );
       },
     });
