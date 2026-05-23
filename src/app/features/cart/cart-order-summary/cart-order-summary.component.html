@@ -1,23 +1,23 @@
 <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-6 shadow-sm sticky top-4">
-  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Order Summary</h3>
+  <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">{{ 'cart.orderSummary' | translate }}</h3>
 
   <div class="space-y-4 mb-6">
     <div class="flex justify-between text-gray-600 dark:text-gray-400">
-      <span>Subtotal</span>
+      <span>{{ 'cart.subtotal' | translate }}</span>
       <span class="font-medium text-gray-900 dark:text-white">{{ subtotal | currency }}</span>
     </div>
     
     <div *ngIf="discount > 0" class="flex justify-between text-[#029fae]">
-      <span>Discount ({{ percentage }}%)</span>
+      <span>{{ 'cart.discount' | translate:{percentage: percentage} }}</span>
       <span class="font-medium">-{{ discount | currency }}</span>
     </div>
 
     <div class="pt-4 border-t border-gray-100 dark:border-gray-700">
       <div class="flex justify-between items-center">
-        <span class="text-lg font-bold text-gray-900 dark:text-white">Total</span>
+        <span class="text-lg font-bold text-gray-900 dark:text-white">{{ 'cart.total' | translate }}</span>
         <span class="text-2xl font-bold text-[#029fae]">{{ total | currency }}</span>
       </div>
-      <p class="text-xs text-gray-500 text-right mt-1">Including VAT</p>
+      <p class="text-xs text-gray-500 text-end mt-1">{{ 'cart.includingVat' | translate }}</p>
     </div>
   </div>
 
@@ -26,27 +26,27 @@
          <input
         type="text"
         [(ngModel)]="promoCode"
-        placeholder="Promo Code"
+        [placeholder]="'cart.promoPlaceholder' | translate"
         class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#029fae]/20 focus:border-[#029fae] text-gray-900 dark:text-white dark:placeholder-gray-400"
       />
        <button
         (click)="applyCode()"
          [disabled]="!promoCode() || isApplying()"
-        class="absolute right-2 px-4 py-1.5 bg-[#029fae] text-white text-xs font-bold rounded-md hover:bg-[#028b99] transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+        class="absolute right-2 rtl:left-2 rtl:right-auto px-4 py-1.5 bg-[#029fae] text-white text-xs font-bold rounded-md hover:bg-[#028b99] transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
       >
-        {{ isApplying() ? '...' : 'APPLY' }}
+        {{ isApplying() ? '...' : ('cart.apply' | translate) }}
       </button>
     </div>
      <p *ngIf="error()" class="text-red-500 text-xs mt-2 ml-1">{{ error() }}</p>
   </div>
 
   <button routerLink="/checkout" class="w-full bg-[#029fae] hover:bg-[#028b99] text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-[#029fae]/20 flex items-center justify-center gap-2 cursor-pointer">
-    <span>Proceed to Checkout</span>
-    <lucide-icon name="arrow-right" size="20"></lucide-icon>
+    <span>{{ 'cart.proceedToCheckout' | translate }}</span>
+    <lucide-icon name="arrow-right" size="20" class="rtl:rotate-180"></lucide-icon>
   </button>
   
    <div class="mt-6 flex items-center justify-center gap-2 text-gray-500 text-xs">
     <lucide-icon name="shield-check" size="14"></lucide-icon>
-    <span>Secure Checkout</span>
+    <span>{{ 'cart.secureCheckout' | translate }}</span>
   </div>
 </div>

@@ -3,7 +3,7 @@
     <img [src]="item.image" [alt]="item.name" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
   </div>
 
-  <div class="flex-1 w-full text-center sm:text-left">
+  <div class="flex-1 w-full text-center sm:text-start">
     <h3
       [routerLink]="['/product', item.id]"
       class="text-lg font-bold text-gray-900 dark:text-white mb-1 line-clamp-1 hover:text-[#029fae] cursor-pointer transition-colors"
@@ -36,7 +36,7 @@
   <button
     (click)="onRemove()"
      class="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors cursor-pointer"
-     title="Remove item"
+     [title]="'cart.removeItemTitle' | translate"
   >
     <lucide-icon name="trash-2" size="20"></lucide-icon>
   </button>

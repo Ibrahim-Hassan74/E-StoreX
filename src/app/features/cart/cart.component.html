@@ -2,9 +2,9 @@
   <div class="container mx-auto px-4 md:px-6">
     
     <div class="mb-8">
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Shopping Cart</h1>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">{{ 'cart.title' | translate }}</h1>
       <p class="text-gray-500 dark:text-gray-400">
-        {{ basketItems.length }} {{ basketItems.length === 1 ? 'item' : 'items' }} in your cart
+        {{ (basketItems.length === 1 ? 'cart.itemCountSingle' : 'cart.itemCount') | translate:{count: basketItems.length} }}
       </p>
     </div>
 
@@ -13,13 +13,13 @@
         <div class="w-24 h-24 bg-gray-50 dark:bg-gray-700 rounded-full flex items-center justify-center mb-6">
           <lucide-icon name="shopping-cart" size="48" class="text-gray-400 dark:text-gray-500"></lucide-icon>
         </div>
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Your cart is empty</h2>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">{{ 'cart.empty' | translate }}</h2>
         <p class="text-gray-500 dark:text-gray-400 max-w-md mx-auto mb-8">
-          Looks like you haven't added anything to your cart yet. Browse our products and find something you love!
+          {{ 'cart.emptyDesc' | translate }}
         </p>
         <a routerLink="/product" class="inline-flex items-center gap-2 bg-[#029fae] hover:bg-[#028b99] text-white font-semibold px-8 py-3 rounded-xl transition-all shadow-lg shadow-[#029fae]/20">
-          <span>Start Shopping</span>
-          <lucide-icon name="arrow-right" size="20"></lucide-icon>
+          <span>{{ 'cart.startShopping' | translate }}</span>
+          <lucide-icon name="arrow-right" size="20" class="rtl:rotate-180"></lucide-icon>
         </a>
       </div>
     } @else {

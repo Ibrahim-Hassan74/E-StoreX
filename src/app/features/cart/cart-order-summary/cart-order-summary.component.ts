@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LucideAngularModule } from 'lucide-angular';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart-order-summary',
   standalone: true,
-  imports: [CommonModule, FormsModule, LucideAngularModule, RouterLink],
+  imports: [CommonModule, FormsModule, LucideAngularModule, RouterLink, TranslateModule],
   templateUrl: './cart-order-summary.component.html',
   styleUrls: ['./cart-order-summary.component.scss']
 })
