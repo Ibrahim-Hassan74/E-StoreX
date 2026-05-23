@@ -3,59 +3,71 @@
     
     <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 md:p-12 shadow-sm border border-gray-100 dark:border-gray-700">
       
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Privacy Policy & Terms</h1>
-      <p class="text-gray-500 dark:text-gray-400 mb-8">Last updated: February 2026</p>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">{{ 'legal.title' | translate }}</h1>
 
       <div class="prose dark:prose-invert max-w-none space-y-8">
         
+        <!-- Section 1: Disclaimer -->
         <section>
-          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">1. Project Disclaimer</h2>
-          <div class="p-4 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 text-yellow-800 dark:text-yellow-200 rounded-r-lg">
-            <p>
-              This website (E-StoreX) is a <strong>portfolio project</strong> created by <strong>Ibrahim Hassan</strong> for demonstration and educational purposes only.
-              It is not a real commercial e-commerce store. No real products are sold, and no real payments are processed (Stripe is in Test Mode).
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">{{ 'legal.sections.disclaimerTitle' | translate }}</h2>
+          <div class="border-s-4 border-[#029fae] ps-4 py-2">
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+              {{ 'legal.sections.disclaimerDesc' | translate }}
             </p>
           </div>
         </section>
 
+        <!-- Section 2: Data Collection -->
         <section>
-          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">2. Data Collection</h2>
-          <p class="text-gray-600 dark:text-gray-300">
-            We collect minimal data to demonstrate functionality:
-          </p>
-          <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600 dark:text-gray-300">
-            <li><strong>Account Info:</strong> Name, Email (for registration demo).</li>
-            <li><strong>Cart & Wishlist:</strong> Stored locally or in database for user session demo.</li>
-            <li><strong>Forms:</strong> Messages sent via the Contact form are processed by EmailJS.</li>
-          </ul>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">{{ 'legal.sections.dataTitle' | translate }}</h2>
+          <div class="space-y-4">
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+              {{ 'legal.sections.dataLead' | translate }}
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+              <li>{{ 'legal.sections.dataItem1' | translate }}</li>
+              <li>{{ 'legal.sections.dataItem2' | translate }}</li>
+              <li>{{ 'legal.sections.dataItem3' | translate }}</li>
+            </ul>
+          </div>
         </section>
 
+        <!-- Section 3: Third-Party Services -->
         <section>
-          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">3. Third-Party Services</h2>
-          <p class="text-gray-600 dark:text-gray-300">
-            This project integrates with the following services:
-          </p>
-           <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600 dark:text-gray-300">
-            <li><strong>Stripe:</strong> Payment processing (Test Mode).</li>
-            <li><strong>EmailJS:</strong> Email delivery service.</li>
-            <li><strong>Google & GitHub:</strong> OAuth authentication.</li>
-          </ul>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">{{ 'legal.sections.servicesTitle' | translate }}</h2>
+          <div class="space-y-4">
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+              {{ 'legal.sections.servicesLead' | translate }}
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+              <li>{{ 'legal.sections.servicesItem1' | translate }}</li>
+              <li>{{ 'legal.sections.servicesItem2' | translate }}</li>
+              <li>{{ 'legal.sections.servicesItem3' | translate }}</li>
+            </ul>
+          </div>
         </section>
 
-         <section>
-          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">4. Contact Information</h2>
-          <p class="text-gray-600 dark:text-gray-300">
-            If you have any questions about this project or wish to hire the developer, please contact:
+        <!-- Section 4: Contact Information -->
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">{{ 'legal.sections.contactTitle' | translate }}</h2>
+          <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+            {{ 'legal.sections.contactLead' | translate }}
           </p>
-          <p class="mt-4 font-semibold text-gray-900 dark:text-white">Ibrahim Hassan</p>
-          <p class="text-gray-600 dark:text-gray-300">Full Stack Developer</p>
-          <p class="text-[#029fae] hover:underline mt-1">
-            <a href="mailto:ibrahimhassan.dev1@gmail.com">ibrahimhassan.dev1&#64;gmail.com</a>
-          </p>
+          <div class="mt-4">
+            <p class="font-semibold text-gray-900 dark:text-white">{{ 'legal.sections.developerName' | translate }}</p>
+            <p class="text-gray-600 dark:text-gray-300">{{ 'legal.sections.developerTitle' | translate }}</p>
+            <p class="text-[#029fae] hover:underline mt-1">
+              <a href="mailto:ibrahimhassan.dev1@gmail.com">ibrahimhassan.dev1&#64;gmail.com</a>
+            </p>
+          </div>
         </section>
+
+        <div class="border-t border-gray-100 dark:border-gray-700 pt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+          {{ 'legal.lastUpdated' | translate }}
+        </div>
 
       </div>
-    
+
     </div>
 
   </div>

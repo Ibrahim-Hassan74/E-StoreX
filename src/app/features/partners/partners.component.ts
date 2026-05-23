@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface Partner {
   name: string;
@@ -12,7 +13,7 @@ interface Partner {
 @Component({
   selector: 'app-partners',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, TranslateModule],
   templateUrl: './partners.component.html',
   styleUrl: './partners.component.scss'
 })
@@ -67,4 +68,9 @@ export class PartnersComponent {
       description: 'Utility-first CSS framework for rapid UI development.'
     }
   ];
+
+  getPartnerKey(partnerName: string, field: 'category' | 'description'): string {
+    const key = partnerName.toLowerCase().replace(/[^a-z0-9]/g, '');
+    return `partners.list.${key}.${field}`;
+  }
 }

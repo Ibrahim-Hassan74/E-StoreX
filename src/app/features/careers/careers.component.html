@@ -1,59 +1,59 @@
 <div class="min-h-screen bg-gray-50 dark:bg-gray-900 pt-24 pb-20">
   <div class="container mx-auto px-4 mb-20 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">Build the Future of Commerce</h1>
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">{{ 'careers.title' | translate }}</h1>
     <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-      Join E-StoreX and help us build technologies that power the future of online shopping. We are looking for passionate problem solvers.
+      {{ 'careers.desc' | translate }}
     </p>
   </div>
 
   <div class="container mx-auto px-4">
-    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 border-b border-gray-200 dark:border-gray-700 pb-4">Open Positions</h2>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 border-b border-gray-200 dark:border-gray-700 pb-4">{{ 'careers.openPositions' | translate }}</h2>
     
     <div class="space-y-4">
       <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:shadow-md transition-all">
         <div>
-          <h3 class="font-bold text-lg text-gray-900 dark:text-white">Senior Frontend Engineer</h3>
+          <h3 class="font-bold text-lg text-gray-900 dark:text-white">{{ 'careers.positions.frontend' | translate }}</h3>
           <p class="text-gray-500 dark:text-gray-400 flex items-center gap-2 mt-1">
-            <lucide-icon name="map-pin" size="16"></lucide-icon> Remote (Egypt) &bull; Full-time
+            <lucide-icon name="map-pin" size="16"></lucide-icon> {{ 'careers.positions.remoteEgypt' | translate }}
           </p>
         </div>
         <button class="px-6 py-2 bg-[#029fae]/10 text-[#029fae] hover:bg-[#029fae] hover:text-white font-semibold rounded-lg transition-colors cursor-pointer">
-          Apply Now
+          {{ 'careers.applyNow' | translate }}
         </button>
       </div>
 
       <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:shadow-md transition-all">
         <div>
-          <h3 class="font-bold text-lg text-gray-900 dark:text-white">Backend Developer (.NET)</h3>
+          <h3 class="font-bold text-lg text-gray-900 dark:text-white">{{ 'careers.positions.backend' | translate }}</h3>
            <p class="text-gray-500 dark:text-gray-400 flex items-center gap-2 mt-1">
-            <lucide-icon name="map-pin" size="16"></lucide-icon> Remote (Global) &bull; Contract
+            <lucide-icon name="map-pin" size="16"></lucide-icon> {{ 'careers.positions.remoteGlobal' | translate }}
           </p>
         </div>
         <button class="px-6 py-2 bg-[#029fae]/10 text-[#029fae] hover:bg-[#029fae] hover:text-white font-semibold rounded-lg transition-colors cursor-pointer">
-          Apply Now
+          {{ 'careers.applyNow' | translate }}
         </button>
       </div>
 
       <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:shadow-md transition-all">
         <div>
-          <h3 class="font-bold text-lg text-gray-900 dark:text-white">Product Designer (UI/UX)</h3>
+          <h3 class="font-bold text-lg text-gray-900 dark:text-white">{{ 'careers.positions.designer' | translate }}</h3>
            <p class="text-gray-500 dark:text-gray-400 flex items-center gap-2 mt-1">
-            <lucide-icon name="map-pin" size="16"></lucide-icon> Hybrid &bull; Full-time
+            <lucide-icon name="map-pin" size="16"></lucide-icon> {{ 'careers.positions.hybrid' | translate }}
           </p>
         </div>
         <button class="px-6 py-2 bg-[#029fae]/10 text-[#029fae] hover:bg-[#029fae] hover:text-white font-semibold rounded-lg transition-colors cursor-pointer">
-          Apply Now
+          {{ 'careers.applyNow' | translate }}
         </button>
       </div>
     </div>
     
     <div class="mt-12 text-center p-8 bg-gray-100 dark:bg-gray-800 rounded-2xl">
-      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Don't see your role?</h3>
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{{ 'careers.noRoleTitle' | translate }}</h3>
       <p class="text-gray-600 dark:text-gray-400 mb-6">
-        We are always looking for talent. Send us your resume and we’ll keep it on file.
+        {{ 'careers.noRoleDesc' | translate }}
       </p>
       <a routerLink="/contact" class="inline-flex items-center gap-2 text-[#029fae] font-semibold hover:underline">
-        Contact Us <lucide-icon name="arrow-right" size="16"></lucide-icon>
+        {{ 'careers.contactUs' | translate }} <lucide-icon name="arrow-right" size="16" class="rtl:rotate-180"></lucide-icon>
       </a>
     </div>
 

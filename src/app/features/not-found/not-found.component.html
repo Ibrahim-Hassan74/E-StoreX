@@ -1,20 +1,20 @@
-<div class="flex min-h-[70vh] flex-col items-center justify-center px-6 py-24 text-center lg:px-8">
-  <div class="relative">
-    <h1 class="text-9xl font-black text-gray-200 dark:text-gray-800 select-none">404</h1>
-    <div class="absolute inset-0 flex items-center justify-center">
-      <p class="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl bg-white/80 dark:bg-gray-950/80 px-4 py-1 rounded backdrop-blur-sm">Page not found</p>
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4">
+  <div class="max-w-md w-full text-center">
+    <div class="relative mb-8">
+      <h1 class="text-9xl font-extrabold text-[#029fae]/20 tracking-widest select-none">404</h1>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <span class="text-xl font-semibold bg-white dark:bg-gray-900 px-4 py-1 rounded-md text-gray-900 dark:text-white border border-gray-100 dark:border-gray-800">
+          {{ 'not-found.title' | translate }}
+        </span>
+      </div>
     </div>
-  </div>
-  
-  <p class="mt-4 text-base leading-7 text-gray-600 dark:text-gray-400 max-w-md mx-auto">
-    Sorry, we couldn’t find the page you’re looking for. It might have been removed, renamed, or doesn't exist.
-  </p>
-  
-  <div class="mt-8 flex items-center justify-center gap-x-6">
-    <a routerLink="/" 
-       class="rounded-md bg-[#029fae] px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#028895] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#029fae] transition-all duration-200 flex items-center gap-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      Back to Home
+    
+    <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-sm mx-auto">
+      {{ 'not-found.desc' | translate }}
+    </p>
+
+    <a routerLink="/" class="inline-flex items-center gap-2 bg-[#029fae] hover:bg-[#028b99] text-white font-bold px-6 py-3 rounded-xl transition-all shadow-lg shadow-[#029fae]/20 cursor-pointer">
+      {{ 'not-found.backBtn' | translate }}
     </a>
   </div>
 </div>

@@ -1,32 +1,31 @@
 <div class="min-h-screen bg-gray-50 dark:bg-gray-900 pt-24 pb-20">
-  <div class="container mx-auto px-4">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Technology Partners</h1>
-      <p class="text-xl text-gray-600 dark:text-gray-400">
-        E-StoreX is built on the shoulders of giants. We integrate with industry-leading technologies to provide a best-in-class experience.
+  <div class="container mx-auto px-4 max-w-6xl">
+    
+    <div class="text-center mb-16">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">{{ 'partners.title' | translate }}</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+        {{ 'partners.desc' | translate }}
       </p>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div *ngFor="let partner of partners" class="group relative bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all hover:-translate-y-1">
-        <div class="flex flex-col items-center text-center gap-4">
-           <div class="size-16 rounded-full bg-gray-50 dark:bg-gray-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <lucide-icon [name]="partner.icon" class="text-gray-600 dark:text-gray-300" size="32"></lucide-icon>
-           </div>
-           
-           <div>
-             <h3 class="font-bold text-gray-900 dark:text-white text-lg">{{ partner.name }}</h3>
-             <span class="inline-block mt-2 px-3 py-1 text-xs font-medium rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">
-                {{ partner.category }}
-             </span>
-           </div>
-           
-           <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">
-             {{ partner.description }}
-           </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (partner of partners; track $index) {
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 bg-[#029fae]/10 rounded-xl flex items-center justify-center mb-6">
+              <lucide-icon [name]="partner.icon" class="text-[#029fae]" size="24"></lucide-icon>
+            </div>
+            <span class="text-xs font-semibold text-[#029fae] uppercase tracking-wider bg-[#029fae]/5 px-2.5 py-1 rounded-full">
+              {{ getPartnerKey(partner.name, 'category') | translate }}
+            </span>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mt-4 mb-2">{{ partner.name }}</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+              {{ getPartnerKey(partner.name, 'description') | translate }}
+            </p>
+          </div>
         </div>
-      </div>
+      }
     </div>
-    
+
   </div>
 </div>

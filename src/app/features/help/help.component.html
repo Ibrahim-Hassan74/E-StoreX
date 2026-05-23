@@ -3,13 +3,13 @@
   <!-- Search Header -->
   <div class="bg-white dark:bg-gray-800 pb-16 pt-8 px-4 border-b border-gray-200 dark:border-gray-700">
     <div class="container mx-auto max-w-3xl text-center">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">How can we help you?</h1>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">{{ 'help.title' | translate }}</h1>
       <div class="relative">
-        <lucide-icon name="search" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size="20"></lucide-icon>
+        <lucide-icon name="search" class="absolute left-3 rtl:right-3 rtl:left-auto top-1/2 -translate-y-1/2 text-gray-400" size="20"></lucide-icon>
         <input 
           type="text" 
-          placeholder="Search for answers..." 
-          class="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#029fae] focus:border-transparent outline-none transition-all"
+          [placeholder]="'help.searchPlaceholder' | translate" 
+          class="w-full pl-12 pr-4 rtl:pr-12 rtl:pl-4 py-4 rounded-xl border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-[#029fae] focus:border-transparent outline-none transition-all"
         >
       </div>
     </div>
@@ -22,57 +22,57 @@
         <div class="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
           <lucide-icon name="shopping-bag" class="text-blue-600 dark:text-blue-400" size="20"></lucide-icon>
         </div>
-        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Orders & Shipping</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Track packages, edit orders, and shipping info.</p>
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">{{ 'help.ordersTitle' | translate }}</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'help.ordersDesc' | translate }}</p>
       </div>
 
       <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all cursor-pointer">
         <div class="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4">
           <lucide-icon name="rotate-ccw" class="text-green-600 dark:text-green-400" size="20"></lucide-icon>
         </div>
-        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Returns & Refunds</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Return items, check refund status, and policies.</p>
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">{{ 'help.returnsTitle' | translate }}</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'help.returnsDesc' | translate }}</p>
       </div>
 
       <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all cursor-pointer">
         <div class="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4">
           <lucide-icon name="user" class="text-purple-600 dark:text-purple-400" size="20"></lucide-icon>
         </div>
-        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Account Settings</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Manage profile, password, and preferences.</p>
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">{{ 'help.accountTitle' | translate }}</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'help.accountDesc' | translate }}</p>
       </div>
 
       <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all cursor-pointer">
         <div class="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mb-4">
           <lucide-icon name="credit-card" class="text-yellow-600 dark:text-yellow-400" size="20"></lucide-icon>
         </div>
-        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Payment Options</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Cards, wallets, and payment issues.</p>
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">{{ 'help.paymentTitle' | translate }}</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'help.paymentDesc' | translate }}</p>
       </div>
 
       <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all cursor-pointer">
         <div class="w-10 h-10 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center mb-4">
           <lucide-icon name="shield" class="text-red-600 dark:text-red-400" size="20"></lucide-icon>
         </div>
-        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Security & Privacy</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Fraud protection and data safety.</p>
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">{{ 'help.securityTitle' | translate }}</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'help.securityDesc' | translate }}</p>
       </div>
 
       <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-md transition-all cursor-pointer">
         <div class="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mb-4">
           <lucide-icon name="gift" class="text-indigo-600 dark:text-indigo-400" size="20"></lucide-icon>
         </div>
-        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Gift Cards</h3>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Redeem cards and check balance.</p>
+        <h3 class="font-bold text-gray-900 dark:text-white mb-2">{{ 'help.giftsTitle' | translate }}</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'help.giftsDesc' | translate }}</p>
       </div>
       
     </div>
 
      <div class="mt-16 text-center">
-        <p class="text-gray-600 dark:text-gray-400 mb-4">Still need help?</p>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">{{ 'help.stillNeedHelp' | translate }}</p>
         <a routerLink="/contact" class="inline-flex items-center gap-2 px-6 py-3 bg-[#029fae] text-white font-bold rounded-xl shadow-lg hover:bg-[#028b99] transition-colors">
            <lucide-icon name="message-circle" size="20"></lucide-icon>
-           Chat with Support
+           {{ 'help.chatBtn' | translate }}
         </a>
      </div>
 
