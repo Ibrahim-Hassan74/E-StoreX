@@ -1,5 +1,5 @@
 <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm">
-  <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-6">Order Summary</h3>
+  <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-6">{{ 'checkout.summary.title' | translate }}</h3>
   
   <div class="space-y-4">
     @for (item of basketState.basketItems(); track item.id) {
@@ -9,7 +9,7 @@
         </div>
         <div class="flex-1 min-w-0">
           <h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 truncate">{{item.name}}</h4>
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Qty: {{item.quantity}}</p>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ 'checkout.summary.quantity' | translate }}: {{item.quantity}}</p>
         </div>
         <p class="text-sm font-semibold text-gray-900 dark:text-gray-100 whitespace-nowrap">
           {{item.price * item.quantity | currency}}
@@ -19,23 +19,23 @@
 
     <div class="border-t border-gray-100 dark:border-gray-700 pt-6 mt-6 space-y-3">
       <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
-        <span>Subtotal</span>
+        <span>{{ 'checkout.summary.subtotal' | translate }}</span>
         <span class="font-medium text-gray-900 dark:text-white">{{basketState.basketSubTotal() | currency}}</span>
       </div>
       
       @if (basketState.basket()?.discountValue! > 0) {
         <div class="flex justify-between text-sm text-[#029fae]">
-          <span>Discount ({{ basketState.basket()?.percentage }}%)</span>
+          <span>{{ 'checkout.summary.discount' | translate: { percentage: basketState.basket()?.percentage } }}</span>
           <span class="font-medium">-{{ basketState.basket()?.discountValue | currency }}</span>
         </div>
       }
 
       <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400">
-        <span>Shipping</span>
+        <span>{{ 'checkout.summary.shipping' | translate }}</span>
         <span class="font-medium text-gray-900 dark:text-white">{{ (checkoutService.deliveryMethod()?.price || 0) | currency }}</span>
       </div>
       <div class="flex justify-between text-lg font-bold pt-4 border-t border-gray-100 dark:border-gray-700">
-        <span class="text-gray-900 dark:text-white">Total</span>
+        <span class="text-gray-900 dark:text-white">{{ 'checkout.summary.total' | translate }}</span>
         <span class="text-[#029fae]">{{checkoutService.total() | currency}}</span>
       </div>
     </div>

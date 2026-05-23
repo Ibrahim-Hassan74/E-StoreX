@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Order } from '../../../shared/models/order';
 import { OrdersService } from '../../../core/services/orders/orders.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-order-details',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslateModule],
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.scss'
 })
@@ -31,9 +32,9 @@ export class OrderDetailsComponent implements OnInit {
 
   getStatusLabel(status: string): string {
     switch (status) {
-      case 'Pending': return 'Pending';
-      case 'PaymentReceived': return 'Payment Received';
-      case 'PaymentFailed': return 'Payment Failed';
+      case 'Pending': return 'orders.status.pending';
+      case 'PaymentReceived': return 'orders.status.paymentreceived';
+      case 'PaymentFailed': return 'orders.status.paymentfailed';
       default: return status;
     }
   }

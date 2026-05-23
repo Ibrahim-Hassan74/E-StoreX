@@ -1,7 +1,7 @@
 <div class="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="md:flex md:items-center md:justify-between mb-8">
-      <h1 class="text-3xl font-bold text-gray-900 dark:text-white">Order History</h1>
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white">{{ 'orders.history.title' | translate }}</h1>
     </div>
 
     @if (loading()) {
@@ -16,11 +16,11 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
           </div>
-          <h3 class="text-lg font-medium text-gray-900 dark:text-white">No orders yet</h3>
-          <p class="mt-2 text-gray-500 dark:text-gray-400">Start shopping to see your orders here.</p>
+          <h3 class="text-lg font-medium text-gray-900 dark:text-white">{{ 'orders.history.emptyTitle' | translate }}</h3>
+          <p class="mt-2 text-gray-500 dark:text-gray-400">{{ 'orders.history.emptyDesc' | translate }}</p>
           <div class="mt-6">
             <a routerLink="/" class="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#029fae] hover:bg-[#028b99] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#029fae]">
-              Start Shopping
+              {{ 'orders.history.startShoppingBtn' | translate }}
             </a>
           </div>
         </div>
@@ -31,27 +31,27 @@
               <div class="p-6">
                 <div class="flex items-center justify-between flex-wrap gap-4 mb-4">
                   <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Order placed</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'orders.history.placed' | translate }}</p>
                     <p class="font-medium text-gray-900 dark:text-white">{{ order.orderDate | date:'mediumDate' }}</p>
                   </div>
                   <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Order ID</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'orders.history.id' | translate }}</p>
                     <p class="font-medium text-gray-900 dark:text-white text-sm">#{{ order.id }}</p>
                   </div>
                   <div>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Total amount</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ 'orders.history.total' | translate }}</p>
                     <p class="font-bold text-[#029fae]">{{ order.total | currency }}</p>
                   </div>
                   <div class="flex items-center gap-2">
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize"
                           [ngClass]="getStatusClass(order.status)">
-                      {{ getStatusLabel(order.status) }}
+                      {{ getStatusLabel(order.status) | translate }}
                     </span>
                   </div>
                   <div>
                     <button [routerLink]="['/account/orders', order.id]" 
                             class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#029fae] cursor-pointer transition-colors">
-                      View Details
+                      {{ 'orders.history.viewDetails' | translate }}
                     </button>
                   </div>
                 </div>
